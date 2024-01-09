@@ -74,7 +74,9 @@ Or simpler use pipx:
 
 ### Pulsar (popular in the algorave scene)
 
-- Install Pulsar editor and use the `renardo` extension (for Linux you have to give the path to your venv/pipx venv in extention settings)
+- Install Pulsar editor and use the `renardo` extension (https://github.com/e-lie/renardo-pulsar-extension)
+
+- (for Linux you have to give the path to your venv/pipx venv in the renardo extention settings)
 
 ### Flok collaborative editor
 
