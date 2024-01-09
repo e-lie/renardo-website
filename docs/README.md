@@ -12,7 +12,7 @@ FoxDot has not been maintained by it creator (Qirky) for the last 3 years. There
 ## Cleaning and refactoring
 
 - Progressive and deep code refactoring in progress seeking Python new features and good practices.
-- Renardo is FoxDot made modular, splitting the codebase into several pieces / PyPI packages : `renardo-lib`, `renardo` (launcher + configuration), |`FoxDot-editor` (Tkinter Editor from FoxDot) + later `renardo-panopticon` TUI, `renardo-reaper`
+- Renardo is FoxDot made modular, splitting the codebase into several pieces / PyPI packages : `renardo-lib`, `renardo` (launcher + configuration), `renardo-gatherer` (install/share sample packs and Synthdefs) |`FoxDotEditor` (Tkinter Editor from FoxDot) + later `renardo-vizualizer` independant TUI or GUI ?, `renardo-reaper`
 
 ## New utility functions to compose musical pieces
 
