@@ -7,13 +7,12 @@ Renardo is in the process to propose an integrated, actually simple install proc
 ### Summary
 
 - Renardo is a **Python library** (actually a set of Python packages). It is meant to be installed with `pip` the Python package manager.
-- To produce sound, Renardo uses **SuperCollider** (a classical, infinitely programmable synth/composition/experimentation environment) and a **SuperCollider module** (called a `Quark`).
+- To produce sound, Renardo uses **SuperCollider** (a classical, infinitely programmable synth/composition/experimentation environment).
 
 ## 1 - Prerequisites to install Renardo 
 
 - **Python**
 - **SuperCollider**
-- **Git** (or `Quarks.install("FoxDot")` will fail)
 
 ### Windows
 
@@ -21,28 +20,17 @@ Renardo is in the process to propose an integrated, actually simple install proc
 
 > WARNING: don't forget to check ~"add Python to path" checkbox before clicking install.
 
-- Install **git** with the official installer (https://git-scm.com/download) or use tools like Chocolatey.
 - Install SuperCollider (https://supercollider.github.io/downloads) 
 
 ### Linux
 
 - Python is usally already installed. Check by typing `python --version`
-- Git is also probably installed. Check by typing `git` in some terminal
 - Install SuperCollider with your prefered package manager (`sudo apt install supercollider`, `sudo pacman -S supercollider`, etc...)
 
 ### MacOS
 
 - Python is already installed but **if you have an old version of MacOS** you should maybe **install a new Python version** using the official installer (https://www.python.org/downloads/macos/)
-- Git is also already installed. Check by typing `git` in some terminal
 - Install SuperCollider with the official installer (https://supercollider.github.io/downloads) 
-
-## 2 - Install and launch the `FoxDot` SuperCollider module
-
-- Open SuperCollider IDE (`scide` on Linux)
-- Install the FoxDot Quark by entering the code `Quarks.install("FoxDot")` in the editor and pressing **Ctrl+Return** to activate the code line
-- Quit and relaunch SuperCollider IDE
-- _Facultative Linux step_ : you need JACK server started (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) or `pipewire` with the `pipewire-jack` module installed.
-- In the editor write `FoxDot.start` and activate with **Ctrl+Return** then check for errors in the log pannel.
 
 ## 3 - Install and launch Renardo
 
@@ -67,8 +55,17 @@ Or simpler use pipx:
 ## 4 - Launch Renardo everyday
 
 - _Facultative Linux step_ : if you use JACK server start it before (no need if you use `pipewire-jack`)
-1. Launch SuperCollider IDE and execute : `FoxDot.start`
+<!-- 1. Launch SuperCollider IDE and execute : `FoxDot.start` -->
 1. Launch `renardo`
+
+## 5 - Troubleshooting
+
+If `b1 >> blip()` does not produce sound should try in this order:
+
+1. Close and start renardo again ! It may help to connect to the supercollider backend...
+1. Check if programs named `sclang`/`scsynth` are running (using `Task Manager` or `System Monitor` for example). If not **start supercollider manually** with:
+    - _Facultative Linux step_ : you need JACK server started (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) or `pipewire` with the `pipewire-jack` module installed.
+    - In the editor write `Renardo.start` and activate with **Ctrl+Return** then check for errors in the log pannel.
 
 ## 5 - Use another code editor
 
