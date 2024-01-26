@@ -1,0 +1,51 @@
+
+FoxDot editor has several drawbacks. Most experienced livecoders would use another option to livecode FoxDot/Renardo.
+
+You need first to start renardo in supercollider.
+
+### Pulsar (quite popular in the algorave scene)
+
+- Install Pulsar code editor
+- Install the kinda official `Pulsardo` extension
+
+Go to the package configuration and either:
+
+- If you installed renardo as a binary:
+    - Renardo Binary Path is the path to renardo binary e.g. `C:\somewhere\dir\renardo.exe` or `/home/machin/Desktop/renardo/renardo`
+    - Renardo Launch Arguments : `--pipe`
+
+- If you use renardo as a python library
+    - Renardo Binary Path is the path to python interpreter where renardo is installed e.g. `/home/machin/Desktop/virtualenv/bin/python`
+    - Renardo Launch Arguments should be : `-m,renardo,--pipe`
+
+- Go to some python code file
+- Hit `Ctrl+Shift+P` search for `Pulsardo Toggle`
+- You can then activate renardo code with Ctrl+Return or Ctrl+Alt !
+
+### Vim
+
+You need to install renardo as a python library and install for instance `vim-slime` plugin.
+
+- open a `musicodewhatever.py` buffer and a python REPL
+- send `from renardo_lib import *` to the REPL
+- then send renardo code bloc to the REPL and it should produce music !
+- You can quickly select a whole code bloc with VIM combo `vip` before sending to REPL
+
+### Emacs
+
+Same as Vim with the SLIME plugin and `from renardo_lib import *`
+
+### VSCode/VSCodium
+
+- Install Python extension
+- facultative: Install Vim extension to use `vip` to quickly select a block
+- Create a python code file
+- Write code `from renardo_lib import *` and hit Shift+Return to send it to Python REPL
+- You can know select any musical code and use Shift+Return to execute it into the REPL
+
+### Flok collaborative editor
+
+Flok 0.4.12 support FoxDot but hard to use now (feasible with `npx flok-web@0.4.12` then `npx flok-repl@0.4.12 etc...`)
+
+Flok 1.0 doesn't support FoxDot or renardo but will in a near future.
+

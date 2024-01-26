@@ -1,51 +1,111 @@
 
 
- > Disclaimer : Renardo (as was FoxDot) is not simple to install for now... But you'll handle it !
+ > Disclaimer : Renardo is in the process to propose an integrated, actually simple install process for newcomers. For now it can still be a bumpy road.
 
-Renardo is in the process to propose an integrated, actually simple install process for newcomers...
+## Summary
 
-### Summary
+Renardo is either:
+- a **binary application** packaged using **pyinstaller** (_the "easy" install_)
+- a **Python library** (actually a set of Python packages) meant to be installed with `pip` the Python package manager. (_the manual install_)
 
-- Renardo is a **Python library** (actually a set of Python packages). It is meant to be installed with `pip` the Python package manager.
-- To produce sound, Renardo uses **SuperCollider** (a classical, infinitely programmable synth/composition/experimentation environment).
+To produce sound, Renardo uses **SuperCollider** (a classical, infinitely programmable synth/composition/experimentation environment).
 
-## 1 - Prerequisites to install Renardo 
+## Install SuperCollider
 
-- **Python**
-- **SuperCollider**
+- Windows : Install SuperCollider with the official installer (https://supercollider.github.io/downloads) 
+- MacOS : Install SuperCollider with the official installer (https://supercollider.github.io/downloads) 
+- Linux : Install SuperCollider with your prefered package manager (`sudo apt install supercollider`, `sudo pacman -S supercollider`, etc...)
 
-### Windows
+## Launch SuperCollider and make it work !
 
-- Install **Python** with the official installer (https://www.python.org/downloads/windows/) download and use : `Windows installer 64bits`.
+- _Facultative Linux step_ : you need JACK server started (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) or `pipewire` with the `pipewire-jack` module installed.
+- Open SuperCollider IDE (`scide` on linux).
+- Type code `s.boot` or `Server.default.boot` and hit Ctrl+Return. Look for errors in the post window
+- Type code `{ SinOsc.ar() }.play;` and execute like before. You should ear a simple sound hurra !
+
+If it works you can quit SuperCollider for now.
+
+If it didn't you may need to select the proper sound device by following this doc: https://doc.sccode.org/Reference/AudioDeviceSelection.html
+
+On recent M1/M2 Mac computers you may need to manually switch sound device to use headphones (because Apple engineers like to break things/standards)
+
+You can find help here to debug Supercollider : https://scsynth.org/
+
+## Renardo "Easy" install : download and use renardo binary
+
+Download renardo and uncompress it somewhere:
+
+- [Windows binary](https://samples.renardo.org/renardo/renardo-0.9.3-windows.zip)
+- [MacOS binary](https://samples.renardo.org/renardo/renardo-0.9.3-macos.tar.gz)
+- [Linux binary](https://samples.renardo.org/renardo/renardo-0.9.3-linux.tar.gz)
+
+To launch renardo:
+- Windows: just double click the binary
+- On MacOS and Linux: open a terminal, navigate to renardo's directory with `cd` and launch `./renardo-0.9.3` or `./renardo`
+
+To do that we use commands `cd`, `ls` and `pwd`: if you don't know about that here are
+tutorials to learn the command line basic:
+- https://www.davidbaumgold.com/tutorials/command-line/
+- https://www.youtube.com/watch?v=QAt_Ej4Dqpc (MacOS but works quite the same way on Linux)
+
+### Renardo initialisation
+
+When launching renardo you should have a special interface with 2 buttons you can click upon:
+1. download the (required) default samples (it is not quick, wait until the end)
+2. configure SuperCollider to work with renardo (create the class and startup files)
+
+Then **before starting renardo** we need to start SuperCollider again
+
+### Start supercollider
+
+- Open SuperCollider IDE
+- Type `Renardo.start;` and hit Ctrl+Return (check for errors in the "post" window ?)
+- _Facultative_: start Renardo midi by executing `Renardo.midi;`.
+
+### Start and use Renardo
+
+- Start renardo like before.
+- Click "start renardo using FoxDot editor" button
+- type `b1 >> blip()` and execute
+
+It should produce some blips \o/
+
+If it doesn't,  first try to quick both software and just start SuperCollider first and Renardo afterwards.
+
+You can then continue to this [Introduction Tutorial](/intro_tuto.md "Introduction tutorial") !
+
+## Launch Renardo everyday
+
+- _Facultative Linux step_ : if you use JACK server start it before (no need if you use `pipewire-jack`)
+1. Launch SuperCollider IDE and execute : `Renardo.start;` and `Renardo.midi;` -->
+1. Launch `renardo` binary or `renardo` library (see below) and open FoxDot editor.
+
+## Use another editor ?
+
+Classical FoxDot editor is cool to livecode but miss some features (multiple file editing, versioning, easy visual customization).
+
+You can use Pulsar instead or another editor. see [Use another code editor](/alternative_editors.md "Alternative editors")
+
+## Renardo library/manual installation
+
+### Prerequisites to manual installation : intalling Python
+
+- Windows : Install **Python** with the official installer (https://www.python.org/downloads/windows/) download and use : `Windows installer 64bits`.
 
 > WARNING: don't forget to check ~"add Python to path" checkbox before clicking install.
 
-- Install SuperCollider (https://supercollider.github.io/downloads) 
+- Linux : Python is usally already installed. Check by typing `python --version`
 
-### Linux
+- MacOS : Python is already installed but **if you have an old version of MacOS** you should maybe **install a new Python version** using the official installer (https://www.python.org/downloads/macos/)
 
-- Python is usally already installed. Check by typing `python --version`
-- Install SuperCollider with your prefered package manager (`sudo apt install supercollider`, `sudo pacman -S supercollider`, etc...)
+### Install Renardo library
 
-### MacOS
-
-- Python is already installed but **if you have an old version of MacOS** you should maybe **install a new Python version** using the official installer (https://www.python.org/downloads/macos/)
-- Install SuperCollider with the official installer (https://supercollider.github.io/downloads)
-
-<!-- Server.default.options.inDevice_() -->
-<!-- Server.default.options.outDevice_() -->
-
-## 3 - Install and launch Renardo
-
-### Windows or MacOS
+#### Windows or MacOS
 
 - You can simply open a terminal (PowerShell on windows) and launch `pip install renardo` (or `pip3 install renardo` if the preceding fails)
 - Launch renardo (with FoxDot editor) by launching `renardo` in the terminal (or you can try `python -m renardo` or `python3 -m renardo`)
-- In the terminal, in the interface that opens choose the `Initialize Renardo` button.
-- Then choose `Launch FoxDotEditor`.
-- Test installation by typing `b1 >> blip()` then **Ctrl+Return**
 
-### Linux
+#### Linux
 
 On Linux you should not install pip packages globally anymore but use a virtual environment instead. You can learn how to do that for example here : https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
 
@@ -55,17 +115,8 @@ Or simpler use pipx:
 - `pipx ensurepath` in a terminal
 - Then you can simply install renardo by launching `pipx install renardo`.
 - Then launch renardo with: `renardo`
-- In the terminal, in the interface that opens choose the `Initialize Renardo` button.
-- Then choose `Launch FoxDotEditor`.
-- Test installation by typing `b1 >> blip()` then **Ctrl+Return**
 
-## 4 - Launch Renardo everyday
-
-- _Facultative Linux step_ : if you use JACK server start it before (no need if you use `pipewire-jack`)
-<!-- 1. Launch SuperCollider IDE and execute : `FoxDot.start` -->
-1. Launch `renardo`
-
-## 5 - Troubleshooting
+## Troubleshooting
 
 If `b1 >> blip()` does not produce sound, should try in this order:
 
@@ -74,70 +125,3 @@ If `b1 >> blip()` does not produce sound, should try in this order:
     - _Facultative Linux step_ : you need JACK server started (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) or `pipewire` with the `pipewire-jack` module installed.
     - In the editor write `Renardo.start` and activate with **Ctrl+Return** then check for errors in the log pannel.
 
-## 5 - Use another code editor
-
-### Pulsar (popular in the algorave scene)
-
-- Install Pulsar editor and use the `renardo` extension (https://github.com/e-lie/renardo-pulsar-extension)
-
-- (for Linux you have to give the path to your venv/pipx venv in the renardo extention settings)
-
-### Flok collaborative editor
-
-- To come...
-
-### VIM and VSCod(ium)
-
-- To come...
-
-### Emacs
-
-- To come too...
-
-
-<!-- 
-
-
-## Linux installation
-
-Follow the installation instructions for your downloads of Python and SuperCollider. When installing Python on Windows, click yes when asked if you want to add Python to your system path and yes if you want to install pip – this is used for automatically downloading/installing Python libraries such as FoxDot.
-
-Install the latest version of FoxDot from the Python Package Index using pip from your command line (command prompt in Windows, terminal in MacOS and Linux) by executing:
-
-$ pip install FoxDot
-
-Please note, if you have Python 3 installed, the program might be called pip3, which helps discern between pip for Python 2 and 3.
-
-Alternatively, you can build from the source on GitHub and keep up to date with the development version:
-
-$ git clone https://github.com/Qirky/FoxDot.git
-$ cd FoxDot
-$ python setup.py install
-
-Open SuperCollider and install the FoxDot Quark (this allows FoxDot to communicate with SuperCollider ) by entering the following in the editor and pressing Ctrl+Return; which "runs" a line of code:
-
-Quarks.install("FoxDot")
-
-Recompile the SuperCollider class library by going to Menu Language Recompile Class Library or pressing Ctrl+Shift+L.
-
-If you can't install git on your machine, you can download a startup file, called foxdot.scd. Open this in SuperCollider and evaluate the code by pressing Ctrl+Return.
-Installing SC3 Plugins (optional)
-
-The SC3 Plugins are a collections of classes that extend the already massive SuperCollider library. Some of these are used for certain “effects” in FoxDot (such as bitcrush) and will give you an error in SuperCollider if you try to use them without installing the plugins.
-
-Once downloaded place the folder into your SuperCollider “Extensions” folder and then restart SuperCollider. To find the location of the  “Extensions” folder, open SuperCollider and evaluate the following line of code:
-
-Platform.userExtensionDir
-
-This will display the location of the “Extensions” folder in the  SuperCollider “post window”, usually on the right hand side of the screen. If this directory doesn’t exist, just create it and put the SC3 plugins in there and restart SuperCollider. When you next open FoxDot, go to the “Language” drop-down menu and tick “Use SC3 Plugins”. Restart FoxDot and you’re all set!
-Starting Up
-
-Open SuperCollider and evaluate the following (this needs to be done before opening FoxDot):
-
-FoxDot.start
-
-SuperCollider is now listening for messages from FoxDot. To start FoxDot from the command line  just type:
-
-$ python -m FoxDot
-
-The FoxDot interface should open up and you’re ready to start jamming! Check out the Getting Started docs for some useful tips on getting to know the basics of FoxDot. Happy coding! -->

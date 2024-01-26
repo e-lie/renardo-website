@@ -2,3 +2,4 @@
 - [Installation](/installation.md "Install renardo")
 - [Introduction Tutorial](/intro_tuto.md "Introduction tutorial")
 - [Customizing renardo](/customization.md "Renardo customization")
+- [Use another code editor](/alternative_editors.md "Alternative editors")
