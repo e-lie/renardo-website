@@ -12,8 +12,8 @@
 
 ![Renardo screenshot](/images/screenshot1.png)
 
-- Livecoding with Python, SuperCollider, Reaper
-- FoxDot fork with a lot of new features
+- Beginner friendly algoritmic music with Python, SuperCollider
+- A new FoxDot fork with a lot of bonus features
 <!-- - Refactored and cleaned -->
 
 [Installation](/installation.md)

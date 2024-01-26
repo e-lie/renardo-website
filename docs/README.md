@@ -1,28 +1,44 @@
 
-## Bring FoxDot back to usability and make it easier for new users to adopt it
 
-FoxDot has not been maintained by it creator (Qirky) for the last 3 years. There has been multiple very cool community forks but hard to identify, install and understand without looking in the code. Even before, FoxDot like other livecoding tools was already hard to install for non developers.
+## Renardo is a new maintained version (a fork) of FoxDot.
 
-- Renardo as a fork of FoxDot will support all vanilla FoxDot features.
+FoxDot is a classic/amazing software used in the algorave community, created by Ryan Kirkbride nearly 10 years ago !
 
-- The new name of Renardo comes to make the new fork identifiable and thus findable online especially to serve as support for workshops and musical teaching.
+...but it has not been maintained for the last 3 years.
 
-- This website (renardo.org) will soon present an extensive documentation and beginner friendly tutorials.
+The community is still very alive ! (check especially FoxDot channel on Telegram)
 
-## Cleaning and refactoring
+There has been multiple very cool community forks but hard to find, install and understand without looking in the code.
+
+Even before, FoxDot was already hard to install for non developers due the multiple moving parts it is composed of.
+
+So the intent of the project is:
+
+- Renardo as a fork of FoxDot will support all/most vanilla FoxDot features.
+- The new name "Renardo" comes to make the new fork identifiable and thus findable online especially to serve as support for workshops and musical teaching.
+- Renardo should be easier to install (and will continue to get easier).
+- There is a lot of potential for FoxDot/Renardo and we would like to make it even more amazing.
+
+This software would not exist without a lot of hard and smart work from Ryan Kirbride and all the community contributors. They should be thanked a lot for that piece !!
+
+## Presentation of new features and architecture
+
+### New documentation and tutorials (Work in progress)
+
+### Cleaning and refactoring
 
 - Progressive and deep code refactoring in progress seeking Python new features and good practices.
-- Renardo is FoxDot made modular, splitting the codebase into several pieces / PyPI packages : `renardo-lib`, `renardo` (launcher + configuration), `renardo-gatherer` (install/share sample packs and Synthdefs) |`FoxDotEditor` (Tkinter Editor from FoxDot) + later `renardo-vizualizer` independant TUI or GUI ?, `renardo-reaper`
+- Renardo is FoxDot made modular, splitting the codebase into several pieces / PyPI packages : `renardo-lib`, `renardo` (launcher + configuration TUI), `renardo-gatherer` (install/share sample packs and Synthdefs) |`FoxDotEditor` (Tkinter Editor from FoxDot), `renardo-reaper`
 
-## New utility functions to compose musical pieces
+### New utility functions to compose musical pieces
 
 - Fade (...to, ...in or ...out) functions
-- Smart periodic pause functions
+- Smart periodic pause functions (`eclipse`)
 - New rythm generators
 - New methods of Pattern interpolation
 - New utility decorators to write down/produce pieces/tracks with code (as opposed to livecoding)
 
-## Features to come...
+### Features to come...
 
 ### Easy install
 
