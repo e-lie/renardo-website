@@ -4,9 +4,9 @@
 
 Renardo stores configurations and resources in a (traditional) user config directory located:
 
-- On Linux: `/home/<user>/.config/renardo`
-- On MacOS: `/home/<user>/.config/renardo`
-- On Windows: `C:\Users\<user>\AppData\Roaming\renardo`
+- On Linux: `/home/<username>/.config/renardo`
+- On MacOS: `/Users/<username>/Library/Application Support/renardo`
+- On Windows: `C:\Users\<username>\AppData\Roaming\renardo`
 
 ## Renardo pipe mode
 

@@ -186,7 +186,7 @@ Clock.clear()
 
 ## 6 - Next steps
 
-There is a lot more algorithmic music techniques to master with FoxDot...
+There is a lot more algorithmic music techniques to master with Renardo...
 
 Tutorial on this website will continue to grow.
 
@@ -196,5 +196,5 @@ For now you can ...
 
 - ...continue using in app tutorials (starting with chapter 2) : you can access them by launching renardo with FoxDotEditor visiting "Tutorials" Menu.
 
-- ..there is also the great tutorial by iShapeNoise here : https://gitlab.com/iShapeNoise/foxdot_codingmusic_part1
+- ...there is also the great tutorial by iShapeNoise here : https://gitlab.com/iShapeNoise/foxdot_codingmusic_part1
 
