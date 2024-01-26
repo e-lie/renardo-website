@@ -70,7 +70,7 @@ Then **before starting renardo** we need to start SuperCollider again
 
 It should produce some blips \o/
 
-If it doesn't,  first try to quick both software and just start SuperCollider first and Renardo afterwards.
+If it doesn't, first try to quit both software and just start SuperCollider first and Renardo afterwards or look at Troubleshooting section.
 
 You can then continue to this [Introduction Tutorial](/intro_tuto.md "Introduction tutorial") !
 
@@ -125,3 +125,4 @@ If `b1 >> blip()` does not produce sound, should try in this order:
     - _Facultative Linux step_ : you need JACK server started (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) or `pipewire` with the `pipewire-jack` module installed.
     - In the editor write `Renardo.start` and activate with **Ctrl+Return** then check for errors in the log pannel.
 
+You can also ask for help on the FoxDot Telegram channel.

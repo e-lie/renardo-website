@@ -1,14 +1,16 @@
 
-FoxDot editor has several drawbacks. Most experienced livecoders would use another option to livecode FoxDot/Renardo.
+FoxDot editor has several drawbacks. You could use another option to livecode FoxDot/Renardo.
 
-You need first to start renardo in supercollider.
+You need first to start renardo in supercollider (`Renardo.start;`)
 
-### Pulsar (quite popular in the algorave scene)
+### Pulsar Editor
+
+(quite popular in the algorave scene with hydra/tidal/VEDA/sclang options)
 
 - Install Pulsar code editor
-- Install the kinda official `Pulsardo` extension
+- Install the official `Pulsardo` extension
 
-Go to the package configuration and either:
+Go to pulsardo extension configuration and either:
 
 - If you installed renardo as a binary:
     - Renardo Binary Path is the path to renardo binary e.g. `C:\somewhere\dir\renardo.exe` or `/home/machin/Desktop/renardo/renardo`
@@ -18,9 +20,9 @@ Go to the package configuration and either:
     - Renardo Binary Path is the path to python interpreter where renardo is installed e.g. `/home/machin/Desktop/virtualenv/bin/python`
     - Renardo Launch Arguments should be : `-m,renardo,--pipe`
 
-- Go to some python code file
+- Open some python code file
 - Hit `Ctrl+Shift+P` search for `Pulsardo Toggle`
-- You can then activate renardo code with Ctrl+Return or Ctrl+Alt !
+- You can then activate renardo code with `Ctrl+Return` or `Ctrl+Alt` !
 
 ### Vim
 
