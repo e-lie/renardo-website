@@ -1,6 +1,6 @@
 Here is a recompilation of FoxDot in app tutorial.
 
-# 0 - Executing code and making sound
+## 0 - Executing code and making sound
 
 To execute code in FoxDot, make sure your text cursor is in the 'block' of code
 (sections of text not separated by blank lines) and press `Ctrl+Return`
@@ -31,7 +31,7 @@ p1.stop()
 
 To sum up Python `>>` operator is used to associate a Player (`p1` here,  think of a band human player or a track in a music software) and synthesizer (`pluck` here)
 
-# 1 - Playing Notes
+## 1 - Playing Notes
 
 To play a single note execute :
 
@@ -57,7 +57,7 @@ p1 >> pluck([0,5,4,0,2])
 p1.stop()
 ```
 
-# 2 - Basic synth parameters
+## 2 - Basic synth parameters
 
 To write basic music you’ll need to specify in the synth function, such as...
 
@@ -110,7 +110,7 @@ p1 >> pluck([0,0,0], dur=[1/4,1/2,3/4])
 p1 >> pluck([0,0,0], dur=[1/4,0.25,3])
 ```
 
-# 3 - Patterns intro : combining lists and tuples
+## 3 - Patterns intro : combining lists and tuples
 
 Lists of values are iterated over as the Player plays notes and we can combine several
 
