@@ -30,14 +30,19 @@ Renardo is in the process to propose an integrated, actually simple install proc
 ### MacOS
 
 - Python is already installed but **if you have an old version of MacOS** you should maybe **install a new Python version** using the official installer (https://www.python.org/downloads/macos/)
-- Install SuperCollider with the official installer (https://supercollider.github.io/downloads) 
+- Install SuperCollider with the official installer (https://supercollider.github.io/downloads)
+
+<!-- Server.default.options.inDevice_() -->
+<!-- Server.default.options.outDevice_() -->
 
 ## 3 - Install and launch Renardo
 
 ### Windows or MacOS
 
-- You can simply open a terminal (PowerShell on windows) and launch `pip install renardo`
-- Launch renardo (with FoxDot editor) by launching `renardo` in the terminal
+- You can simply open a terminal (PowerShell on windows) and launch `pip install renardo` (or `pip3 install renardo` if the preceding fails)
+- Launch renardo (with FoxDot editor) by launching `renardo` in the terminal (or you can try `python -m renardo` or `python3 -m renardo`)
+- In the terminal, in the interface that opens choose the `Initialize Renardo` button.
+- Then choose `Launch FoxDotEditor`.
 - Test installation by typing `b1 >> blip()` then **Ctrl+Return**
 
 ### Linux
@@ -49,7 +54,9 @@ Or simpler use pipx:
 - Install it with your package manager of choice (`sudo apt install pipx`, `sudo pacman -S python-pipx`, ...)
 - `pipx ensurepath` in a terminal
 - Then you can simply install renardo by launching `pipx install renardo`.
-- Then launch renardo with FoxDot editor with: `renardo`
+- Then launch renardo with: `renardo`
+- In the terminal, in the interface that opens choose the `Initialize Renardo` button.
+- Then choose `Launch FoxDotEditor`.
 - Test installation by typing `b1 >> blip()` then **Ctrl+Return**
 
 ## 4 - Launch Renardo everyday
@@ -60,7 +67,7 @@ Or simpler use pipx:
 
 ## 5 - Troubleshooting
 
-If `b1 >> blip()` does not produce sound should try in this order:
+If `b1 >> blip()` does not produce sound, should try in this order:
 
 1. Close and start renardo again ! It may help to connect to the supercollider backend...
 1. Check if programs named `sclang`/`scsynth` are running (using `Task Manager` or `System Monitor` for example). If not **start supercollider manually** with:
