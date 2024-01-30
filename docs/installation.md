@@ -35,9 +35,7 @@ You can find help here to debug Supercollider : https://scsynth.org/
 
 Download renardo and uncompress it somewhere:
 
-- [Windows binary](https://samples.renardo.org/renardo/renardo-0.9.3-windows.zip)
-- [MacOS binary](https://samples.renardo.org/renardo/renardo-0.9.3-macos.tar.gz)
-- [Linux binary](https://samples.renardo.org/renardo/renardo-0.9.3-linux.tar.gz)
+- Renardo binary release on github : https://github.com/e-lie/renardo/releases/tag/v0.9.3
 
 To launch renardo:
 - Windows: just double click the binary
