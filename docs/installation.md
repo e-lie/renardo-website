@@ -75,7 +75,7 @@ You can then continue to this [Introduction Tutorial](/intro_tuto.md "Introducti
 ## Launch Renardo everyday
 
 - _Facultative Linux step_ : if you use JACK server start it before (no need if you use `pipewire-jack`)
-1. Launch SuperCollider IDE and execute : `Renardo.start;` and `Renardo.midi;` -->
+
 1. Launch `renardo` binary or `renardo` library (see below) and open FoxDot editor.
 
 ## Use another editor ?
