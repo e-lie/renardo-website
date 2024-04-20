@@ -44,7 +44,9 @@ You can either:
 
 ## Renardo binary install (Windows and Linux only)
 
-This method is especially usefull for Windows systems where Python environments are not installed by default and can become messy.
+Binaries are not up to date for now. Please use the library install instead. This will be fixed soon (automatic build of binaries)
+
+<!-- This method is especially usefull for Windows systems where Python environments are not installed by default and can become messy.
 
 Download renardo and uncompress it somewhere:
 
@@ -57,7 +59,7 @@ To launch renardo:
 To do that we use commands `cd`, `ls` and `pwd`: if you don't know about that here are
 tutorials to learn the command line basic:
 - https://www.davidbaumgold.com/tutorials/command-line/
-- https://www.youtube.com/watch?v=QAt_Ej4Dqpc (MacOS but works quite the same way on Linux)
+- https://www.youtube.com/watch?v=QAt_Ej4Dqpc (MacOS but works quite the same way on Linux) -->
 
 ## Renardo library install
 
