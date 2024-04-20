@@ -833,9 +833,9 @@ print(linvar([0, 1], 8, start=2))
 d1 >> play("x-o-", hpf=linvar([0,4000],[32,inf], start=Clock.mod(32)))
 ```
 
-```python
-# Tutorial 11: Playing Custom Samples
+## Tutorial 11: Playing Custom Samples
 
+```python
 # You can use your own samples by simply dropping audio files into the existing FoxDot sample directories.
 # These are found in the 'snd' directory in the root of the FoxDot installation
 # (e.g., 'C:\Python27\Lib\site-packages\FoxDot\snd').
@@ -876,8 +876,9 @@ s1 >> loop('percussion/**/*')
 
 ```
 
+## Tutoral 12: SynthDefs
+
 ```python
-# Tutoral 12: SynthDefs
 
 
 # FoxDot creates music by giving player objects a 'digital instrument'
@@ -942,7 +943,7 @@ pads.add()
 
 ```
 
-### Tutorial 13: Advanced Clock
+## Tutorial 13: Advanced Clock
 
 ```python
 # To see what is scheduled to be played.
@@ -996,7 +997,7 @@ p1.never("test")
 
 ```
 
-### Tutorial 14: Player Attributes Reference
+## Tutorial 14: Player Attributes Reference
 
 ```python
 # --- TODO: this needs updating
@@ -1306,7 +1307,7 @@ p1 >> pluck(P[:8], dur=1/2, vib=12, vibdepth=0.5)
 # vibdepth - See vib
 ```
 
-### Tutorial 15: Patterns Generators Reference
+## Tutorial 15: Patterns Generators Reference
 
 ```python
 # There are several other Pattern classes in FoxDot that help you generate arrays of numbers but also behave
