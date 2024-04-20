@@ -16,7 +16,7 @@ To produce sound, Renardo uses **SuperCollider** (a classical, infinitely progra
 - MacOS : Install SuperCollider with the official installer (https://supercollider.github.io/downloads) 
 - Linux : Install SuperCollider with your prefered package manager (`sudo apt install supercollider`, `sudo pacman -S supercollider`, etc...)
 
-## Launch SuperCollider and make it work !
+## Launch SuperCollider and make it work!
 
 - _Facultative Linux step_ : you need JACK server started (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) or `pipewire` with the `pipewire-jack` module installed.
 - Open SuperCollider IDE (`scide` on linux).
