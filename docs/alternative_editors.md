@@ -47,7 +47,7 @@ Same as Vim with the SLIME plugin and `from renardo_lib import *`
 
 ### Flok collaborative editor
 
-Flok 0.4.12 support FoxDot but hard to use now (feasible with `npx flok-web@0.4.12` then `npx flok-repl@0.4.12 etc...`)
+<!-- Flok 0.4.12 support FoxDot but hard to use now (feasible with `npx flok-web@0.4.12` then `npx flok-repl@0.4.12 etc...`) -->
 
-Flok 1.0 doesn't support FoxDot or renardo but will in a near future.
+Flok 1.0 supports FoxDot and will support Renardo in a near future.
 
