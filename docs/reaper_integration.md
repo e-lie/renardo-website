@@ -21,7 +21,7 @@ Vital is a very popular wavetable/everything synth plugin, that is open source.
 
 Vitalium is a fork that removes the  commercial part of vital but is a bit outdated.
 
-- If you want to use it for the examples
+- If you want to use it for the examples below, install from https://vital.audio website or kxstudio deb repo (vitalium) or maybe with you prefered package manager.
 
 ## Configure Reaper
 
