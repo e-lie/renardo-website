@@ -13,7 +13,7 @@ Reaper is not free of charge nor open source. The full featured demo version is 
 
 It's a very nice community driven DAW that goes really far with features of mixing, multichannel, extreme customization, programmability through API. It's compatible with Windows, Linux and MacOS. That's why I choosed it as plugin host for Renardo to control.
 
-Go to https://cockos.com, download it and follow instructions to install. On archlinux based distro you can `yay reaper`.
+Go to https://reaper.fm, download it and follow instructions to install. On archlinux based distro you can `yay reaper`.
 
 ## Download Vita(lium) plugin (as an example synthetizer)
 
