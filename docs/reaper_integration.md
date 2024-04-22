@@ -3,9 +3,9 @@
 
 This page it about hacking around and make use of the Renardo integration to control Reaper DAW.
 
-This is raw and not very usable, especially if you're not confortable with your sound setup, Python environments, or SuperCollider architecture.
+This is raw, currently untested outside of my archlinux based setup, and probably not very usable, especially if you're not confortable with your sound setup, Python environments, or SuperCollider architecture.
 
-This said it has worked for me for 2 years now and it allows very good sounding FoxDot/Renardo music by programmatically controlling any plugin (VST/LV2/etc instrument and effects) from Renardo.
+This said it has worked for me for 2 years now and it allows very good sounding FoxDot/Renardo music by programmatically controlling any plugin (VST/LV2/etc instruments and effects) from Renardo.
 
 ## Install Reaper
 
