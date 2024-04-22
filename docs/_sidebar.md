@@ -3,3 +3,4 @@
 - [Use another code editor](/alternative_editors.md "Alternative editors")
 - [Tutorials](/intro_tuto.md "Introduction tutorial")
 - [Customizing renardo](/customization.md "Renardo customization")
+- [Reaper integration](/reaper_integration.md "Reaper integration")
