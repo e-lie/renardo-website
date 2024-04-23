@@ -32,6 +32,12 @@ Find your Reaper config folder with : **Options > Show Reaper resource path in e
 - In the preference you can also ensure REAPER know where to find your plugins and rescan the available plugins : Check where Vital(ium) is installed and add the containing folder if it not in the list.
 - Quit reaper
 
+## Test if reapy library is working
+
+The integration is based on reapy library. You should install `python-reapy` and follow the getting started to see if you can `import reapy` without errors: https://python-reapy.readthedocs.io/en/latest/install_guide.html#://
+
+It can be somehow the tricky part : sometimes it does work and you have to hack arround to make this library work.
+
 ## Test in Renardo
 
 - Launch renardo with FoxDot editor and ensure you have renardo version `1.0.0.dev7` or more (you can see this in the window border). If not you can install with `pipx uninstall renardo` then `pipx install renardo==1.0.0.dev7`.

@@ -39,7 +39,7 @@ By default MacOS install of SuperCollider doesn't add the programs to the PATH e
 
 You can either:
 
-- Add `sclang`  to PATH : `sclang` is located somewhere like `/Applications/SuperCollider.app/content/sclang` you can follow this tutorial : https://techpp.com/2021/09/08/set-path-variable-in-macos-guide/
+- Add `sclang`  to PATH : `sclang` is located somewhere like `/Applications/SuperCollider.app/Contents/MacOS/sclang` you can follow this tutorial : https://techpp.com/2021/09/08/set-path-variable-in-macos-guide/
 - Manually start the SuperCollider backend : launch SuperCollider application and execute `Renardo.start;` before starting renardo
 
 ## Renardo binary install (Windows and Linux only)
