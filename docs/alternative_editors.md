@@ -3,14 +3,35 @@ FoxDot editor has several drawbacks. You could use another option to livecode Fo
 
 You need first to start renardo in supercollider (`Renardo.start;`)
 
+### Flok collaborative editor
+
+Flok is a web based editor for livecoding collectively different languages for music and visuals (supercollider, mercury, tidal, foxdot, renardo, hydra, maybe GLSL shader soon).
+
+You need first to install `nodejs` 18 or later and install `npx` with the command `npm install -g npx`
+
+Then launch the web editor : you can use https://flok.cc or launch your local server with `npx flok-web@latest`
+
+Then create a `renardo` pane from the selection top left menu and open `Configure` in the top right menu. You'll see a command line that you can paste in your terminal like:
+
+```sh
+npx flok-repl@latest -H wss://yourserver \
+  -s yoursessionid \
+  -t renardo \
+  -T user:youruser
+```
+
+You can then activate renardo code in the editor (CTRL+RETURN) and it should produce sound (if the supercollider backend is started).
+
+Beware that ALT+RETURN activate the whole file.
+
 ### Pulsar Editor
 
 (quite popular in the algorave scene with hydra/tidal/VEDA/sclang options)
 
-- Install Pulsar code editor
-- Install the official `Pulsardo` extension
+- Install Pulsar code editor with your package manager or downloading it from : https://pulsar-edit.dev
+- Install the official `Pulsardo` extension (Settings > + install search for Pulsardo)
 
-Go to pulsardo extension configuration and either:
+Go to pulsardo extension settings and either:
 
 - If you installed renardo as a binary:
     - Renardo Binary Path is the path to renardo binary e.g. `C:\somewhere\dir\renardo.exe` or `/home/machin/Desktop/renardo/renardo`
@@ -45,9 +66,5 @@ Same as Vim with the SLIME plugin and `from renardo_lib import *`
 - Write code `from renardo_lib import *` and hit Shift+Return to send it to Python REPL
 - You can know select any musical code and use Shift+Return to execute it into the REPL
 
-### Flok collaborative editor
 
-<!-- Flok 0.4.12 support FoxDot but hard to use now (feasible with `npx flok-web@0.4.12` then `npx flok-repl@0.4.12 etc...`) -->
-
-Flok 1.0 supports FoxDot and will support Renardo in a near future.
 
