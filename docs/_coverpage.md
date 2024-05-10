@@ -18,3 +18,5 @@
 
 [Installation](/installation.md)
 [See the code](https://github.com/e-lie/renardo)
+[Community chat](https://t.me/foxdot)
+[Forum](https://forum.toplap.org/c/communities/foxdot/17)
