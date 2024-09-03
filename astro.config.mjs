@@ -5,7 +5,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'renardo.org',
 			customCss: [
 				'./src/styles/custom.css',
 				'./src/fonts/font-faces.css'
