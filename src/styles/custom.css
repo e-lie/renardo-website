@@ -1,0 +1,31 @@
+
+
+h1 {
+  font-family: "vg5000", sans-serif;  
+}
+
+h2 {
+  font-family: "vg5000", sans-serif;  
+}
+
+
+h3 {
+  font-family: "vg5000", sans-serif;  
+}
+
+
+h4 {
+  font-family: "vg5000", sans-serif;  
+}
+
+.title {
+  font-family: "vg5000", sans-serif;  
+}
+
+code .asciiart {
+  font-family: "jgs", monospace;
+}
+
+.page {
+  background: radial-gradient(circle, hsla(319, 100%, 68%, 0.2) 0%,hsla(245, 100%, 50%, 0.2) 100%) ;
+}

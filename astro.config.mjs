@@ -6,6 +6,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'My Docs',
+			customCss: [
+				'./src/styles/custom.css',
+				'./src/fonts/font-faces.css'
+			],
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
