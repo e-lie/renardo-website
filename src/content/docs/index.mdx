@@ -1,36 +1,44 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: Renardo 
+description: Music livecoding environment
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Music   ( live ) coding
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/screenshot1-squared.png
   actions:
-    - text: Example Guide
+    - text: Installation
       link: /guides/example/
-      icon: right-arrow
+      # icon: right-arrow
       variant: primary
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: Examples
+      link: /example
+      variant: secondary
+    - text: About
+      link: /about/renardo/
+      variant: secondary
+    - text: See the code
+      link: https://github.com/e-lie/renardo.git
       icon: external
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## 
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Music code examples" icon="">
+		```python
+    player1 >> play("<v..><X-*->")
+    ```
 	</Card>
-	<Card title="Add new content" icon="add-document">
+	<Card title="Performances and demos" icon="">
 		Add Markdown or MDX files to `src/content/docs` to create new pages.
 	</Card>
-	<Card title="Configure your site" icon="setting">
+	<Card title="Configure your site" icon="">
 		Edit your `sidebar` and other config in `astro.config.mjs`.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
+	<Card title="Read the docs" icon="">
 		Learn more in [the Starlight Docs](https://starlight.astro.build/).
 	</Card>
 </CardGrid>
