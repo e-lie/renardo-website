@@ -1,9 +1,9 @@
 ---
-title: Example Guide
-description: A guide in my new Starlight docs site.
+title: What is Renardo ?
+description: Presenting the Renardo music livecoding environment.
 ---
 
-## Renardo is a new maintained version (a fork) of FoxDot.
+#### Renardo is a new maintained version (a fork) of FoxDot.
 
 FoxDot is a classic/amazing software used in the algorave community, created by Ryan Kirkbride nearly 10 years ago !
 
@@ -24,9 +24,8 @@ So the intent of the project is:
 
 This software would not exist without a lot of hard and smart work from Ryan Kirbride and all the community contributors. They should be thanked a lot for that piece !!
 
-## What's new
+## What's new in Renardo ?
 
-### New documentation and tutorials
 
 ### Cleaning and refactoring
 

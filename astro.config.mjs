@@ -5,7 +5,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'renardo.org',
+			title: 'Renardo   ฅ^•ﻌ•^ฅ',
 			customCss: [
 				'./src/styles/custom.css',
 				'./src/fonts/font-faces.css'
@@ -15,15 +15,21 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
-					],
+					label: 'About',
+					autogenerate: { directory: 'about' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Install and configure',
+					autogenerate: { directory: 'install' },
+					// items: [
+					// 	// Each item here is one entry in the navigation menu.
+					// 	{ label: 'Prepare for install', link: '/install/00-prepare-for-install/' },
+					// 	{ label: 'Install SuperCollider', link: '/install/01-install-supercollider/' },
+					// ],
+				},
+				{
+					label: 'Learn',
+					autogenerate: { directory: 'learn' },
 				},
 			],
 		}),

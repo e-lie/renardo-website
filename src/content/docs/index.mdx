@@ -1,19 +1,19 @@
 ---
-title: Renardo 
+title: Renardo (code > music)
 description: Music livecoding environment
 template: splash
 hero:
-  tagline: Music   ( live ) coding
-  image:
-    file: ../../assets/screenshot1-squared.png
+  tagline: Come code some Python music, have fun with generative patterns, record original compositions !
+  #image:
+  #  file: ../../assets/screenshot1-squared.png
   actions:
     - text: Installation
-      link: /guides/example/
+      link: /install/00-prepare-for-install/
       # icon: right-arrow
       variant: primary
-    - text: Examples
-      link: /example
-      variant: secondary
+    #- text: Examples
+    #  link: /example
+    #  variant: secondary
     - text: About
       link: /about/renardo/
       variant: secondary
@@ -23,22 +23,47 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import { YouTube } from 'astro-embed';
 
-## 
+
+
 
 <CardGrid stagger>
-	<Card title="Music code examples" icon="">
+
+  <Card title="Music programming, Algorave community" icon="">
+
+  Describing music using code allow to think it differently... you can
+  explore and conjure the combinatory power of the computer to generate a surprising musical flux.
+
+  Try it ! it's not that hard and you'll find help on the way.
+  
+  The Algorave community organises events and parties all around the world to enjoy this computer music.
+		
+	</Card>
+
+	<Card title="" icon="">
+		<YouTube id="https://www.youtube.com/watch?v=CXrkq7u69vU" />
+	</Card>
+
+	<Card title="Explore music by examples" icon="">
+
+    Livecoding is about opensource music. You can learn and compose based on code examples from others.
+
 		```python
-    player1 >> play("<v..><X-*->")
+    p1 >> play("<v..><X-*->")
+    b2 >> bbass([0,3,5,2], dur=[.5,.25], oct=3)
     ```
+
 	</Card>
-	<Card title="Performances and demos" icon="">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+ 
+
+ 
+	<Card title="FoxDot revived :-)" icon="">
+		Renardo is a fork of FoxDot, a popular Python livecoding software created by Ryan Kirkbride and part of the Algorave/Toplap community.
+
 	</Card>
-	<Card title="Configure your site" icon="">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+ 
+
+
 </CardGrid>
+
