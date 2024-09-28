@@ -34,7 +34,7 @@ This software would not exist without a lot of hard and smart work from Ryan Kir
 
 - Fade (...to, ...in or ...out) functions
 - Smart periodic pause functions (`eclipse`)
-- New rythm generators
+- New rhythm generators
 - New methods of Pattern interpolation
 - New utility decorators to write down/produce pieces/tracks with code (as opposed to livecoding)
 
