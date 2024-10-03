@@ -1,5 +1,5 @@
 ---
-title: Start Livecoding music
+title: Comienza a hacer música con livecoding
 description: A guide in my new Starlight docs site.
 ---
 

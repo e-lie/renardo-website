@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting
+title: Solución de problemas
 ---
 
 This section try to help you diagnose the situation if Renardo environment doesn't not work has expected.

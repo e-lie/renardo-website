@@ -1,5 +1,5 @@
 ---
-title: (very unusable) Reaper integration.
+title: Integración con Reaper (muy poco útil).
 ---
 
 

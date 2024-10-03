@@ -1,5 +1,5 @@
 ---
-title: Configure other code editors
+title: Configura otros editores
 ---
 
 FoxDot editor has several drawbacks. You could use another option to livecode FoxDot/Renardo.

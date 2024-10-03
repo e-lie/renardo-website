@@ -1,5 +1,5 @@
 ---
-title: Install Renardo Python library
+title: Instalar libreria Renardo
 ---
 
 <!-- 
@@ -22,34 +22,34 @@ tutorials to learn the command line basic:
 - https://www.davidbaumgold.com/tutorials/command-line/
 - https://www.youtube.com/watch?v=QAt_Ej4Dqpc (MacOS but works quite the same way on Linux) -->
 
-### Getting python to work
+### Conseguir que python funcione
 
 #### Windows
 
-You need to install Python. Use the official one from https://python.org (please don't use anaconda or parallel environments if you don't understand their consequences).
+Necesitas instalar Python. Usa la oficial de https://python.org (por favor, no uses anaconda o entornos paralelos si no entiendes sus consecuencias).
 
 #### Mac OS
 
-If you've never use developper stuff before you probably need to install python3 (and cmd line tools) by launching in a terminal: `sudo xcode-select --install`
+Si usted nunca ha utilizado developper cosas antes de que usted probablemente necesita para instalar python3 (y herramientas de línea cmd) mediante la ejecución en un terminal: `sudo xcode-select --install`.
 
 #### Linux
 
-Python comes natively as a base tool of your OS. 
+Python viene de forma nativa como herramienta base de tu sistema operativo. 
 
-### Install Renardo
+### Instalar Renardo
 
-### Windows or MacOS
+### Windows o MacOS
 
-- You can simply open a terminal (PowerShell on windows) and launch `pip install renardo` (or `pip3 install renardo` if the preceding fails)
-- Launch renardo (with FoxDot editor) by launching `renardo` in the terminal (or you can try `python -m renardo` or `python3 -m renardo`)
+- Basta con abrir un terminal (PowerShell en windows) y ejecutar `pip install renardo` (o `pip3 install renardo` si falla lo anterior)
+- Ejecuta renardo (con el editor FoxDot) ejecutando `renardo` en el terminal (o puedes probar `python -m renardo` o `python3 -m renardo`)
 
 ### Linux
 
-On Linux you should not install pip packages globally anymore but use a virtual environment instead. You can either :
+En Linux ya no debe instalar paquetes pip globalmente, sino utilizar un entorno virtual en su lugar. Puede :
 
-- learn how to manually create a virtualenv : https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
-- install and use `pipx` :
-    - Install it with your package manager of choice (`sudo apt install pipx`, `sudo pacman -S python-pipx`, ...)
-    - `pipx ensurepath` in a terminal
-    - Then you can simply install renardo by launching `pipx install renardo`.
-    - Then launch renardo with: `renardo`
+- aprenda a crear manualmente un virtualenv : https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
+- instale y utilice `pipx` :
+    - Instálelo con el gestor de paquetes de su elección (`sudo apt install pipx`, `sudo pacman -S python-pipx`, ...)
+    - En una terminal ejecute `pipx ensurepath`
+    - A continuación, sólo tiene que instalar renardo ejecutando `pipx install renardo`.
+    - A continuación, inicie renardo con: `renardo`

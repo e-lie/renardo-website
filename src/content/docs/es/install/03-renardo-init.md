@@ -1,11 +1,11 @@
 ---
-title: Renardo Initialisation
+title: Iniciar Renardo
 ---
 
 
-## Renardo initialisation
+## Iniciar Renardo
 
-When launching renardo you should have a special interface with 2 buttons you can click upon:
+Al iniciar renardo deberías tener una interfaz especial con 2 botones sobre los que puedes hacer clic:
 
-1. download the (required) default samples (it is not quick, wait until the end)
-2. configure SuperCollider to work with renardo (create the class and startup files)
+1. Descargue los samples predeterminados (necesarios) (no es rápido, espere hasta el final)
+2. Configurar SuperCollider para trabajar con renardo (crear la clase y los archivos de inicio)
