@@ -2,19 +2,19 @@
 title: Configura otros editores
 ---
 
-FoxDot editor has several drawbacks. You could use another option to livecode FoxDot/Renardo.
+El editor FoxDot tiene varios inconvenientes. Usted podría utilizar otra opción para livecoding FoxDot / Renardo.
 
-You need first to start renardo in supercollider (`Renardo.start;`)
+Primero tienes que iniciar renardo en supercollider (`Renardo.start;`)
 
-### Flok collaborative editor
+### Flok editor colectivo
 
-Flok is a web based editor for livecoding collectively different languages for music and visuals (supercollider, mercury, tidal, foxdot, renardo, hydra, maybe GLSL shader soon).
+Flok es un editor basado en la web para livecoding colectivo, se puede usar en diferentes lenguajes para música y visuales (supercollider, mercury, tidal, foxdot, renardo, hydra, tal vez GLSL shader ...Pronto).
 
-You need first to install `nodejs` 18 or later and install `npx` with the command `npm install -g npx`
+Primero necesitas instalar `nodejs` 18 o posterior e instalar `npx` con el comando `npm install -g npx`.
 
-Then launch the web editor : you can use https://flok.cc or launch your local server with `npx flok-web@latest`
+A continuación, ejecute el editor web: puede utilizar https://flok.cc o ejecutar su servidor local con `npx flok-web@latest`.
 
-Then create a `renardo` pane from the selection top left menu and open `Configure` in the top right menu. You'll see a command line that you can paste in your terminal like:
+Luego crea un panel `renardo` desde el menú superior izquierdo de selección y abre `Configurar` en el menú superior derecho. Verás una línea de comando que puedes pegar en tu terminal como:
 
 ```sh
 npx flok-repl@latest -H wss://yourserver \
@@ -23,50 +23,49 @@ npx flok-repl@latest -H wss://yourserver \
   -T user:youruser
 ```
 
-You can then activate renardo code in the editor (CTRL+RETURN) and it should produce sound (if the supercollider backend is started).
+A continuación, puede activar el código renardo en el editor (CTRL+RETURN) y debería producir sonido (si el backend del supercolisionador está iniciado).
 
-Beware that ALT+RETURN activate the whole file.
+Cuidado, ALT+RETURN activan todo el archivo.
 
-### Pulsar Editor
+###  Editor Pulsar
 
-(quite popular in the algorave scene with hydra/tidal/VEDA/sclang options)
+(bastante popular en la escena algorave con opciones hydra/tidal/VEDA/sclang)
 
-- Install Pulsar code editor with your package manager or downloading it from : https://pulsar-edit.dev
-- Install the official `Pulsardo` extension (Settings > + install search for Pulsardo)
+- Instale el editor de código Pulsar con su gestor de paquetes o descargándolo de : https://pulsar-edit.dev
+- Instalar la extensión oficial `Pulsardo` (Ajustes > + instalar buscar Pulsardo)
 
-Go to pulsardo extension settings and either:
+Ir a la configuración de la extensión pulsardo y, o bien:
 
-- If you installed renardo as a binary:
-    - Renardo Binary Path is the path to renardo binary e.g. `C:\somewhere\dir\renardo.exe` or `/home/machin/Desktop/renardo/renardo`
-    - Renardo Launch Arguments : `--pipe`
+- Si instalaste renardo como binario:
+    - Renardo Binary Path es la ruta al binario de renardo, por ejemplo. `C:\somewhere\dir\renardo.exe` o `/home/machin/Desktop/renardo/renardo`
+    - Renardo Lanza Argumentos : `--pipe`
 
-- If you use renardo as a python library
-    - Renardo Binary Path is the path to python interpreter where renardo is installed e.g. `/home/machin/Desktop/virtualenv/bin/python`
-    - Renardo Launch Arguments should be : `-m,renardo,--pipe`
+- Si utiliza renardo como biblioteca python
+    - Renardo Binary Path es la ruta al intérprete de python donde está instalado renardo por ejemplo.. `/home/machin/Desktop/virtualenv/bin/python`
+    - Los argumentos cuiando se ejecuta renardo debe ser así : `-m,renardo,--pipe`
 
-- Open some python code file
-- Hit `Ctrl+Shift+P` search for `Pulsardo Toggle`
-- You can then activate renardo code with `Ctrl+Return` or `Ctrl+Alt` !
+- Abrir un archivo de código python
+- Presiona `Ctrl+Shift+P` para buscar `Pulsardo Toggle`
+- A continuación, puede activar el código renardo con `Ctrl+Return` o `Ctrl+Alt` !
 
 ### Vim
 
-You need to install renardo as a python library and install for instance `vim-slime` plugin.
+Necesitas instalar renardo como una librería de python e instalar por ejemplo `vim-slime` plugin.
 
-- open a `musicodewhatever.py` buffer and a python REPL
-- send `from renardo_lib import *` to the REPL
-- then send renardo code bloc to the REPL and it should produce music !
-- You can quickly select a whole code bloc with VIM combo `vip` before sending to REPL
+- abrir un buffer `musicodewhatever.py` y un REPL de python
+- enviar `from renardo_lib import *` a la REPL
+- ¡a continuación, enviar renardo bloque de código a la REPL y debe producir música !
+- Puede seleccionar rápidamente todo un bloque de código con el combo VIM `vip` antes de enviarlo a REPL
 
 ### Emacs
 
-Same as Vim with the SLIME plugin and `from renardo_lib import *`
+Igual que Vim con el plugin SLIME `from renardo_lib import *`
 
 ### VSCode/VSCodium
 
-- Install Python extension
-- facultative: Install Vim extension to use `vip` to quickly select a block
-- Create a python code file
-- Write code `from renardo_lib import *` and hit Shift+Return to send it to Python REPL
-- You can know select any musical code and use Shift+Return to execute it into the REPL
+- Instalar la extención de python
+- Importante: Instale la extensión Vim para utilizar `vip` para seleccionar rápidamente un bloque
+- Escribe el código `from renardo_lib import *` y pulsa Shift+Return para enviarlo a Python REPL
+- Puedes seleccionar cualquier código musical y usar Shift+Return para ejecutarlo en la REPL.
 
 

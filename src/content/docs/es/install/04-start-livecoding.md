@@ -1,29 +1,28 @@
 ---
 title: Comienza a hacer música con livecoding
-description: A guide in my new Starlight docs site.
 ---
 
 
-## Renardo start automatic or manual
+## Arranque Renardo de forma automática o manual
 
-Renardo can autostart the SuperCollider backend and a code editor for you or you can do that on your own:
+Renardo puede iniciar automáticamente el backend SuperCollider y un editor de código para usted o usted puede hacerlo por su cuenta:
 
-- _Facultative Linux step_ : if you use JACK server start it before (no need if you use `pipewire-jack`)
+- _pasos en Linux_ : si utiliza el servidor JACK, inícielo antes de (no es necesario si utiliza `pipewire-jack`)
 
-- Automatic mode: launch `renardo` in a terminal then click the buttons in the terminal interface to start the backend and editor. If you use Pulsar you still have to install Pulsardo extension and start it manually (see configure another coder editor section)
+- Modo automático: ejecuta `renardo` en un terminal y haz clic en los botones de la interfaz del terminal para iniciar el backend y el editor. Si usas Pulsar tienes que instalar la extensión Pulsardo e iniciarla manualmente (ver la sección configurar otro editor de código).
 
-- Manual mode : launch SuperCollider backend manually : open SuperCollider IDE and execute `Renardo.start;` then either:
-    - launch Pulsar manually and start the Pulsardo extension
-    - launch FoxDot editor directly with: `renardo --foxdot-editor`
+- Modo manual : lanza el backend de SuperCollider manualmente : abre SuperCollider IDE y ejecuta `Renardo.start;` luego:
+    - lanzar Pulsar manualmente e iniciar la extensión Pulsardo
+    - Inicie FoxDot editor directamente con: `renardo --foxdot-editor`
 
-### Test and use Renardo
+### Probar y utilizar Renardo
 
-Once renardo foxdot editor or Pulsardo is launched
+Una vez iniciado renardo foxdot editor o Pulsardo
 
-- type `b1 >> blip()` and execute
+- Escribe `b1 >> blip()` y ejecuta el código
 
-It should produce some blips \o/
+Debería producir algunos blips \o/
 
-If it doesn't, first try to quit both software and just start SuperCollider first and Renardo afterwards or look at Troubleshooting section.
+Si no lo hace, primero intente salir de ambos programas e inicie primero SuperCollider y después Renardo, o consulte la sección Solución de problemas.
 
-You can then go to the Learn section of this documentation !
+A continuación, puede ir a la sección Aprender de esta documentación.

@@ -2,23 +2,23 @@
 title: Solución de problemas
 ---
 
-This section try to help you diagnose the situation if Renardo environment doesn't not work has expected.
+Esta sección intenta ayudarle a diagnosticar la situación si el entorno Renardo no funciona como se esperaba.
 
-### It looks good but does not make any sound
+### Se ve bien pero no hace ningún sonido
 
-If `b1 >> blip()` does not produce sound, should try in this order:
+Si `b1 >> blip()` no produce sonido, debe intentarlo en este orden:
 
-1. Close and start renardo again ! It may help to connect to the supercollider backend...
-1. Check if programs named `sclang`/`scsynth` are running (using `Task Manager` or `System Monitor` for example). If not **start supercollider manually** with:
-    - _Facultative Linux step_ : you need JACK server started (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) or `pipewire` with the `pipewire-jack` module installed.
-    - In the supercollider editor start the server then write `Renardo.start` and activate with **Ctrl+Return** then check for errors in the log pannel.
+1. Cierra e inicia Renardo de nuevo. Puede que te ayude conectarte al backend de supercollider...
+1.Comprueba si los programas llamados `sclang`/`scsynth` se están ejecutando (usando `Task Manager` o `System Monitor` por ejemplo). Si no es así **inicia el supercolisionador manualmente** con:
+    - _Facultative Linux step_ : necesita que se inicie el servidor JACK (https://archive.flossmanuals.net/ardour/ch015_starting-jack-on-ubuntu.html) o `pipewire` con el módulo `pipewire-jack` instalado.
+    - En el editor del supercolisionador inicie el servidor, escriba `Renardo.start` y actívelo con **Ctrl+Return**, compruebe si hay errores en el panel de registro.
 
-You can also ask for help on the [FoxDot Telegram channel] or the .
+También puedes pedir ayuda en el [canal FoxDot Telegram] o en el .
 
-#### SuperCollider is not ready
+#### SuperCollider no está listo
 
-If SuperCollider is installed but renardo says it is not ready that's because it can't find it to launch it automatically: ensure `sclang` is available in PATH (see above)
+Si SuperCollider está instalado pero renardo dice que no está listo es porque no puede encontrarlo para lanzarlo automáticamente: asegúrate de que `sclang` está disponible en PATH (ver más arriba)
 
-#### playsound/other library can't be installed (renardo library install fails)
+#### playsound/otras Librerías no pueden ser instaladas (falla la instalación de la librería renardo)
 
-Sometimes upgrading `pip` or `wheel` or `build` python packages solve the installation. For example: https://stackoverflow.com/questions/76078698/how-to-fix-oserror-could-not-get-source-code-error-when-installing-playsound
+A veces actualizar los paquetes `pip` o `wheel` o `build` python resuelve la instalación. Por ejemplo: https://stackoverflow.com/questions/76078698/how-to-fix-oserror-could-not-get-source-code-error-when-installing-playsound

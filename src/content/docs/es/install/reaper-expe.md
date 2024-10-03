@@ -3,66 +3,66 @@ title: Integración con Reaper (muy poco útil).
 ---
 
 
-## Disclaimer
+## Descargo de responsabilidad
 
-This page it about hacking around and make use of the Renardo integration to control Reaper DAW.
+Esta página se trata de hackear y hacer uso de la integración Renardo para controlar Reaper DAW.
 
-This is raw, currently untested outside of my archlinux based setup, and probably not very usable, especially if you're not confortable with your sound setup, Python environments, or SuperCollider architecture.
+Esto es crudo, actualmente no probado fuera de mi configuración basada en archlinux, y probablemente no muy utilizable, especialmente si no estás cómodo con tu configuración de sonido, entornos Python, o arquitectura SuperCollider.
 
-This said it has worked for me for 2 years now and it allows very good sounding FoxDot/Renardo music by programmatically controlling any plugin (VST/LV2/etc instruments and effects) from Renardo.
+Dicho esto, ha funcionado para mí durante 2 años y permite un muy buen sonido de música FoxDot/Renardo mediante el control programático de cualquier plugin (VST/LV2/etc instrumentos y efectos) de Renardo.
 
-## Install Reaper
+## Instalar Reaper
 
-Reaper is not free of charge nor open source. The full featured demo version is free forever but should then consider bying a licence if you use it regularly. 
+Reaper no es gratuito ni de código abierto. La versión de demostración con todas las funciones es gratuita para siempre, pero entonces debería considerar la posibilidad de adquirir una licencia si lo utiliza con regularidad. 
 
-It's a very nice community driven DAW that goes really far with features of mixing, multichannel, extreme customization, programmability through API. It's compatible with Windows, Linux and MacOS. That's why I choosed it as plugin host for Renardo to control.
+Es un DAW muy bueno impulsado por la comunidad que va realmente lejos con características de mezcla, multicanal, personalización extrema, programabilidad a través de la API. Es compatible con Windows, Linux y MacOS. Por eso lo elegí como plugin host para que Renardo lo controle.
 
-Go to https://reaper.fm, download it and follow instructions to install. On archlinux based distro you can `yay reaper`.
+Vaya a https://reaper.fm, descárguelo y siga las instrucciones para instalarlo. En distros basadas en archlinux puedes `yay reaper`.
 
-## Download Vita(lium) plugin (as an example synthetizer)
+## Descargar el plugin Vita(lium) (como sintetizador de ejemplo)
 
-Vital is a very popular wavetable/everything synth plugin, that is open source.
+Vital es un plugin de sintetizador de tabla de ondas/todo muy popular, que es de código abierto.
 
-Vitalium is a fork that removes the  commercial part of vital but is a bit outdated.
+Vitalium es una bifurcación que elimina la parte comercial de vital pero es un poco anticuado.
 
-- If you want to use it for the examples below, install from https://vital.audio website or kxstudio deb repo (vitalium) or maybe with you prefered package manager.
+- Si quieres usarlo para los ejemplos de abajo, instálalo desde la web https://vital.audio o desde el repositorio deb de kxstudio (vitalium) o quizás con tu gestor de paquetes preferido.
 
-## Configure Reaper
+## Configurar Reaper
 
-Find your Reaper config folder with : **Options > Show Reaper resource path in explorer/finder** 
+Encuentra tu carpeta de configuración de Reaper con : **Opciones > Mostrar ruta de recursos de Reaper en explorador/buscador**. 
 
-- Inside **Project Template**, download the file https://samples.renardo.org/renardo_reaper_template.RPP
-- Go to Options/Preference and activate : **Enable python for use in Reascripts**
-- In the preference you can also ensure REAPER know where to find your plugins and rescan the available plugins : Check where Vital(ium) is installed and add the containing folder if it not in the list.
-- Quit reaper
+- Dentro de **Plantilla de proyecto**, descargue el archivo https://samples.renardo.org/renardo_reaper_template.RPP
+- Vaya a Opciones/Preferencias y active : **Habilitar python para su uso en Reascripts**.
+- En las preferencias también puede asegurarse de que REAPER sabe dónde encontrar sus plugins y volver a escanear los plugins disponibles: Compruebe dónde está instalado Vital(ium) y añada la carpeta que lo contiene si no está en la lista.
+- Cierra reaper
 
-## Test if reapy library is working
+## Comprueba si la biblioteca reapy funciona
 
-The integration is based on reapy library. You should install `python-reapy` and follow the getting started to see if you can `import reapy` without errors: https://python-reapy.readthedocs.io/en/latest/install_guide.html#://
+La integración se basa en la librería reapy. Deberías instalar `python-reapy` y seguir las instrucciones para ver si puedes `importar reapy` sin errores: https://python-reapy.readthedocs.io/en/latest/install_guide.html#://
 
-It can be somehow the tricky part : sometimes it does work and you have to hack arround to make this library work.
+Puede ser de alguna manera la parte difícil: a veces no funciona y tienes que hack arround para hacer que esta biblioteca de trabajo.
 
-## Test in Renardo
+## Prueba en Renardo
 
-- Launch renardo with FoxDot editor and ensure you have renardo version `1.0.0.dev7` or more (you can see this in the window border). If not you can install with `pipx uninstall renardo` then `pipx install renardo==1.0.0.dev7`.
-- Launch reaper and open the project template `renardo_reaper_template`
-- Launch renardo Supercollider backend and an editor configured to be used with renardo.
-- Execute `from renardo_lib.preset import *`
+- Ejecute renardo con el editor FoxDot y asegúrese de que tiene la versión de renardo `1.0.0.dev7` o superior (puede verlo en el borde de la ventana). Si no, puede instalarlo con `pipx uninstall renardo` y luego `pipx install renardo==1.0.0.dev7`.
+- Inicie reaper y abra la plantilla de proyecto `renardo_reaper_template`
+- Inicie renardo Supercollider backend y un editor configurado para ser utilizado con renardo.
+- Ejecute `from renardo_lib.preset import *`
 
-### Create an FX chain
+### Crea una cadena "chain" FX
 
-- Add a vital (or other instrument plugin) to **chan1** track
-- Export it as an FXChain (**Ctrl+click** on a plugin to open the window then **export selected fx as chain**)
+- Añadir un vital (u otro plugin de instrumento) a **chan1** pista
+- Exportarlo como FXChain (**Ctrl+clic** en un plugin para abrir la ventana y luego **exportar fx seleccionados como chian**).
 
-### Test
+### Pruebas
 
-- execute the code `myvital = instanciate("chan1", "<fxchainname>")`. This create a renardo synth that proxy the plugin in reaper.
-- then ensure supercollider MIDI output is connected to (first) REAPER Midi input.
-- You should be able to produce sound with `v1 >> myvital([0,1,2,4], dur=.5)`
+- Ejecutar el código `myvital = instanciate(«chan1», «<fxchainname>»)`. Esto crea un sintetizador renardo que proxy el plugin en reaper.
+- Asegúrese de que la salida MIDI del supercollider está conectada a la (primera) entrada Midi del REAPER.
+- Deberías ser capaz de producir sonido con `v1 >> myvital([0,1,2,4], dur=.5)`.
 
-### Latency
+### Latencia
 
-- You need to fix the delay between the reaper midi instrument and Supercollider synthdefs. Experiment with by changing the values of latency and nudge to adjust both instruments:
+- Tienes que arreglar el retardo entre el instrumento midi reaper y synthdefs Supercollider. Experimenta cambiando los valores de latencia y nudge para ajustar ambos instrumentos:
 
 ```python
 
@@ -73,11 +73,11 @@ Clock.latency = .5
 Clock.midi_nudge = -.232
 ```
 
-### Controlling plugin params !!
+### Control de los parámetros del plugin !!
 
-When you instanciate an fxchain with renardo you can directly control any parameter of any plugin of the chain using a snake_case version of their name.
+Cuando instancias un fxchain con renardo puedes controlar directamente cualquier parámetro de cualquier plugin de la cadena usando una versión snake_case de su nombre.
 
-Example:
+Ejemplo:
 
 ```python
 v1 >> myvital([0,4,4,4], dur=.5, filter_fx_switch=1, monpetitplugindereverb_mix=.5)
@@ -85,8 +85,8 @@ v1.filter_fx_resonance=.2
 v1.filter_fx_cutoff=linvar([1,.2], [8], start=Clock.mod(4))
 ```
 
-The control of plugin params with linvars works but is not as precise and easy as controlling supercollider params with it !!
+El control de los parámetros del plugin con linvars funciona pero no es tan preciso y fácil como controlar los parámetros del supercollider con linvars.
 
-**all param values are in [0,1] range**
+**todos los valores del parametro están en el rango [0,1].**
 
-You can also rename you params inside reaper to have better names in Renardo : `filter_fx_resonance` > `reso`
+También puedes renombrar tus params dentro de reaper para tener mejores nombres en Renardo : `filter_fx_resonance` > `reso`
