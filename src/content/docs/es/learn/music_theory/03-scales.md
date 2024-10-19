@@ -1,94 +1,94 @@
 ---
-title: Scales and Modes
+title: Escalas y Modos
 ---
 
 
-### Scale
+### Escala
 
-A musical scale, or scale, is technically defined as a series of ascending or descending unitary tones that form a range of notes that can be used to form a melody. Most of the scales in Western music correspond to a specific key. That is, a sequence of notes that is major or minor by default. This does not apply to the chromatic scale, which is a scale of all possible semitones in Western music. The whole tone scale is also a scale that consists of intervals that are two semitones apart.
+Una escala musical, o escala, se define técnicamente como una serie de tonos unitarios ascendentes o descendentes que forman un rango de notas que se pueden usar para formar una melodía. La mayoría de las escalas en la música occidental corresponden a una clave específica. Es decir, una secuencia de notas que es mayor o menor por defecto. Esto no se aplica a la escala cromática, que es una escala de todos los semitonos posibles en la música occidental. La escala de tonos enteros también es una escala que consiste en intervalos de dos semitonos.
 
-Within a given key there are 7 notes in a single octave before reaching the 8th note, which has the same name as the first note and is twice the frequency. The seven notes have different intervals between adjacent notes. Sometimes it's a semitone (semitone), sometimes it's a whole tone (two semitones). The pattern of whole tone / semitone intervals that determine the notes of a key, starting with the note while the key is named, is whole-whole-half-whole-whole-whole-half. Within a single key, any of these seven notes could be used as the base note of an ascending sequence. Any such sequence created by starting with a different note in the key is a mode of that key, and each mode has a name. For example:
+Dentro de una clave dada hay 7 notas en una sola octava antes de llegar a la octava nota, que tiene el mismo nombre que la primera nota y es el doble de la frecuencia. Las siete notas tienen diferentes intervalos entre notas adyacentes. A veces es un semitono, a veces es un tono entero (dos semitonos). El patrón de intervalos de tono entero / semitono que determina las notas de una clave, comenzando con la nota mientras se nombra la clave, es tono-tono-semitono-tono-tono-tono-semitono. Dentro de una sola clave, cualquiera de estas siete notas podría usarse como la nota base de una secuencia ascendente. Cualquier secuencia creada al comenzar con una nota diferente en la clave es un modo de esa clave, y cada modo tiene un nombre. Por ejemplo:
 
-*   Ionian - begins with the "tonic"; the note for which the clef is named. In the key of C, the Ionic mode begins with C. This mode is the most common and is colloquially referred to as the "major scale". The pattern is WWHWWWH.
+*   Jónico - comienza con el "tónico"; la nota para la cual se nombra la clave. En la clave de C, el modo jónico comienza con C. Este modo es el más común y se conoce coloquialmente como la "escala mayor". El patrón es TTSTTTS.
     
-*   Dorian - starts with the next note higher in key than the tonic (D, in the key of C). WHWWWHW.
+*   Dórico - comienza con la siguiente nota más alta en la clave que el tónico (D, en la clave de C). TSTTTST.
     
-*   Phrygian - starts with the note that is a major third higher than the tonic (E). HWWWHWW.
+*   Frigio - comienza con la nota que es una tercera mayor más alta que el tónico (E). STTTSTT.
     
-*   Lydian - begins with the note that is a full fourth higher than the tonic (F). WWWHWWH.
+*   Lidio - comienza con la nota que es una cuarta completa más alta que el tónico (F). TTTSTTS.
     
-*   Mixolydian - starts on the note that is a fifth higher than the tonic (G). WWHWWHW.
+*   Mixolidio - comienza en la nota que es una quinta más alta que el tónico (G). TTSTTST.
     
-*   Aeolian - begins with the note a major sixth higher than the tonic (A). This mode is also very important in modern music and is known as the "natural minor scale". WHWWHWW.
+*   Eólico - comienza con la nota una sexta mayor más alta que el tónico (A). Este modo también es muy importante en la música moderna y se conoce como la "escala menor natural". TSTTSTT.
     
-*   Locrian - begins with the note a major seventh higher than the tonic (Bb). HWWHWWW.
+*   Locrio - comienza con la nota una séptima mayor más alta que el tónico (Bb). STTSTTT.
     
 
 ---
-### Scales table
+### Tabla de Escalas
 
 ![Renardo Scales](../../../../assets/RenardoScales.svg)
 
 ---
-### Using Scale
+### Usando Escalas
 
 
-*   A scale is essentially a subset of the musical notes (pitches) between one note, e.g. C, and the same one an octave higher.
+*   Una escala es esencialmente un subconjunto de las notas musicales (tonos) entre una nota, por ejemplo, C, y la misma una octava más alta.
     
-*   The starting note is the key of the scale.
+*   La nota inicial es la clave de la escala.
     
-*   Starting at C, these notes are:
+*   Comenzando en C, estas notas son:
     
-*   This set of all the notes is called the chromatic scale.
+*   Este conjunto de todas las notas se llama escala cromática.
     
-*   If this was a Python list called chromatic, then chromatic[0] would return C, chromatic[1] would return C#, chromatic[2] would return D, and so until chromatic[11], which would return B.
+*   Si esto fuera una lista de Python llamada cromática, entonces cromática[0] devolvería C, cromática[1] devolvería C#, cromática[2] devolvería D, y así hasta cromática[11], que devolvería B.
     
-*   Because each musical scale is a subset of these pitches, we can think of each scale as a list of indices for accessing pitches in the chromatic scale.
+*   Debido a que cada escala musical es un subconjunto de estos tonos, podemos pensar en cada escala como una lista de índices para acceder a los tonos en la escala cromática.
     
 
-chromatic = [C, C#, D, D#, E, F, F#, G, G#, A, A#, B]
+cromática = [C, C#, D, D#, E, F, F#, G, G#, A, A#, B]
 
 | **C**  | **C#** | **D**  | **D#** | **E**  |  **F** | **F#** | **G**  | **G#** | **A**  | **A#** |**B(H)**|
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 |   0    |    1   |    2   |    3   |    4   |    5   |    6   |    7   |    8   |    9   |   10   |   11   |
 
 
-*   To see a list of the scales available just run command print(Scale.names()).
+*   Para ver una lista de las escalas disponibles, simplemente ejecute el comando print(Scale.names()).
     
-*   By default, each player uses a globally accessibly default scale called Scale.default
+*   Por defecto, cada jugador usa una escala predeterminada accesible globalmente llamada Scale.default
     
-*   This can be changed in 3 ways:
+*   Esto se puede cambiar de 3 maneras:
     
 
-Simply assigning the scale object to Scale.default:
+Simplemente asignando el objeto de escala a Scale.default:
 ```python
 Scale.default = Scale.minor
 ```
 
-You can use the string name:
+Puedes usar el nombre de la cadena:
 ```python
 Scale.default = "minor"
 ```
 
-You can also use the "set" method, which allows more options:
+También puedes usar el método "set", que permite más opciones:
 ```python
 Scale.default.set("minor")
 ```
 
-It is also possible to change the scale of players individually.
+También es posible cambiar la escala de los jugadores individualmente.
 
-Force a player to use the minor scale:
+Forzar a un jugador a usar la escala menor:
 ```python
 p1 >> pluck([0,1,2,3], scale=Scale.minor)
 ```
 
 
 ---
-### Modes
+### Modos
 
 W.I.P
 
 ---
-### Using Modes
+### Usando Modos
 
 W.I.P

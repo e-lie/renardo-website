@@ -1,12 +1,12 @@
 ---
-title: Chord Progressions
+title: Progresiones de acordes
 ---
 
 
-### Example "Billy Jean" 
+### Ejemplo "Billy Jean" 
 
 
-This example will show how to code "Billy Jean"s' Intro by Michael Jackson.
+Este ejemplo mostrará cómo codificar la introducción de "Billy Jean" de Michael Jackson.
 
 * Scale: minor
     
@@ -14,8 +14,7 @@ This example will show how to code "Billy Jean"s' Intro by Michael Jackson.
     
 * Chords:
     
-
-The number after it refers to the octave. In Renardo, the middle C=5, so you always have to add 2 when composing from the sheet music.
+El número después de la nota se refiere a la octava. En Renardo, el Do central=5, por lo que siempre debes sumar 2 al componer desde la partitura.
 
 ```python
 # Tempo:
@@ -34,11 +33,11 @@ b1 >> play("<V....V..V...[VV]V..><..o.><---->")
 
 
 ---
-### Example “Get Lucky"
+### Ejemplo “Get Lucky"
 
 
 
-This example will show how to create bassline and chords of the track "Get Lucky" by Daft Punk.
+Este ejemplo mostrará cómo crear la línea de bajo y los acordes de la canción "Get Lucky" de Daft Punk.
 
 Bass:
 
@@ -52,7 +51,7 @@ Chords:
 | -------- | ------- | ------- | -------- |
 
 
-In the fourth chord there is a note borrowed from the neighbor F#m (Circle of Fifths):
+En el cuarto acorde hay una nota tomada prestada del vecino F#m (Círculo de Quintas):
 
 |  **F#2** |  **A2** | **C#3** |  **B2**  |
 | -------- | ------- | ------- | -------- |
@@ -60,11 +59,11 @@ In the fourth chord there is a note borrowed from the neighbor F#m (Circle of Fi
 |    B1    |    D2   |   F#2   |    E2    |
 
 
-As an extra, you can try to create a little variety using TimeVars:
+Como extra, puedes intentar crear un poco de variedad usando TimeVars:
 
-Drop: Thinner no beats Break: No voice Buildup: Mix BreakNDrop
+Drop: Sin beats Break: Sin voz Buildup: Mezcla de Break y Drop
 
-With 4 notes/chords played every 16 beats, the song structure is as follows:
+Con 4 notas/acordes tocados cada 16 beats, la estructura de la canción es la siguiente:
 
 | **Intro** | **Break** | **Buildup** | **Drop** | **Break** | **Buildup** | **Drop**  | **Outro** |
 | --------- | --------- | ----------- | -------- | --------- | ----------- | --------- | --------- |

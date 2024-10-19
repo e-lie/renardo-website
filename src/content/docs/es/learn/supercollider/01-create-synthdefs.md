@@ -1,65 +1,64 @@
 ---
-title: How to code SynthDefs
+title: Cómo programar SynthDefs
 ---
 
-
-Renardo creates music by giving player objects a *digital instrument* to play, which are called **SynthDefs**. You can see the list of pre-installed 'Synths' by executing
+Renardo crea música dando a los objetos reproductores un *instrumento digital* para tocar, llamados **SynthDefs**. Puedes ver la lista de 'Synths' preinstalados ejecutando
 
 ```python
 print(SynthDefs)
 ```
 
-Each one of these represents a **SynthDef** *object*. These objects are then given to Players to play - like giving an instrument to someone in your orchestra.
-
+Cada uno de estos representa un *objeto* **SynthDef**. Estos objetos luego se asignan a los Reproductores para tocar, como dar un instrumento a alguien en tu orquesta.
 
 ---
-### Writing your own Synth Definitions
+### Escribiendo tus propias Definiciones de Synth
 
-This is a bit more advanced, but if you have already written SynthDefs in Supercollider then you might feel at home. If not, the [SuperCollider Book](https://github.com/supercollider/scbookcode/) will help you getting started with SuperCollider. 
+Esto es un poco más avanzado, pero si ya has escrito SynthDefs en Supercollider, te sentirás como en casa. Si no, el [Libro de SuperCollider](https://github.com/supercollider/scbookcode/) te ayudará a comenzar con SuperCollider.
 
-Renardo can access any SynthDef stored on the SuperCollider server, but it needs to know it's there. If you have already written a SynthDef in SuperCollider and named it \mySynth then you just create a SynthDef instance using Renardo like so:
+Renardo puede acceder a cualquier SynthDef almacenado en el servidor de SuperCollider, pero necesita saber que está allí. Si ya has escrito un SynthDef en SuperCollider y lo has nombrado \mySynth, entonces solo necesitas crear una instancia de SynthDef usando Renardo así:
 ```python
 mySynth = SynthDef("mySynth")
 ```
 
-Using the same variable name in Renardo as in SuperCollider for your SynthDef is a good idea to avoid confusion. If you want to write (or edit) your own SynthDef during run-time in Renardo you can use a SuperCollider API by importing the SCLang module. All Renardo SynthDef objects inherit the base-class behaviour, such as low- and high-pass filters and vibrato, but these can be overridden or updated easily. If you want to know more about digital sound processing and SynthDef creation, check out the SuperCollider [Documentation](https://doc.sccode.org/). Below is an example of creating one in Renardo:
+Usar el mismo nombre de variable en Renardo que en SuperCollider para tu SynthDef es una buena idea para evitar confusiones. Si deseas escribir (o editar) tu propio SynthDef durante el tiempo de ejecución en Renardo, puedes usar una API de SuperCollider importando el módulo SCLang. Todos los objetos SynthDef de Renardo heredan el comportamiento de la clase base, como filtros de paso bajo y alto y vibrato, pero estos pueden ser anulados o actualizados fácilmente. Si deseas saber más sobre el procesamiento de sonido digital y la creación de SynthDef, consulta la [Documentación](https://doc.sccode.org/) de SuperCollider. A continuación, se muestra un ejemplo de cómo crear uno en Renardo:
 
-Import module for writing SCLang code from Python
+Importar el módulo para escribir código SCLang desde Python
 ```python
 from SCLang import *
 ```
 
-Create a SynthDef named 'example' (using the same variable name as the SynthDef name is a good idea)
+Crear un SynthDef llamado 'example' (usar el mismo nombre de variable que el nombre del SynthDef es una buena idea)
 ```python
 example = SynthDef("example")
 ```
 
-Create the oscillator (osc) using a sine wave
+Crear el oscilador (osc) usando una onda sinusoidal
 ```python
 example.osc = SinOsc.ar(ex.freq)
 ```
 
-And give it a percussive sound envelope (env)
+Y darle un envolvente de sonido percusivo (env)
 ```python
 example.env = Env.perc()
 ```
 
-Finally, store it!
+Finalmente, ¡almacénalo!
 ```python
 example.add()
 ```
 
-How to create a SynthDef
+Cómo crear un SynthDef
 ```python
 with SynthDef("pads") as pads:
 	pads.osc = SinOsc.ar(pads.freq)
 	pads.env = Env.perc()
 ```
 
-Equivalent to:
+Equivalente a:
 ```python
 pads = SynthDef("pads")
 pads.osc = SinOsc.ar(pads.freq)
 pads.env = Env.perc()
 pads.add()
 ```
+

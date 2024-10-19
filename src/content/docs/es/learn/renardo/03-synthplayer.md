@@ -1,196 +1,194 @@
 ---
-title: Synth Player
+title: Reproductor de Sintetizador
 ---
 
-### Synth Player Object
+### Objeto Reproductor de Sintetizador
 
-Renardo has a number of different virtual instruments available that you can use as player objects.
+Renardo tiene varios instrumentos virtuales diferentes que puedes usar como objetos reproductores.
 
-To have a look at the existing selection of Renardo SynthDefs, just execute:
+Para ver la selección existente de SynthDefs de Renardo, simplemente ejecuta:
 ```python
 print(SynthDefs)
 ```
 
-Choose one and create a Renardo player object using the double arrow syntax like in the example below. In Renardo, all two-character variable names, such as `p1`, `zz` or `k7`, are reserved for **Player()** objects. The variable can consist of 2 letters or 1 letter + 1 number (e.g. pp or s1).
+Elige uno y crea un objeto reproductor de Renardo usando la sintaxis de doble flecha como en el ejemplo a continuación. En Renardo, todos los nombres de variables de dos caracteres, como `p1`, `zz` o `k7`, están reservados para objetos **Player()**. La variable puede consistir en 2 letras o 1 letra + 1 número (por ejemplo, pp o s1).
 
-The **>>** in Python is usually reserved for a type of operation, like + or -, but it is not the case in Renardo.
+El **>>** en Python generalmente se reserva para un tipo de operación, como + o -, pero no es el caso en Renardo.
 
-In the following example the variable **p1** will create a Player()-Object using **pluck** as synth/instrument. Creating a Player Object with a synthesizer and no arguments will play a single note on middle C, by default, repeatedly until stopped.
+En el siguiente ejemplo, la variable **p1** creará un objeto Player() usando **pluck** como sintetizador/instrumento. Crear un objeto Player con un sintetizador y sin argumentos reproducirá una sola nota en el do central, por defecto, repetidamente hasta que se detenga.
 ```python
 p1 >> pluck()
 ```
 
-To stop an individual player object, simply execute **p1.stop()**. To stop all player objects, you can press **CTRL+.**, which is a shortcut for the command **Clock.clear()**.
+Para detener un objeto reproductor individual, simplemente ejecuta **p1.stop()**. Para detener todos los objetos reproductores, puedes presionar **CTRL+.**, que es un atajo para el comando **Clock.clear()**.
 
 
 ---
-### Attribute *degree*
+### Atributo *degree*
 
-If you want to play musical notes, you need to give your player object some arguments. In this unique case of SynthDef you do not need to use an attribute name to change the notes being played back.
+Si deseas reproducir notas musicales, necesitas darle a tu objeto reproductor algunos argumentos. En este caso único de SynthDef no necesitas usar un nombre de atributo para cambiar las notas que se reproducen.
 ```python
 s1 >> pluck([0,2,4])
 ```
 
-The "notes" we give to a player, meaning in this case the numbers *0*, *2*, and *4* are called `degree`. So the example above can be also look like this:
+Las "notas" que damos a un reproductor, significando en este caso los números *0*, *2* y *4* se llaman `degree`. Así que el ejemplo anterior también puede verse así:
 ```python
 s1 >> pluck(degree=[0,2,4])
 ```
 
-Use can use a TimeVar-Function to control the trigger of each note player over time. If you do not use any timing, it will be played each beat as default
+Puedes usar una función TimeVar para controlar el disparo de cada nota reproducida a lo largo del tiempo. Si no usas ningún tiempo, se reproducirá cada beat por defecto.
 ```python
 s1 >> pluck(var([0,2,4]))
 ```
 
-Just add your beat timing behind your note list, if you want to change timing
+Simplemente agrega tu tiempo de beat detrás de tu lista de notas, si deseas cambiar el tiempo.
 ```python
 s1 >> pluck(var([0,2,4], 4))
 ```
 
-Following allocation takes place:
+La asignación siguiente tiene lugar:
 
-**Beat 0 –> Note 0 | Beat 4 –> Note 2 | Beat 8 –> Note 4 | Beat 12 –> Note 0 | Beat 16 –> Note 2 |…**
+**Beat 0 –> Nota 0 | Beat 4 –> Nota 2 | Beat 8 –> Nota 4 | Beat 12 –> Nota 0 | Beat 16 –> Nota 2 |…**
 
-
-To check which note is player at the moment, you cann use following code using **degree** within Pythons **print()** function:
+Para verificar qué nota se está reproduciendo en este momento, puedes usar el siguiente código usando **degree** dentro de la función **print()** de Python:
 ```python
 print(s1.degree)
 ```
 
-Create another list with numbers to change the time of each of the notes separately:
+Crea otra lista con números para cambiar el tiempo de cada una de las notas por separado:
 ```python
 s1 >> pluck(var([0,2,4], [2,2,4]))
 ```
 
-You can group notes and variables by enclosing multiple values of arguments as tuple in round brackets. This is often used to play chords. In the following example we play 2 notes at the same time and expand the stereo effect in the pan attribute:
+Puedes agrupar notas y variables encerrando múltiples valores de argumentos como tuplas en paréntesis redondos. Esto se usa a menudo para tocar acordes. En el siguiente ejemplo, tocamos 2 notas al mismo tiempo y expandimos el efecto estéreo en el atributo pan:
 ```python
 p2 >> bass([(0,4),(0,2)], dur=4, pan=(-1,1))
 ```
 
-It is possible to transfer a note played by one SynthDef to another. In this example s2 adds a triad to every bass note played by s1:
+Es posible transferir una nota reproducida por un SynthDef a otro. En este ejemplo, s2 agrega una tríada a cada nota de bajo reproducida por s1:
 ```python
 s1 >> bass([0,2,3,4], dur=4)
 
 s2 >> pluck(dur=0.5).follow(s1) + (0,2,4)
 ```
 
-In addition to **.follow()**, you can also use the **.degree** argument (without brackets) to follow other players:
+Además de **.follow()**, también puedes usar el argumento **.degree** (sin paréntesis) para seguir a otros reproductores:
 ```python
 s3 >> pluck(s1.degree + 2)
 ```
 
-It is also possible to manipulate **degree** by adding an array of numbers to the Player object. 
+También es posible manipular **degree** agregando una matriz de números al objeto Player.
 
-This raises the 4th note played by 2 degrees:
+Esto eleva la 4ª nota reproducida en 2 grados:
 ```
 p1 >> pads([0,1,2,3]) + [0,0,0,2]
 ```
 
-And this raises every third note by 2:
+Y esto eleva cada tercera nota en 2:
 ```
 p1 >> pads([0,1,2,3]) + [0,0,2]
 ```
 
-These values can be laced and grouped together
+Estos valores pueden entrelazarse y agruparse juntos
 ```
 p1 >> pads([0,1,2,3]) + [0,1,[0,(0,2)]]
 ```
 
-This behaviour is particularly useful when using the follow method.
+Este comportamiento es particularmente útil cuando se usa el método follow.
 ```
 b1 >> bass([0,4,5,3], dur=2)
 p1 >> pads().follow(b1) + [2,4,7]
 ```
 
-**Next, you can schedule players to do things!**
+**¡A continuación, puedes programar a los reproductores para que hagan cosas!**
 
-This will tell p1 to reverse the notes every 4 beats:
+Esto le dirá a p1 que invierta las notas cada 4 beats:
 ```
 p1 >> pads([0,2,4,6])
 p1.every(4, "reverse")
 ```
 
-You can "chain" methods together by appending them to the end of the original line:
-```
+Puedes "encadenar" métodos juntos agregándolos al final de la línea original:
+```python
 p1 >> pads([0,2,4,6]).every(4, "reverse")
 ```
 
-To stop calling "reverse", use 'never':
-```
+Para dejar de llamar a "reverse", usa 'never':
+```python
 p1.never("reverse")
 ```
 
-**Here are a few other methods you can use!**
+**¡Aquí hay algunos otros métodos que puedes usar!**
 
-Using **"stutter"** will play the same note **n** number of times with different attributes specified
-```
+Usar **"stutter"** reproducirá la misma nota **n** veces con diferentes atributos especificados
+```python
 p1.every(4, "stutter", 4, oct=4, pan=[-1,1])
 ```
 
-Rotate will move all the values over by 1 in their order:
-```
+Rotate moverá todos los valores en su orden por 1:
+```python
 p1.every(4, "rotate")
 ```
 
-To randomise the order of the notes, use **"shuffle"**:
-```
+Para aleatorizar el orden de las notas, usa **"shuffle"**:
+```python
 p1.every(4, "shuffle")
 ```
 
 
 ---
-### Use other Attributes
+### Usa otros Atributos
 
+Los valores asignados mediante atributos nombrados moldean la forma en que suena y se toca el instrumento. Es posible usar otros argumentos de la misma manera que los ejemplos anteriores usando **degree**. Por ejemplo **s1.oct**, **s1.dur** y así sucesivamente.
 
-Values assigned via named attributes shape the way the instrument sounds and is played. It is possible to use other arguments the same way like the examples above using **degree**. For example **s1.oct**, **s1.dur** and so on.
-
-List all universal attributes:
+Lista todos los atributos universales:
 ```python
 print(Player.get_attributes())
 ```
 
-List all attributes of a particular SynthDef:
+Lista todos los atributos de un SynthDef en particular:
 ```python
 print(Player("wobblebass").get_extra_attributes())
 ```
 
-List all default fx attributes of Player() object:
+Lista todos los atributos fx predeterminados del objeto Player():
 ```python
 print(Player.get_fxs())
 ```
 
-You can see what effects are available by evaluating
+Puedes ver qué efectos están disponibles evaluando
 ```python
 print(FxList)
 ```
 
-Let's use the high pass filter for an example. You can see it's described like so:
+Usemos el filtro de paso alto como ejemplo. Puedes ver que se describe así:
 "<Fx 'highPassFilter' -- args: hpr, hpf>"
 
-Each effect has a "master" argument and then child arguments. Here the master argument is "hpf" (short for high pass filter) and the child argument is "hpr" (short for high pass resonance). The effect is only added when the master argument is non-zero:
+Cada efecto tiene un argumento "maestro" y luego argumentos secundarios. Aquí el argumento maestro es "hpf" (abreviatura de filtro de paso alto) y el argumento secundario es "hpr" (abreviatura de resonancia de paso alto). El efecto solo se agrega cuando el argumento maestro es distinto de cero:
 ```python
 d1 >> dirt([0,4,2,1], dur=1/2, hpf=4000)
 ```
 
-This sets the high pass filter to 4000 Hz so only frequences in the audio signal *above* that are actually heard. Let's change the resonance value. It's default value is 1, so let's make it smaller:
+Esto establece el filtro de paso alto a 4000 Hz, por lo que solo se escuchan las frecuencias en la señal de audio *por encima* de eso. Cambiemos el valor de la resonancia. Su valor predeterminado es 1, así que hagámoslo más pequeño:
 ```python
 d1 >> dirt([0,4,2,1], dur=1/2, hpf=4000, hpr=0.3)
 ```
 
-Notice a difference? We can use patterns / vars in our effects to make them change over time:
+¿Notas alguna diferencia? Podemos usar patrones / vars en nuestros efectos para hacer que cambien con el tiempo:
 ```python
 d1 >> dirt([0,4,2,1], dur=1/2, hpf=linvar([0,4000],8), hpr=P[1,1,0.3].stretch(8))
 ```
 
-In the following example octave **oct** is increased (Default is 5), the note playing time **dur** (Default is 1) and the volume amp varies (Default is 1).
+En el siguiente ejemplo, la octava **oct** se incrementa (el valor predeterminado es 5), el tiempo de reproducción de la nota **dur** (el valor predeterminado es 1) y el volumen amp varía (el valor predeterminado es 1).
 
-**Note: The standard octave in Renardo is 5, which in conventional music theory is 3!**
+**Nota: La octava estándar en Renardo es 5, que en la teoría musical convencional es 3!**
 
 ```python
 s1 >> pluck([0,2,4], oct=6, dur=[1,0.5,0.5], amp=[1,0.75,0.75])
 ```
 
-Arguments can be integers, floating points, fractions, lists,
-tuples, or a mix
+Los argumentos pueden ser enteros, puntos flotantes, fracciones, listas,
+tuplas o una mezcla
 
 ```python
 p1 >> pluck([0,0,0], dur=2)
@@ -200,7 +198,7 @@ p1 >> pluck([0,0,0], dur=[1/4,1/2,3/4])
 p1 >> pluck([0,0,0], dur=[1/4,0.25,3])
 ```
 
-You can also assign values to the attributes of player objects directly
+También puedes asignar valores a los atributos de los objetos reproductores directamente
 
 ```python
 p1 >> pluck([0,2], oct=5)
@@ -208,28 +206,23 @@ p1 >> pluck([0,2], oct=5)
 p1.oct = 4
 ```
 
-Here some more useful attributes you can use in handling your players
+Aquí hay algunos atributos más útiles que puedes usar para manejar tus reproductores
 
-Play only this player, muting others
+Reproduce solo este reproductor, silenciando a los demás
 ```python
-p1.solo() # default value is 1 (solo on)
+p1.solo() # el valor predeterminado es 1 (solo activado)
 ```
 
-And turn the solo off
+Y desactiva el solo
 ```python
 p1.solo(0)
 ```
 
-Stop (not just mute) the other players
+Detén (no solo silencia) a los otros reproductores
 ```python
 p1.only()
 ```
-
-
----
-### Referencing Attributes
-
-You can set variables outside a player
+Puedes establecer variables fuera de un reproductor
 ```python
 pitches = P[0,1,2,3,4]
 harmony = pitches + 2
@@ -241,102 +234,101 @@ p1 >> pluck(pitches)
 p2 >> star(harmony)
 ```
 
-If you set the duration of the second, it might not have the desired effect
+Si estableces la duración del segundo, puede que no tenga el efecto deseado
 ```python
 p1 >> pluck(pitches)
 p2 >> star(harmony, dur=1/2)
 ```
 
-It is possible for one player object to play exactly what another player is.
-To have one player follow another, just use the follow method:
+Es posible que un objeto reproductor reproduzca exactamente lo que otro reproductor está reproduciendo.
+Para que un reproductor siga a otro, simplemente usa el método follow:
 ```python
 p1 >> pluck(pitches)
 p2 >> star(dur=1/2).follow(p1) + 2
 ```
 
-You can explicitly reference attributes such as pitch or duration too:
+También puedes referenciar explícitamente atributos como el tono o la duración:
 ```python
-p2 >> star(p1.pitch) + 2  # this is the same as .follow(p1)
+p2 >> star(p1.pitch) + 2  # esto es lo mismo que .follow(p1)
 ```
 
-Works for other attributes too
+Funciona para otros atributos también
 ```python
 p1 >> pluck(pitches)
 p2 >> star(dur=p1.dur).follow(p1) + 2
 ```
 
-You can reference, and test for the current value. The == returns a 1 if true and a 0 if false.
+Puedes referenciar y probar el valor actual. El == devuelve un 1 si es verdadero y un 0 si es falso.
 ```python
 print(p1.degree)
 print(p1.degree == 2)
 ```
 
-This allows you to do conditionals like:
+Esto te permite hacer condicionales como:
 ```python
 p1 >> pluck([0,1,2,3], amp=(p1.degree==1))
 p1 >> pluck([0,1,2,3], amp=(p1.degree>1))
 ```
 
-Or change it to a different amp by multiplying by 4:
+O cambiarlo a un amplificador diferente multiplicando por 4:
 ```python
 p1 >> pluck([0,1,2,3], amp=(p1.degree==1)*4)
 ```
 
-Chain multiple conditionals
+Encadena múltiples condicionales
 ```python
 p1 >> pluck([0,1,2,3], amp=(p1.degree==1)*4 + (p1.degree==2)*1)
 ```
 
-Which is the same as
+Lo cual es lo mismo que
 ```python
 p1 >> pluck([0,1,2,3], amp=p1.degree.map({1:4, 2:1}))
 ```
 
-
 ---
-### Rests
+### Silencios
 
-Rests can be added by using a rest object in the dur array. The rest silences the note that would have been played. Without a rest, 5 notes (yes, a dur=1 would work, but lets be explicit to counterpoint the next example)
+Los silencios se pueden agregar usando un objeto de silencio en la matriz de duraciones. El silencio silencia la nota que se habría tocado. Sin un silencio, 5 notas (sí, una dur=1 funcionaría, pero seamos explícitos para contraponer el siguiente ejemplo)
 ```python
 p1 >> pads([0,1,2,3,4], dur=[1,1,1,1,1])
 ```
 
-With a rest ... 4 notes and a rest, note "4" is silenced for 4 beats:
+Con un silencio ... 4 notas y un silencio, la nota "4" se silencia durante 4 beats:
 ```python
 p1 >> pads([0,1,2,3,4], dur=[1,1,1,1,rest(4)])
 ```
 
 ---
-### Attributes Reference
+### Referencia de Atributos
 
 
-**amp** - Amplitude (defaults to 1) 
+**amp** - Amplitud (por defecto es 1) 
 
-Sets the volume of the note/pattern
+Establece el volumen de la nota/patrón
 ```python
 d1 >> play("*", dur=1/2, amp=1)
 ```
 
-Half Volume
+Medio Volumen
 ```python
 d1 >> play("*", dur=1/2, amp=.5)
 ```
 
-Creating a pattern with amp
+Creando un patrón con amp
 ```python
 d1 >> play("*", dur=1/2, amp=[1,0,1,1,0])
 ```
 
 ---
-**amplify** - Changes amp, by multiplying agasint the existing value (instead of overwritting)
+**amplify** - Cambia amp, multiplicando contra el valor existente (en lugar de sobrescribir)
 
-Creating a pattern with amp
+Creando un patrón con amp
 ```python
 d1 >> play("*", dur=1/2, amp=[1,0,1,1,0])
 d1 >> play("*", dur=1/2, amplify=[.5,1,0])
 ```
 
-Set up a "drop" in the music (Plays at full volume for 28, then 0 for 4)
+Configura un "drop" en la música (Reproduce a volumen completo durante 28, luego 0 durante 4)
 ```python
 p1 >> blip([0,1,2,3], amplify=var([1,0],[28,4]))
 ```
@@ -346,25 +338,25 @@ p1 >> blip([0,1,2,3], amplify=var([1,0],[28,4]))
 
 
 ---
-**benddelay** - See bend
+**benddelay** - Ver bend
 
 ---
-**bits** - The bit depth, in number of bits, that the signal is reduced to; this is a value between 1 and 24 where other values are ignored. Use crush to set the amount of reduction to the bitrate (defaults to 8)
+**bits** - La profundidad de bits, en número de bits, a la que se reduce la señal; este es un valor entre 1 y 24 donde se ignoran otros valores. Usa crush para establecer la cantidad de reducción a la tasa de bits (por defecto es 8)
 
 ---
-**bitcrush** - See bits
+**bitcrush** - Ver bits
 
 ---
 **blur**
 
 ---
-**bpf** - Band Pass Filter
+**bpf** - Filtro de Paso de Banda
 
 ---
-**bpnoise** - See bpf
+**bpnoise** - Ver bpf
 
 ---
-**bpr** - See bpf
+**bpr** - Ver bpf
 
 ---
 **bpm**
@@ -376,19 +368,19 @@ p1 >> blip([0,1,2,3], amplify=var([1,0],[28,4]))
 **channel**
 
 ---
-**chop** - 'Chops' the signal into chunks using a low frequency pulse wave over the sustain of a note.
+**chop** - 'Corta' la señal en trozos usando una onda de pulso de baja frecuencia sobre la duración de una nota.
 
 ---
 **coarse**
 
 ---
-**comb delay** - See echo
+**comb delay** - Ver echo
 
 ---
 **crush**
 
 ---
-**cut** - Cuts a duration
+**cut** - Corta una duración
 ```python
 p1 >> pluck(P[:8], dur=1/2, cut=1/8)
 p1 >> pluck(P[:8], dur=1/2, cut=1/4)
@@ -399,38 +391,38 @@ p1 >> pluck(P[:8], dur=1/2, cut=1/2)
 **cutoff**
 
 ---
-**decay** - See echo
+**decay** - Ver echo
 
 ---
-**degree** - The degree of the note, or pitch, can be specified by keyword (also the first positional)
+**degree** - El grado de la nota, o tono, puede especificarse por palabra clave (también la primera posicional)
 ```python
 p1 >> blip(degree=[0,1,2,3])
 ```
 
-Which is the same as:
+Lo cual es lo mismo que:
 ```python
 p1 >> blip([0,1,2,3])
 ```
 
-Only plays the "root" note of the chord
+Solo reproduce la nota "raíz" del acorde
 ```python
 b1 >> bass(p1.degree[0])
 ```
 
 ---
-**delay** - A duration of time to wait before sending the information to SuperCollider (defaults to 0)
+**delay** - Una duración de tiempo para esperar antes de enviar la información a SuperCollider (por defecto es 0)
 
-Delays every 3 note by .1
+Retrasa cada 3 notas por .1
 ```python
 p1 >> blip([0,1,2,3], delay=[0,0,0.1])
 ```
 
-Delays every 3 note by .5
+Retrasa cada 3 notas por .5
 ```python
 p1 >> blip([0,1,2,3], delay=[0,0,0.5])
 ```
 
-Plays the note once for each different delays
+Reproduce la nota una vez por cada retraso diferente
 ```python
 p1 >> blip([0,1,2,3], delay=(0,0.1))
 p1 >> blip([0,1,2,3], delay=(0,0.25))
@@ -441,10 +433,10 @@ p1 >> blip([0,1,2,3], delay=(0,.1,.2,.3))
 **dist**
 
 ---
-**dur** - Durations (defaults to 1 and 1/2 for the Sample Player)
+**dur** - Duraciones (por defecto es 1 y 1/2 para el Sample Player)
 
 ---
-**echo** - Title keyword: echo, Attribute keyword(s): decay - Sets the decay time for any echo effect in beats, works best on Sample Player (defaults to 0) - Multiplied against the sustain value
+**echo** - Palabra clave del título: echo, Palabra(s) clave del atributo: decay - Establece el tiempo de decaimiento para cualquier efecto de eco en beats, funciona mejor en Sample Player (por defecto es 0) - Multiplicado contra el valor de sustain
 ```python
 d1 >> play("x-o-", echo=0.1)
 d1 >> play("x-o-", echo=0.5)
@@ -466,65 +458,65 @@ p1 >> pluck(P[:8], echo=.5, decay=.5)
 **freq**
 
 ---
-**hpf** - High Pass Filter - Filters out all the frequencies below given value, removing lower freqencies
+**hpf** - Filtro de Paso Alto - Filtra todas las frecuencias por debajo del valor dado, eliminando las frecuencias más bajas
 
 4000 hertz
 ```python
 p1 >> pluck(P[:8], dur=1/2, hpf=4000)
 ```
 
-HPF is 0 for 4 beats, then 4000 for 4 beats
+HPF es 0 durante 4 beats, luego 4000 durante 4 beats
 ```python
 p1 >> pluck(P[:8], dur=1/2, hpf=var([0,4000],[4,4]))
 ```
 
-Linear change on hpf from 0 take 4 beats to get to 4000, 4 beats back to 0
+Cambio lineal en hpf de 0 toma 4 beats para llegar a 4000, 4 beats de vuelta a 0
 ```python
 p1 >> pluck(P[:8], dur=1/2, hpf=linvar([0,4000],[4,4]))
 ```
 
-Linear change on hpf from 0 take 8 beats to get to 4000, then reset back to 0
+Cambio lineal en hpf de 0 toma 8 beats para llegar a 4000, luego se reinicia a 0
 ```python
 p1 >> pluck(P[:8], dur=1/2, hpf=linvar([0,4000],[8,0]))
 ```
 
-With resonance change (default is 1)
+Con cambio de resonancia (el valor predeterminado es 1)
 ```python
 p1 >> pluck(P[:8], dur=1/2, hpf=linvar([0,4000],[8,0]), hpr=.5)
 ```
 
-With resonance change as a linvar
+Con cambio de resonancia como un linvar
 ```python
 p1 >> pluck(P[:8], dur=1/2, hpf=linvar([0,4000],[8,0]), hpr=linvar([0.1,1],12))
 ```
 
 ---
-**hpr** - See hpf
+**hpr** - Ver hpf
 
 ---
-**lpf** - Low Pass Filter - Filters out all the frequencies above given value, removing higher freqencies
+**lpf** - Filtro de Paso Bajo - Filtra todas las frecuencias por encima del valor dado, eliminando las frecuencias más altas
 
 4000 hertz
 ```python
 p1 >> pluck(P[:8], dur=1/2, lpf=400)
 ```
 
-With resonance change as a linvar
+Con cambio de resonancia como un linvar
 ```python
 p1 >> pluck(P[:8], dur=1/2, lpf=linvar([500,4000],[8,0]), lpr=linvar([0.1,1],12))
 ```
 
 ---
-**lpr** - See lpf
+**lpr** - Ver lpf
 
 ---
 **midinote**
 
 ---
-**pan** - Panning, where -1 is far left, 1 is far right (defaults to 0)
+**pan** - Paneo, donde -1 es extremo izquierdo, 1 es extremo derecho (el valor predeterminado es 0)
 
 ---
-**pitch** - See degree
+**pitch** - Ver degree
 
 ----
 **pshift**
@@ -533,26 +525,26 @@ p1 >> pluck(P[:8], dur=1/2, lpf=linvar([500,4000],[8,0]), lpr=linvar([0.1,1],12)
 **oct**
 
 ---
-**rate** - Variable keyword used for misc. changes to a signal. E.g. Playback rate of the Sample Player (defaults to 1)
+**rate** - Palabra clave variable utilizada para cambios misceláneos en una señal. Por ejemplo, la tasa de reproducción del Sample Player (el valor predeterminado es 1)
 
 ---
-**room** - Title keyword: room, Attribute keyword(s): mix
+**room** - Palabra clave del título: room, Palabra(s) clave del atributo: mix
 
-The room argument specifies the size of the room
+El argumento room especifica el tamaño de la habitación
 ```python
 d1 >> play("x-o-", room=0.5)
 ```
 
-Mix is the dry/wet mix of reverb or how much the reverb is mixed with the source.  1 is all reverb, 0 is no reverb at all. (Default 0.1)
+Mix es la mezcla seca/húmeda de reverb o cuánto reverb se mezcla con la fuente.  1 es todo reverb, 0 es sin reverb en absoluto. (El valor predeterminado es 0.1)
 ```python
 d1 >> play("x-o-", room=0.5, mix=.5)
 ```
 
 ---
-**reverb** - See Room
+**reverb** - Ver Room
 
 ---
-**sample** - Special keyword for Sample Players; selects another audio file from the bank of samples for a sample character.
+**sample** - Palabra clave especial para Sample Players; selecciona otro archivo de audio del banco de muestras para un carácter de muestra.
 
 ---
 **scale**
@@ -561,7 +553,7 @@ d1 >> play("x-o-", room=0.5, mix=.5)
 **shape**
 
 ---
-**slide** - Slide To - Slides' the frequency value of a signal to freq * (slide+1) over the duration of a note (defaults to 0)
+**slide** - Deslizar A - Desliza el valor de frecuencia de una señal a freq * (slide+1) durante la duración de una nota (el valor predeterminado es 0)
 ```python
 p1 >> pluck(P[:8], dur=1/2, slide=1)
 p1 >> pluck(P[:8], dur=1/2, slide=12)
@@ -590,29 +582,29 @@ p1 >> pluck(P[:8], dur=1/2, slide=var([0,-1],[12,4]))
 **stutter**
 
 ---
-**sus** - Sustain (defaults to `dur`)
+**sus** - Sostenido (el valor predeterminado es `dur`)
 
 ---
 **swell**
 
 ---
-**vib** - Vibrato - Title keyword: vib, Attribute keyword(s): Vibrato (defaults to 0)
+**vib** - Vibrato - Palabra clave del título: vib, Palabra(s) clave del atributo: Vibrato (el valor predeterminado es 0)
 ```python
 p1 >> pluck(P[:8], dur=1/2, vib=12)
 ```
 
-With child attribute, vibdepth (default 0.2)
+Con atributo hijo, vibdepth (el valor predeterminado es 0.2)
 ```python
 p1 >> pluck(P[:8], dur=1/2, vib=12, vibdepth=0.5)
 ```
 
 ---
-**vibdepth** - See vib
+**vibdepth** - Ver vib
 
 
 ---
-### Try this!
+### ¡Intenta esto!
 
-1.  *Use _**print(SynthDef)**_ to see all available synthesizers and try them out.*
-2.  *Create a small bass line with 1-8 notes, chords with 1-8 chords, and a small melody.*
-3.  *Use some of the attributes: the octave variable **oct=**, the duration variable **dur=** and/or the amplitude gain value **amplify=** to get a better result!*
+1.  *Usa _**print(SynthDef)**_ para ver todos los sintetizadores disponibles y pruébalos.*
+2.  *Crea una pequeña línea de bajo con 1-8 notas, acordes con 1-8 acordes y una pequeña melodía.*
+3.  *Usa algunos de los atributos: la variable de octava **oct=**, la variable de duración **dur=** y/o el valor de ganancia de amplitud **amplify=** para obtener un mejor resultado!*

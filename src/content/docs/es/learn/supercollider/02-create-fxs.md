@@ -1,10 +1,10 @@
 ---
-title: How to code FXs
+title: Cómo programar FXs
 ---
 
-W.I.P
+E.N.P
 
 ---
-### Writing your own FX Definitions
+### Escribiendo tus propias Definiciones de FX
 
-W.I.P
+E.N.P

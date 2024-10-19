@@ -1,75 +1,75 @@
 ---
-title: Clock 
+title: Reloj 
 ---
 
 
-### Basics
+### Conceptos Básicos
 
 
-To stop all player objects, you can press **Ctrl+.** (Hold Ctrl and hit the period). Which is a shortcut for the command:
+Para detener todos los objetos del jugador, puedes presionar **Ctrl+.** (Mantén Ctrl y presiona el punto). Esto es un atajo para el comando:
 ```python
 Clock.clear()
 ```
 
-Change the tempo (this takes effect at the next bar) Default is 120.
+Cambiar el tempo (esto tiene efecto en el siguiente compás). El valor predeterminado es 120.
 ```python
 Clock.bpm = 144
 ```
 
-To see what is scheduled to be played.
+Para ver lo que está programado para reproducirse.
 ```python
 print(Clock)
 ```
 
-To see what the latency is
+Para ver cuál es la latencia
 ```python
 print(Clock.latency)
 ```
 
-Sometimes you want to know when the start of the next X beat cycle. To do this we use the 'mod' method. For example if we want to see when the start of the next 32 beat cycle is we can do
+A veces quieres saber cuándo comienza el siguiente ciclo de X beats. Para hacer esto usamos el método 'mod'. Por ejemplo, si queremos ver cuándo comienza el siguiente ciclo de 32 beats, podemos hacer
 ```python
 print(Clock.mod(32))
 ```
 
-### Advanced
+### Avanzado
 
-The clock can schedule anything with a __call__ method using. It takes an absolute time clue to schedule a functions - Clock.schedule needs to know the beat to call something on.
+El reloj puede programar cualquier cosa con un método __call__. Necesita una pista de tiempo absoluto para programar funciones - Clock.schedule necesita saber el beat para llamar a algo.
 ```python
-Clock.schedule()   # raises TypeError
+Clock.schedule()   # lanza TypeError
 ```
 
-Schedule an event after a certain durations - Clock.future needs to know how many beats ahead to call something
+Programar un evento después de ciertas duraciones - Clock.future necesita saber cuántos beats adelante llamar a algo
 ```python
-Clock.future()     # raises TypeError
+Clock.future()     # lanza TypeError
 ```
 
-These are equivalent
+Estos son equivalentes
 ```python
-Clock.schedule(lambda: print("hello"), Clock.now() + 4)
-Clock.future(4, lambda: print("hello"))
+Clock.schedule(lambda: print("hola"), Clock.now() + 4)
+Clock.future(4, lambda: print("hola"))
 ```
 
-To schedule something else
+Para programar algo más
 ```python
-Clock.schedule(lambda: print("hello "))
+Clock.schedule(lambda: print("hola"))
 ```
 
-We can call something every n beats
+Podemos llamar a algo cada n beats
 ```python
-Clock.every(4, lambda: print("hello"))
+Clock.every(4, lambda: print("hola"))
 ```
 
-Get the current clock and add 2. - Useful for scheduling.
+Obtener el reloj actual y sumar 2. - Útil para programar.
 ```python
 print(Clock.now() + 2)
 ```
 
-Issue command on the next bar
+Emitir comando en el siguiente compás
 ```python
 nextBar(Clock.clear)
 ```
 
-With a decorator
+Con un decorador
 ```python
 @nextBar
 def change():
@@ -78,7 +78,7 @@ def change():
     # etc etc
 ```
 
-You can create your own function, and decorate it, to be able to use it in an .every on a Player object
+Puedes crear tu propia función y decorarla para poder usarla en un .every en un objeto Player
 ```python
 @PlayerMethod
 def test(self):
@@ -87,8 +87,7 @@ def test(self):
 p1 >> pluck([0,4]).every(3, "test")
 ```
 
-And cancel it with
+Y cancelarlo con
 ```python
 p1.never("test")
-
 ```

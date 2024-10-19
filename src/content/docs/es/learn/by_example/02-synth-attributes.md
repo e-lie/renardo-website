@@ -1,11 +1,11 @@
 ---
-title: Synth Attributes
+title: Atributos de los Synths 
 ---
 
 
-### A Piano
+### Un Piano
 
-In the example below, 3 players are used to create a full piano:
+En el ejemplo a continuación, se utilizan 3 reproductores para crear un piano completo:
 
 ```python
 p1 >> piano([0,1,0,-1], oct=4, dur=2, amplify=0.75)
@@ -13,7 +13,7 @@ p2 >> piano([(2,4),(0,2),(3,5),(1,3),(2,4),(0,2),(-1,1),(-3,-1)], dur=1, amplify
 p3 >> piano([0,4,2,4,1,2,1,3,2,3,5,7,-1,3,-3,1], oct=6, dur=0.5).every(32, "reverse")
 ```
 
-This is the same as:
+Esto es lo mismo que:
 
 ```python
 bassline = [0,1,0,-1]
@@ -24,7 +24,7 @@ p2 >> piano(chords, dur=1, amplify=0.66)
 p3 >> piano(melody, oct=6, dur=0.5).every(32, "reverse")
 ```
 
-**Another example**
+**Otro Ejemplo**
 
 ```python
 Scale.default="minor"

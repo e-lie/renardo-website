@@ -5,214 +5,214 @@ title: TimeVars
 
 ### TimeVar *var()*
 
-A TimeVar is an abbreviation of "Time Dependent Variable" and is a key feature of Renardo. A TimeVar has a series of values that it changes between after a pre-defined number of beats and is created using a var object with the syntax var([list_of_values], [list_of_durations]).
+Un TimeVar es una abreviatura de "Variable Dependiente del Tiempo" y es una característica clave de Renardo. Un TimeVar tiene una serie de valores que cambia después de un número predefinido de pulsos y se crea usando un objeto var con la sintaxis var([lista_de_valores], [lista_de_duraciones]).
 
-Generates the values: 0,0,0,0,3,3,3,3...
+Genera los valores: 0,0,0,0,3,3,3,3...
 ```python
-a = var([0,3],4)            # Duration can be single value
-print(int(Clock.now()), a)  # 'a' initally has a value of 0
+a = var([0,3],4)            # La duración puede ser un valor único
+print(int(Clock.now()), a)  # 'a' inicialmente tiene un valor de 0
 ```
-Console Output - (The first value may differ):
+Salida de consola - (El primer valor puede diferir):
 _0, 0_
 
 ```python
-print(int(Clock.now()), a)   # After 4 beats, the value changes to 3
+print(int(Clock.now()), a)   # Después de 4 pulsos, el valor cambia a 3
 ```
-Console Output:
+Salida de consola:
 _4, 3_
 
 
 ```python
-print(int(Clock.now()), a)   # After another 4 beats, the value changes to 0
+print(int(Clock.now()), a)   # Después de otros 4 pulsos, el valor cambia a 0
 ```
-Console Output:
+Salida de consola:
 _8, 0_
 
 
-Duration can also be a list
+La duración también puede ser una lista
 ```python
 a = var([0,3],[4,2])
 print(int(Clock.now()), a)
 ```
 
-When a TimeVar is used in a mathematical operation, the values it affects also become TimeVars that change state when the original TimeVar changes state – this can even be used with patterns:
+Cuando un TimeVar se usa en una operación matemática, los valores que afecta también se convierten en TimeVars que cambian de estado cuando el TimeVar original cambia de estado – esto incluso se puede usar con patrones:
 ```python
 a = var([0,3], 4)
-print(int(Clock.now()), a + 5)   # When beat is 0, a is 5
+print(int(Clock.now()), a + 5)   # Cuando el pulso es 0, a es 5
 ```
-Console Output:
+Salida de consola:
 _5_
 
 ```python
-print(int(Clock.now()), a + 5)   # When beat is 4, a is 8
+print(int(Clock.now()), a + 5)   # Cuando el pulso es 4, a es 8
 ```
-Console Output:
+Salida de consola:
 _8_
 
 ```python
 b = PRange(4) + a
-print(int(Clock.now()), b)   # After 8 beats, the value changes to 0
+print(int(Clock.now()), b)   # Después de 8 pulsos, el valor cambia a 0
 ```
-Console Output:
+Salida de consola:
 _P[0, 1, 2, 3]_
 
 
 ```python
-print(int(Clock.now()), b)   # After 12 beats, the value changes to 3
+print(int(Clock.now()), b)   # Después de 12 pulsos, el valor cambia a 3
 ```
-Console Output:
+Salida de consola:
 _P[3, 4, 5, 6]_
 
 
-Use 'var' with your Player objects to create chord progressions.
+Usa 'var' con tus objetos Player para crear progresiones de acordes.
 ```python
 a = var([0,4,5,3], 4)
 b1 >> bass(a, dur=PDur(3,8))
 p1 >> pads(a + (0,2), dur=PDur(7,16))
 ```
 
-You can add a 'var' to a Player object or a var.
+Puedes añadir un 'var' a un objeto Player o a un var.
 ```python
 b1 >> bass(a, dur=PDur(3,8)) + var([0,1],[3,1])
 b = a + var([0,10],8)
 print(int(Clock.now()), (a, b))
 ```
 
-Updating the values of one 'var' will update it everywhere else
+Actualizar los valores de un 'var' actualizará en todas partes
 ```python
 a.update([1,4], 8)
 print(int(Clock.now()), (a, b))
 ```
 
-Vars can be named ...
+Los Vars pueden ser nombrados ...
 ```python
 var.chords = var([0,4,5,4],4)
 ```
 
-And used later
+Y usados después
 ```python
 b1 >> pluck(var.chords)
 ```
 
-Any players using the named var will be updated
+Cualquier jugador que use el var nombrado será actualizado
 ```python
 var.chords = var([0,1,5,3],4)
 ```
 
-You can also use a 'linvar' that changes its values gradually over time. Change the value from 0 to 1 over 16 beats
+También puedes usar un 'linvar' que cambia sus valores gradualmente con el tiempo. Cambia el valor de 0 a 1 en 16 pulsos
 ```python
 c = linvar([0,1],16)
 ```
 
-Run this multiple times to see the changes happening
+Ejecuta esto varias veces para ver los cambios
 ```python
 print(int(Clock.now()), c)
 ```
 
-Change the amp based off that linvar
+Cambia el amp basado en ese linvar
 ```python
 p1 >> pads(a, amp=c)
 ```
 
-a 'Pvar' is a 'var' that can store patterns (as opposed to say, integers)
+un 'Pvar' es un 'var' que puede almacenar patrones (en lugar de, por ejemplo, enteros)
 ```python
 d = Pvar([P[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], P[0, 1, 2, 3, 4, 5, 4, 3, 2, 1]], 8)
 print(int(Clock.now()), d)
 p1 >> pads(a, amp=c, dur=1/4) + d
 ```
 
-Change the scale every 16 beats
+Cambia la escala cada 16 pulsos
 ```python
 Scale.default = Pvar([Scale.major, Scale.minor],16)
 ```
 
-You even set the value to last forever once it is reached using a special value called "inf"
+Incluso puedes establecer el valor para que dure para siempre una vez que se alcanza usando un valor especial llamado "inf"
 ```python
 x = var([0, 1, 2, 3], [4, 4, 4, inf])
-print(x) # Keep pressing - it will eventually stop at 3
+print(x) # Sigue presionando - eventualmente se detendrá en 3
 ```
 
 ---
-### Other types of TimeVar
+### Otros tipos de TimeVar
 
 
-There are several sub-classes of **var** that return values between the numbers specified. For example a **linvar** gradually change values in a linear fashion:
+Hay varias subclases de **var** que devuelven valores entre los números especificados. Por ejemplo, un **linvar** cambia gradualmente los valores de manera lineal:
 ```python
-print(linvar([0,1],8)) # keep running to see the value change between 0 and 1
+print(linvar([0,1],8)) # sigue ejecutando para ver el valor cambiar entre 0 y 1
 ```
 
-Increase the high-pass filter cutoff over 32 beats
+Aumenta el corte del filtro de paso alto en 32 pulsos
 ```python
 p1 >> play("x-o-", hpf=linvar([0,4000],[32,0]))
 ```
 
-Other types include **sinvar** and **expvar**
+Otros tipos incluyen **sinvar** y **expvar**
 ```python
-print("Linear:", linvar([0, 1], 8))
+print("Lineal:", linvar([0, 1], 8))
 print("Sinusoidal:", sinvar([0, 1], 8))
-print("Exponential:", expvar([0, 1], 8))
+print("Exponencial:", expvar([0, 1], 8))
 ```
 
 
-**Offsetting the start time**
+**Desplazando el tiempo de inicio**
 
-Another useful trick is offsetting the start time for the var. By default it is when the Clock time is 0 but you can specify a different value using the "start" keyword
+Otro truco útil es desplazar el tiempo de inicio para el var. Por defecto es cuando el tiempo del Clock es 0 pero puedes especificar un valor diferente usando la palabra clave "start"
 ```python
 print(linvar([0, 1], 8))
 print(linvar([0, 1], 8, start=2))
 ```
 
-This can be combined with Clock.mod() to start a ramp at the start of the next 32 beat cycle:
+Esto se puede combinar con Clock.mod() para iniciar una rampa al comienzo del siguiente ciclo de 32 pulsos:
 ```python
 d1 >> play("x-o-", hpf=linvar([0,4000],[32,inf], start=Clock.mod(32)))
 ```
 
-It should be noted that when a Player() object uses a gradually changing TimeVar function, the value stored in it will be used at the time the note was triggered. This means that after playing a note you will not hear a change in value over time in the note itself. Try these lines of code for yourself:
+Cabe señalar que cuando un objeto Player() usa una función TimeVar que cambia gradualmente, el valor almacenado en él se usará en el momento en que se activó la nota. Esto significa que después de tocar una nota no escucharás un cambio en el valor con el tiempo en la nota misma. Prueba estas líneas de código por ti mismo:
 
-No gradual change in high pass frequency:
+Sin cambio gradual en la frecuencia de paso alto:
 ```python
 p1 >> dirt(dur=4, hpf=linvar([0,4000], 4))
 ```
 
-Apparent gradual change in high pass frequency:
+Cambio gradual aparente en la frecuencia de paso alto:
 ```python
 p2 >> dirt(dur=0.25, hpf=linvar([0,4000], 4))
 ```
 
-You can also use a duration of 0 to immediately skip the gradual change and move on to the next value. This is useful for "resetting" values and creating drops.
+También puedes usar una duración de 0 para saltar inmediatamente el cambio gradual y pasar al siguiente valor. Esto es útil para "restablecer" valores y crear caídas.
 
-Raise the high pass frequency filter to 4000Hz, then back to 0:
+Aumenta la frecuencia del filtro de paso alto a 4000Hz, luego vuelve a 0:
 ```python
 p1 >> dirt(dur=0.25, hpf=expvar([0,4000], [8,0]))
 ```
 
-As with normal TimeVars functions, TimeVars can be nested within other TimeVars as they gradually change to better manage the application of the values. For example, we can only increase the high pass filter frequency on the last 4 beats of a 32 beat cycle as follows.
+Como con las funciones normales de TimeVars, los TimeVars se pueden anidar dentro de otros TimeVars a medida que cambian gradualmente para gestionar mejor la aplicación de los valores. Por ejemplo, solo podemos aumentar la frecuencia del filtro de paso alto en los últimos 4 pulsos de un ciclo de 32 pulsos de la siguiente manera.
 
-Use a normal TimeVar function to set the value to 0 for 28 beats:
+Usa una función TimeVar normal para establecer el valor en 0 durante 28 pulsos:
 ```python
 p1 >> dirt(dur=0.25, hpf=var([0,expvar([0,4000], [4,0])], [28,4]))
 ```
 
 
 ---
-### TimeVars as Patterns
+### TimeVars como Patrones
 
 
-**Pvar(patterns,dur)** >> So far we have only saved individual values in a TimeVar, but sometimes it makes sense to save an entire Pattern object.
+**Pvar(patterns,dur)** >> Hasta ahora solo hemos guardado valores individuales en un TimeVar, pero a veces tiene sentido guardar un objeto Pattern completo.
 
-You cannot do this with a regular TimeVar because each pattern in the input list of values is treated as a nested list of individual values. To avoid this behavior, you have to use a Pvar, short for Pattern-TimeVar (time variable pattern).
+No puedes hacer esto con un TimeVar regular porque cada patrón en la lista de valores de entrada se trata como una lista anidada de valores individuales. Para evitar este comportamiento, tienes que usar un Pvar, abreviatura de Pattern-TimeVar (patrón de variable de tiempo).
 
-It is created just like any other TimeVar, but values can be entire lists/patterns.
+Se crea como cualquier otro TimeVar, pero los valores pueden ser listas/patrones completos.
 ```python
 a = Pvar([[0,1,2,3],[4,5,6]], 4)
 print(Clock.now(), a)
 ```
-_Console output >> 0, P[0,1,2,3]_
+_Salida de consola >> 0, P[0,1,2,3]_
 
 
-You can even nest a Pvar within a pattern like you would with a normal pattern to play alternate values.
+Incluso puedes anidar un Pvar dentro de un patrón como lo harías con un patrón normal para tocar valores alternos.
 
-Alternate the alternating notes every 8 beats:
+Alterna las notas alternas cada 8 pulsos:
 ```python
-p1 >> pluck([0,1,2,Pvar([[4,5,6,7],[11,9]], 8)], dur=0.25, sus=1)`
+p1 >> pluck([0,1,2,Pvar([[4,5,6,7],[11,9]], 8)], dur=0.25, sus=1)
 ```

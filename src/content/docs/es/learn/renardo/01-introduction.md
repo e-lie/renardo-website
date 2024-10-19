@@ -1,40 +1,40 @@
 ---
-title: Introduction
+title: Introducción
 ---
 
 
-### What is live coding?
+### ¿Qué es la codificación en vivo / Livecoding?
 
-  _**“Live Coding is a new direction in electronic music and video, and is getting somewhere interesting. Live Coders exposes and rewire the innards of software while it generates improvised music.”**_ \- toplap.org
+  _**“La codificación en vivo es una nueva dirección en la música electrónica y el video, y está llegando a algo interesante. Los codificadores en vivo exponen y reconfiguran las entrañas del software mientras genera música improvisada.”**_ \- toplap.org
 
-*   Interactive programming as an audio and/or visual art performance
-*   Using code to describe rules for an art piece
-*   Live notation/composition as performance
-*   Code can be changed and re-executed in real-time, while the program is running (compose music while performing)
-*   Takes computer language into a social environment, thus making coding to a social activity
-
-
----
-### Why using code?
-
-
-*   Classical music with notation on sheets is already a code to write musical pieces
-*   Pitch, duration, loudness in sheet music is a code, that can be read by musicians
-*   With Live coding, you can:
-*   Flexible describe rules
-*   Hack the code without an UI
-*   Interact with your composition, while it is playing
-*   Operate on the edge of liveness
+*   Programación interactiva como una actuación de arte audiovisual
+*   Usar código para describir reglas para una pieza de arte
+*   Notación/composición en vivo como actuación
+*   El código puede ser cambiado y re-ejecutado en tiempo real, mientras el programa está en ejecución (componer música mientras se realiza)
+*   Lleva el lenguaje de programación a un entorno social, convirtiendo la codificación en una actividad social
 
 
 ---
-### What is Renardo?
+### ¿Por qué usar código?
 
 
-*   Renardo is a rebirth of FoxDot, after it has been depreciated. Big thanks to the developer Ryan Kirkbride from Leeds UK for his distribution to the live coding community!
-*   Renardo is a Python package that comes with its own IDE and a plugin for [Pulsar](https://pulsar-edit.dev/) called Pulsardo
-*   Renardo plays music by accessing any SynthDefs loaded onto a local SuperCollider server with some custom bits of syntax to boot
-*   SuperCollider is a programming language originally released in 1996 by James McCartney for real-time audio synthesis and algorithmic compositions, that runs underneath the Renardo environment
-*   Live coding with Python via Renardo offers accessible states through its reactive and dynamic objects
-*   Renardo focuses on musical patterns, not the digital signal processing (DSP), which is programmed by [SuperCollider](https://en.wikipedia.org/wiki/SuperCollider) and controlled via [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control)
-*   Renardo has a clean syntax, that is easy to read, so the code can be understood by an audience and traditional musicians without knowing Renardo or Programming
+*   La música clásica con notación en partituras ya es un código para escribir piezas musicales
+*   El tono, la duración, la intensidad en la partitura es un código que puede ser leído por músicos
+*   Con la codificación en vivo, puedes:
+*   Describir reglas de manera flexible
+*   Hackear el código sin una interfaz de usuario
+*   Interactuar con tu composición mientras se está reproduciendo
+*   Operar en el borde de la inmediatez
+
+
+---
+### ¿Qué es Renardo?
+
+
+*   Renardo es un renacimiento de FoxDot, después de que ha sido depreciado. ¡Muchas gracias al desarrollador Ryan Kirkbride de Leeds, Reino Unido, por su contribución a la comunidad de codificación en vivo!
+*   Renardo es un paquete de Python que viene con su propio IDE y un plugin para [Pulsar](https://pulsar-edit.dev/) llamado Pulsardo
+*   Renardo reproduce música accediendo a cualquier SynthDefs cargado en un servidor local de SuperCollider con algunos bits de sintaxis personalizados
+*   SuperCollider es un lenguaje de programación lanzado originalmente en 1996 por James McCartney para la síntesis de audio en tiempo real y composiciones algorítmicas, que se ejecuta debajo del entorno de Renardo
+*   La codificación en vivo con Python a través de Renardo ofrece estados accesibles a través de sus objetos reactivos y dinámicos
+*   Renardo se enfoca en patrones musicales, no en el procesamiento de señales digitales (DSP), que es programado por [SuperCollider](https://es.wikipedia.org/wiki/SuperCollider) y controlado a través de [OSC](https://es.wikipedia.org/wiki/Open_Sound_Control)
+*   Renardo tiene una sintaxis limpia, que es fácil de leer, por lo que el código puede ser entendido por una audiencia y músicos tradicionales sin conocer Renardo o programación

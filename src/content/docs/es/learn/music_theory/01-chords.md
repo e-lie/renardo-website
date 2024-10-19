@@ -1,132 +1,132 @@
 ---
-title: Chords
+title: Acordes
 ---
 
 
-### Chord
+### Acorde
 
 
-In music, a chord is the simultaneous sounding of at least three different tones that can be interpreted harmonically.
+En música, un acorde es la sonoridad simultánea de al menos tres tonos diferentes que pueden interpretarse armónicamente.
 
-We can divide chords into different types depending on how many notes they have. We can have them in:
+Podemos dividir los acordes en diferentes tipos dependiendo de cuántas notas tengan. Podemos tenerlos en:
 
-* Groups of two notes - called intervals or dyads
-* Groups of three notes - known as triad chords
-* Groups of four or more notes - usually called seventh chords or expanded chords
+* Grupos de dos notas - llamados intervalos o díadas
+* Grupos de tres notas - conocidos como acordes tríada
+* Grupos de cuatro o más notas - usualmente llamados acordes séptima o acordes extendidos
 
-A triad occupies the root or first note of the scale, the third degree, and the fifth degree, with each interval being a third.
+Una tríada ocupa la raíz o primera nota de la escala, el tercer grado y el quinto grado, con cada intervalo siendo una tercera.
 
-For example, the C minor scale has the notes C-D-Eb-F-G-Ab-B-C. Take the 1st, 3rd and 5th notes (C-Eb-G) to get a C to form a minor triad.
+Por ejemplo, la escala de Do menor tiene las notas Do-Re-Mib-Fa-Sol-Lab-Si-Do. Toma las notas 1ª, 3ª y 5ª (Do-Mib-Sol) para formar una tríada menor de Do.
 
-A seventh chord uses the root, 3rd, 5th, and 7th degree degrees, so a Cmin7 chord would add the Bb (C-Eb-G-Bb). C minor seventh chord.
+Un acorde séptima usa la raíz, el 3º, 5º y 7º grado, por lo que un acorde Cmin7 añadiría el Sib (Do-Mib-Sol-Sib). Acorde de séptima menor de Do.
 
-Extended chords add the 9th, 11th, and 13th scales (the octaves of the 2nd, 4th, and 6th, respectively).
+Los acordes extendidos añaden el 9º, 11º y 13º grados (las octavas del 2º, 4º y 6º, respectivamente).
 
 
-### Chord Inversion
+### Inversión de Acordes
 
-If you have a chord where the lowest note is not the note the chord is named after, we call this a chord inversion. A chord inversion takes a different starting note (also called a bass note) and builds the chord from there. Chord inversions are mainly used to allow easier voice guidance through different chord progressions, especially in the bass.
+Si tienes un acorde donde la nota más baja no es la nota que da nombre al acorde, llamamos a esto una inversión de acorde. Una inversión de acorde toma una nota inicial diferente (también llamada nota de bajo) y construye el acorde desde allí. Las inversiones de acordes se utilizan principalmente para permitir una guía de voz más fácil a través de diferentes progresiones de acordes, especialmente en el bajo.
 
-Features of a chord inversion are:
+Las características de una inversión de acorde son:
 
-*   The root note is not in the bases.
+*   La nota raíz no está en el bajo.
     
-*   Get a smooth dynamic by rearranging the chords through changing the octave of notes to align closer to first chord, thus in versing the highest note to the bass note.
+*   Obtén una dinámica suave reorganizando los acordes cambiando la octava de las notas para alinearlas más cerca del primer acorde, invirtiendo así la nota más alta en la nota de bajo.
     
-*   Inversion of a 5th becomes a 4th and visa verse.
+*   La inversión de una 5ª se convierte en una 4ª y viceversa.
     
-*   Major 2nd inverted becomes a minor 7th and a minor 7th becomes a Major 2nd.
+*   Una 2ª mayor invertida se convierte en una 7ª menor y una 7ª menor se convierte en una 2ª mayor.
     
-*   Major 6th inverted becomes a minor 3rd and a minor 3rd becomes a Major 6th.
+*   Una 6ª mayor invertida se convierte en una 3ª menor y una 3ª menor se convierte en una 6ª mayor.
     
 
 ---
-### Chord progression
+### Progresión de Acordes
 
 
-To create a nice sounding and interesting melody, you need to carefully choose how each note moves to the next note and how each note relates to the notes in its vicinity. Notes can't be too far apart, and usually you want the notes to stay within the key or related keys.
+Para crear una melodía agradable e interesante, necesitas elegir cuidadosamente cómo se mueve cada nota a la siguiente nota y cómo cada nota se relaciona con las notas en su vecindad. Las notas no pueden estar demasiado separadas, y generalmente quieres que las notas se mantengan dentro de la tonalidad o tonalidades relacionadas.
 
-The same concept is used for harmony. Since a song usually consists of more than one chord, you need to relate each chord to the one before and after it in order for the harmonic movement to sound good and interesting. This is where a chord progression comes into play.
+El mismo concepto se utiliza para la armonía. Dado que una canción generalmente consiste en más de un acorde, necesitas relacionar cada acorde con el anterior y el siguiente para que el movimiento armónico suene bien e interesante. Aquí es donde entra en juego una progresión de acordes.
 
-A chord progression is when several different chords are played one after the other.
+Una progresión de acordes es cuando varios acordes diferentes se tocan uno tras otro.
 
 **Dur <<>> Moll**
 
-Major and minor form the two sides of the proverbial coin when it comes to defining the key of a song or composition. Songs are in either a major or a minor key. Sometimes more complex songs or pieces contain modulations (key changes), and we can see both major and minor keys represented in a single work. However, major and minor keys (and their correlating modes) cannot occur simultaneously, at least in tonal music.
+Mayor y menor forman las dos caras de la moneda proverbial cuando se trata de definir la tonalidad de una canción o composición. Las canciones están en una tonalidad mayor o menor. A veces, las canciones o piezas más complejas contienen modulaciones (cambios de tonalidad), y podemos ver tanto tonalidades mayores como menores representadas en una sola obra. Sin embargo, las tonalidades mayores y menores (y sus modos correlativos) no pueden ocurrir simultáneamente, al menos en la música tonal.
 
-Each piece or section of a piece must be either major or minor. You can't be both. Major and minor songs are based on their respective scales (modes). This provides information about both the content of the melody and the harmony of a piece.
+Cada pieza o sección de una pieza debe ser mayor o menor. No puedes ser ambos. Las canciones mayores y menores se basan en sus respectivas escalas (modos). Esto proporciona información sobre tanto el contenido de la melodía como la armonía de una pieza.
 
-In other words, songs with a major key are selected from notes found in a particular seven-note major scale (like C major or F major, etc.). Songs tuned in minor are selected from seven-part minor scales (such as C minor or F minor, etc.). In the case of minor, however, there is a super-ordinate minor scale called the natural minor, as well as two variants, each called the harmonic and melodic minor.
+En otras palabras, las canciones con una tonalidad mayor se seleccionan de notas encontradas en una escala mayor de siete notas en particular (como Do mayor o Fa mayor, etc.). Las canciones afinadas en menor se seleccionan de escalas menores de siete notas (como Do menor o Fa menor, etc.). En el caso de menor, sin embargo, hay una escala menor superordinada llamada menor natural, así como dos variantes, cada una llamada menor armónica y menor melódica.
 
-In addition, major and minor chord progressions usually follow the primary cadences (harmonic touchstones) of the mode from which they are derived. Pieces tuned to major almost always end on a major **home-base** chord. This chord is usually referred to as **I** using Roman numerals.
+Además, las progresiones de acordes mayores y menores generalmente siguen las cadencias primarias (puntos de referencia armónicos) del modo del que se derivan. Las piezas afinadas en mayor casi siempre terminan en un acorde de **base** mayor. Este acorde generalmente se refiere como **I** usando números romanos.
 
-The opposite is the case with songs in the minor key. Occasionally, however, classical pieces with a minor key surprise the listener by suddenly ending with a major third in the **home-base** or **I** chord. This unexpected switch gives the music a sudden boost. The classic term for this is Picardy third.
+Lo contrario es el caso con las canciones en tonalidad menor. Ocasionalmente, sin embargo, las piezas clásicas en tonalidad menor sorprenden al oyente al terminar repentinamente con una tercera mayor en el acorde de **base** o **I**. Este cambio inesperado le da a la música un impulso repentino. El término clásico para esto es tercera de Picardía.
 
-Create a minor from a major chord by lowering the 3rd, 6th and 7th degrees by one note.
+Crea un menor a partir de un acorde mayor bajando los grados 3º, 6º y 7º en una nota.
 
-Minor:
+Menor:
 
 | **Moll** | **Dim**  | **Dur** | **Moll** | **Moll** | **Dur** | **Dur** |
 | -------- | -------- | ------- | -------- | -------- | --------| ------- |
 
 
-Major:
+Mayor:
 
 | **Dur**  | **Moll** | **Moll** | **Dur**  |  **Dur** | **Moll** | **Dim** |
 | -------- | -------- | -------- | -------- | -------- | ---------| ------- |
 
 
-Am Example:
+Ejemplo en La menor:
 
 |  **Am**  |  **B0** | **C** |  **Dm**  |  **Em**  |  **F**  | **G** |
 | -------- | ------- | ----- | -------- | -------- | ------- | ----- |
 
 
-Cm Example:
+Ejemplo en Do menor:
 
 |  **Cm**  |  **D0** | **D#** |  **Fm**  |  **Gm**  |  **G#**  | **A#** |
 | -------- | ------- | ------ | -------- | -------- | -------- | ------ |
 
 
-**A minor scale can be achieved by lowering the 3rd, 6th and 7th major tones by one note**
+**Una escala menor se puede lograr bajando los tonos 3º, 6º y 7º mayores en una nota**
 
 ```python
 print(Scale.major)
 ```
-_Console output >> P[0,2,4,5,7,9,11]_
+_Salida de consola >> P[0,2,4,5,7,9,11]_
 
 
 ```python
 print(Scale.minor)
 
 ```
-_Console output >> P[0,2,3,5,7,8,10]_
+_Salida de consola >> P[0,2,3,5,7,8,10]_
 
 
-If you only want to change one chord to minor, lower the third note.
+Si solo quieres cambiar un acorde a menor, baja la tercera nota.
 
-A melodic minor scale is created by raising the 6th and 7th notes of the minor scale.
+Una escala menor melódica se crea subiendo las notas 6ª y 7ª de la escala menor.
 
 ```python
 print(Scale.minor)
 
 ```
-_Console output >> P[0,2,3,5,7,8,10]_
+_Salida de consola >> P[0,2,3,5,7,8,10]_
 
 
 ```python
 print(Scale.melodicMinor)
 ```
-_Console output >> P[0,2,3,5,7,9,11]_
+_Salida de consola >> P[0,2,3,5,7,9,11]_
 
 
-Examples 7th minor scale of E (E3,F#3,G3,A3,B3,C4,D4,E4)
+Ejemplos de escala menor séptima de Mi (E3,F#3,G3,A3,B3,C4,D4,E4)
 
-* E3, G3, B3, D4 – m7 (add F#4 for m9)
-* F#3, A3, C4, E4 – Dim7 (add G4 for Dim9) 
-* G3, B3, D4, F#4 – Maj7 (add A4 for Maj9)
-* A3, C4, E4, G4 – m7 (add B4 for m9)
-* B3, D4, F#4, A4 – m7 (add C5 for m9)
-* C4, E4, C4, B4 – Maj7 (add D5 for Maj9)
-* D4, F#4, A4, C5 – Major chord with minor7 – Dom7 (add E5 for Dom9)
+* E3, G3, B3, D4 – m7 (añadir F#4 para m9)
+* F#3, A3, C4, E4 – Dim7 (añadir G4 para Dim9) 
+* G3, B3, D4, F#4 – Maj7 (añadir A4 para Maj9)
+* A3, C4, E4, G4 – m7 (añadir B4 para m9)
+* B3, D4, F#4, A4 – m7 (añadir C5 para m9)
+* C4, E4, C4, B4 – Maj7 (añadir D5 para Maj9)
+* D4, F#4, A4, C5 – Acorde mayor con séptima menor – Dom7 (añadir E5 para Dom9)
 

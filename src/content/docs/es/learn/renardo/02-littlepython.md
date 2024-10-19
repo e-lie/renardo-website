@@ -1,29 +1,27 @@
 ---
-title: Start a little Python
+title: Comienza con un poco de Python
 ---
 
+Como Renardo usa Python, comenzamos con algo de código Python. Para ejecutar código en Renardo, asegúrate de que el cursor de texto esté en el 'bloque' de código (secciones de texto no separadas por líneas en blanco) y presiona `Ctrl+Return`.
 
-As Renardo uses Python, we start with some Python code. To execute code in Renardo, make sure your text cursor is in the 'block' of code
-(sections of text not separated by blank lines) and press `Ctrl+Return`.
-
-Enter the following line in the text part of the editor and press Ctrl+Enter (Cmd+Return) while the cursor is positioned over at the line.
+Ingresa la siguiente línea en la parte de texto del editor y presiona Ctrl+Enter (Cmd+Return) mientras el cursor esté posicionado sobre la línea.
 ```python
 2 + 2
 ```
 
-The output of an executed code is displayed in the console in the lower window of the program. The console displays the line you entered. Use the Python function **print()** to display the result.
+La salida de un código ejecutado se muestra en la consola en la ventana inferior del programa. La consola muestra la línea que ingresaste. Usa la función de Python **print()** para mostrar el resultado.
 ```python
 print(2 + 2)
 ```
 
-Now we're going to wrap the equation in a variable. We will use variables often. Write the 2 lines directly below each other so that it can be completely executed as a block:
+Ahora vamos a envolver la ecuación en una variable. Usaremos variables a menudo. Escribe las 2 líneas directamente una debajo de la otra para que se puedan ejecutar completamente como un bloque:
 ```python
 a = 2 + 2
 
 print(a)
 ```
 
-Variables can also be combined:
+Las variables también se pueden combinar:
 ```python
 a = 2
 b = 3
@@ -31,17 +29,16 @@ c = a + b
 print(c)
 ```
 
-If you only want to execute one line within the block, move the cursor over the line and press **Alt + Enter**. Try some text in quotation marks:
+Si solo deseas ejecutar una línea dentro del bloque, mueve el cursor sobre la línea y presiona **Alt + Enter**. Prueba con algún texto entre comillas:
 ```python
-print("Hello lively coder!")
+print("¡Hola, codificador animado!")
 ```
 
-The general philosophy of Renardo is to create “Player()”-objects as simply as possible, while taking keyword arguments that mirrors SuperCollider's Pbind-SynthDef relationships and schedules their actions on a globally accessible clock.
+La filosofía general de Renardo es crear objetos “Player()” de la manera más simple posible, mientras se toman argumentos de palabras clave que reflejan las relaciones Pbind-SynthDef de SuperCollider y programan sus acciones en un reloj accesible globalmente.
 
-If you want to know more about a function or class – just type help followed by the name of that Python object in brackets >> _help(object)_, e.g.:
+Si deseas saber más sobre una función o clase, simplemente escribe help seguido del nombre de ese objeto de Python entre paréntesis >> _help(object)_, por ejemplo:
 ```python
 help(Player())
 ```
 
-A SynthDef in Renardo is a Player() object. It is essentially your digital instrument you will use in your composition.
-
+Un SynthDef en Renardo es un objeto Player(). Es esencialmente tu instrumento digital que usarás en tu composición.

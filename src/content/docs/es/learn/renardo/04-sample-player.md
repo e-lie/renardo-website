@@ -1,57 +1,54 @@
 ---
-title: Sample Player
+title: Reproductor de Muestras
 ---
 
-### Sample Player Object
+### Objeto Reproductor de Muestras
 
-Renardo can also be used to sequence and manipulate audio samples. To do this all you need to do is use the special **play()** Player() object. Unlike synthesizer Player() objects, the first argument to **play** should be a string of characters, not numbers. As a result, more information can be encoded in the character string than the character itself means. Each character relates to a range of audio files such as kicks, hi-hats, snares, and other sounds. Each audio file will be stored in a buffer in SuperCollider.
+Renardo también se puede usar para secuenciar y manipular muestras de audio. Para hacer esto, solo necesitas usar el objeto especial **play()** Player(). A diferencia de los objetos Player() de sintetizador, el primer argumento de **play** debe ser una cadena de caracteres, no números. Como resultado, se puede codificar más información en la cadena de caracteres de lo que el carácter en sí significa. Cada carácter se relaciona con un rango de archivos de audio como bombos, hi-hats, cajas y otros sonidos. Cada archivo de audio se almacenará en un búfer en SuperCollider.
 
-To view which character relates to which audio file, execute:
+Para ver qué carácter se relaciona con qué archivo de audio, ejecuta:
 ```python
 print(Samples)
 ```
 
-There is a sound pack folder in Renardo called _**/samples/0_foxdot_default**_. This folder contains all characters named folders with samples. In order to use or create your own sample pack, you will need to name clone of the folder structure with top folder name like **1_my_samples**, with path /samples/1_my_samples/. You can call samples from your own sample pack with the attribute **spack**:
+Hay una carpeta de paquetes de sonido en Renardo llamada _**/samples/0_foxdot_default**_. Esta carpeta contiene todas las carpetas nombradas con caracteres con muestras. Para usar o crear tu propio paquete de muestras, necesitarás nombrar una copia de la estructura de carpetas con un nombre de carpeta superior como **1_my_samples**, con la ruta /samples/1_my_samples/. Puedes llamar a muestras de tu propio paquete de muestras con el atributo **spack**:
 ```python
 b1 >> play("x", spack=1)
 ```
 
-The simplest drum pattern for disco is:
+El patrón de batería más simple para disco es:
 ```python
 b1 >> play("x-o-")
 ```
 
-A character refers to a sound and whitespace is used for silence, so
-you can spread sounds out in time:
+Un carácter se refiere a un sonido y el espacio en blanco se usa para el silencio, por lo que puedes distribuir los sonidos en el tiempo:
 ```python
 bd >> play("x  x  ")
 ```
 
-You also can use dots instead of whitespace:
+También puedes usar puntos en lugar de espacios en blanco:
 ```python
 bd >> play("x..x..")
 ```
 
-Different types of brackets add more information to one sequence. Put two or more characters in round brackets, the sound alternates with the new loop one after the other, thus lacing sound samples:
+Diferentes tipos de corchetes añaden más información a una secuencia. Pon dos o más caracteres en paréntesis redondos, el sonido alterna con el nuevo bucle uno tras otro, entrelazando muestras de sonido:
 
-The following is the same as "-------=":
+Lo siguiente es lo mismo que "-------=":
 ```
 hh >> play("---(-=)")
 ```
 
-Simple pattern example:
+Ejemplo de patrón simple:
 ```python
 d1 >> play("(x-)(-x)o-")
 ```
 
-Nested brackets for more variety:
+Paréntesis anidados para más variedad:
 ```python
 d1 >> play("(x-)(-(xo))o-")
 ```
 
-Putting characters in square brackets will play them all in the space of one beat,
-and will be played like one character, not simultaneous, but in quick succession
-
+Poner caracteres en corchetes cuadrados los reproducirá todos en el espacio de un compás, y se reproducirán como un solo carácter, no simultáneamente, sino en rápida sucesión:
 ```python
 d1 >> play("x-o[-o]")
 d1 >> play("x-o[---]")
@@ -59,101 +56,99 @@ d1 >> play("x-o[-----]")
 d1 >> play("x-o[--------------]")
 ```
 
-Play a triplet in the fourth beat:
+Reproduce un triplete en el cuarto compás:
 ```python
 d1 >> play("x-o[---]", dur=1)
 ```
 
-and can be put in round brackets as if they were one character themselves.
+y se pueden poner en paréntesis redondos como si fueran un solo carácter.
 ```python
 d1 >> play("x[--]o(=[-o])")
 ```
 
-Use square brackets in round brackets:
+Usa corchetes cuadrados en paréntesis redondos:
 ```python
 d1 >> play("(x-)(-[-x])o-")
 ```
 
-Use round brackets in squared brackets:
+Usa paréntesis redondos en corchetes cuadrados:
 ```python
 b1 >> play("x-o[-(xo)]")
 ```
 
-You can combine the brackets however you like: the following patterns are identical
+Puedes combinar los corchetes como quieras: los siguientes patrones son idénticos
 ```python
 d1 >> play("x-o(-[-o])")
 d1 >> play("x-o[-(o )]")
 ```
 
-Curly braces select a sample sound at random if you want more variety:
+Las llaves seleccionan un sonido de muestra al azar si quieres más variedad:
 ```python
 d1 >> play("x-o{-=[--][-o]}")
 ```
 
-Angle brackets combine patterns to be play simultaneously:
+Los corchetes angulares combinan patrones para reproducirse simultáneamente:
 ```python
 d1 >> play("<X   ><-   ><#   ><V   >")
 d1 >> play("<X   >< -  ><  # ><   V>")
 ```
 
-Each character is mapped to a folder of sound files and you can select different
-samples by using the "sample" keyword argument:
+Cada carácter se asigna a una carpeta de archivos de sonido y puedes seleccionar diferentes muestras usando el argumento de palabra clave "sample":
 ```
 d1 >> play("(x[--])xu[--]")
 d1 >> play("(x[--])xu[--]", sample=1)
 d1 >> play("(x[--])xu[--]", sample=2)
 ```
 
-Change the sample for each beat:
+Cambia la muestra para cada compás:
 ```python
 d1 >> play("(x[--])xu[--]", sample=[1,2,3])
 ```
 
-You can layer two patterns together - note the "P", look at tutorial 4 for more information:
+Puedes superponer dos patrones juntos - nota la "P", mira el tutorial 4 para más información:
 ```python
 d1 >> play(P["x-o-"] & P[" **"])
 ```
 
-And change effects applied to all the layered patterns at the same time:
+Y cambia los efectos aplicados a todos los patrones superpuestos al mismo tiempo:
 ```python
 d1 >> play(P["x-o-"] & P[" **"], room=0.5)
 ```
 
-Example from the player tutorial, but with samples instead
-Conditionals...
+Ejemplo del tutorial del reproductor, pero con muestras en su lugar
+Condicionales...
 ```python
 d1 >> play("x[--]xu[--]x", sample=(d1.degree=="x"))
 ```
 
-Or change it to sample bank 2 by multiplying:
+O cámbialo al banco de muestras 2 multiplicando:
 ```python
 d1 >> play("x[--]xu[--]x", sample=(d1.degree=="x")*2)
 ```
 
-Chain multiple conditionals:
+Encadena múltiples condicionales:
 ```python
 d1 >> play("x[--]xu[--]x", sample=(d1.degree=="x")*2 + (d1.degree=="-")*5)
 ```
 
-Which is the same as:
+Lo cual es lo mismo que:
 ```python
 d1 >> play("x[--]xu[--]x", sample=d1.degree.map({"x":2, "-":5}))
 ```
 
 ---
-### Attribute *sample*
+### Atributo *sample*
 
+Cada carácter se refiere a una carpeta con el mismo carácter. Las carpetas con una letra como carácter contienen 2 subcarpetas, a saber, **upper** y **lower**.
 
-Each character refers to a folder with same character. Folders with a letter as character contains 2 sub-folders namely **upper** and **lower**.
+Esas carpetas y subcarpetas contienen archivos de audio, que pueden ser llamados por objetos _play_\-Player().
 
-Those folders and sub-folders contain audio files, that can be called by _play_\-Player() objects.
-
-The audio files are arranged in alphabetical order. Use the sample attribute to select an audio file in this folder. Default is the first sample file in each folder, thus _sample=0_.
+Los archivos de audio están ordenados alfabéticamente. Usa el atributo sample para seleccionar un archivo de audio en esta carpeta. Por defecto es el primer archivo de muestra en cada carpeta, por lo tanto _sample=0_.
 ```python
 b1 >> play("x-o-", sample=1)
 ```
 
-Like any other argument, _sample_ can be a list (one at a time) or even a tuple (simultaneously) of values.
+Como cualquier otro argumento, _sample_ puede ser una lista (uno a la vez) o incluso una tupla (simultáneamente) de valores.
 ```python
 p1 >> play("x-o-", sample=[0,1,2])
 ```
@@ -162,45 +157,45 @@ p1 >> play("x-o-", sample=[0,1,2])
 p1 >> play("x-o-", sample=(0,3))
 ```
 
-The example for a single character can be given within the character string itself by surrounding the character with a "|" + the position number:
+El ejemplo para un solo carácter se puede dar dentro de la cadena de caracteres rodeando el carácter con un "|" + el número de posición:
 
-Play _sample=2_ for the letter 'o':
+Reproduce _sample=2_ para la letra 'o':
 ```python
 p1 >> play("x-|o2|-")
 ```
 
-This will overwrite the specified value under _sample_:
+Esto sobrescribirá el valor especificado bajo _sample_:
 ```python
 p1 >> play("x-|o2|-", sample=3)
 ```
 
-The syntax can contain any of the parentheses previously used for the character and numbers.
+La sintaxis puede contener cualquiera de los paréntesis utilizados anteriormente para el carácter y los números.
 
-Change the sample number:
+Cambia el número de muestra:
 ```python
 p1 >> play("x-|o(12)|-")
 ```
 
-Change the sign:
+Cambia el signo:
 ```python
 p1 >> play("x-|(o*)2)|-")
 ```
 
-Play several different samples in one step:
+Reproduce varias muestras diferentes en un paso:
 ```python
 p1 >> play("x-|o[23]|-")
 ```
 
-Play a random sample:
+Reproduce una muestra aleatoria:
 ```python
 b1 >> play("x-|o{1[23]}|-")
 ```
 
-If you decide to use several Player() objects to create e.g. a drum set, then it is recommended to use _sample_ conventional, thus giving you a different way to change samples in time by using TimeVar() functions.
+Si decides usar varios objetos Player() para crear, por ejemplo, un set de batería, entonces se recomienda usar _sample_ convencionalmente, dándote así una forma diferente de cambiar muestras en el tiempo usando funciones TimeVar().
 ```python
 Clock.bpm=142
 brks = [1]*28 + [0]*4
-# SAMPLES
+# MUESTRAS
 k1 >> play("A", sample=var([0,2], 64), dur=2, delay=[0,0.5], amplify=0.75*P[brks], amp=1)
 k2 >> play("A", sample=1, dur=4, delay=[0,(0,0.5),0,(0,1.5)], pshift=var([0,1], 32), amplify=0.6*P[brks], amp=1)
 k3 >> play("V", sample=[0,1,0,3], dur=2, delay=k1.delay, amplify=0.5*P[brks], amp=1)
@@ -215,77 +210,74 @@ drumset.amp=1
 ```
 
 ---
-### Layering sequences
+### Superposición de secuencias
 
+También puedes usar signos **< >** para superponer múltiples secuencias simultáneamente. Comencemos con dos secuencias separadas y luego pongámoslas juntas en una sola línea de código.
 
-You can also use **< >** signs to layer multiple sequences simultaneously. Let’s start with two separate sequences and then put them together in a single line of code.
-
-_**Note: The \***_**dot** is equivalent to **space**. Like **space**, it is a placeholder that helps to better recognize temporal positioning
+_**Nota: El \***_**punto** es equivalente a **espacio**. Al igual que **espacio**, es un marcador de posición que ayuda a reconocer mejor la posición temporal
 ```python
 b1 >> play("x-o-")
 
 b2 >> play("..+.+.[.+]")
 ```
 
-We can place any sequence between "<>" characters in a single sequence and have them play at the same time:
+Podemos colocar cualquier secuencia entre los caracteres "<>" en una sola secuencia y hacer que se reproduzcan al mismo tiempo:
 ```python
 b1 >> play("<x-o-><..+.+.[.+]>")
 ```
 
-This is equivalent to:
+Esto es equivalente a:
 ```python
 b1 >> play(P["x-o-"].zip(P["..+.+.[.+]"]))
 ```
 
-_Zip can be understood as a zipper._
+_Zip se puede entender como una cremallera._
 
-Each _layer_ relates to the index in a group of values given to a Player()-object, each _layer_ is affected only by one of those given values. This is best demonstrated by an example:
+Cada _capa_ se relaciona con el índice en un grupo de valores dados a un objeto Player(), cada _capa_ solo se ve afectada por uno de esos valores dados. Esto se demuestra mejor con un ejemplo:
 
-Pan each sequence hard on the left and right channels using square brackets in the _pan_ attribute:
+Panorámica de cada secuencia en los canales izquierdo y derecho usando corchetes cuadrados en el atributo _pan_:
 ```python
 b1 >> play("<x-o-><..+.+.[.+]>", pan=[-1,1])
 ```
 
-Expand the stereo effect by using round brackets:
+Expande el efecto estéreo usando paréntesis redondos:
 ```python
 b1 >> play("<x-o-><..+.+.[.+]>", pan=(-1,1))
 ```
 
-Change the audio file used in the first layer:
+Cambia el archivo de audio usado en la primera capa:
 ```python
 b1 >> play("<x-o-><..+.+.[.+]>", sample=(2,0))
 ```
 
-Be careful when combining multiple layers with functions like **offadd** as this functions create new layers.
+Ten cuidado al combinar múltiples capas con funciones como **offadd** ya que estas funciones crean nuevas capas.
 
-The following code will only affect the second layer, so the first layer is unaffected:
+El siguiente código solo afectará a la segunda capa, por lo que la primera capa no se verá afectada:
 ```python
 b1 >> play("<x-o-><..+.+.[.+]>", sample=(2,0)).every(4, "sample.offadd", 2)
 ```
 
 ---
-### Try this!
+### ¡Intenta esto!
 
+_Revisa los caracteres y escucha los diferentes ejemplos disponibles. Usa el atributo sample=[:8]. Los archivos de audio o muestras se repetirán si el carácter contiene menos de 9 muestras (0-8 son 9 números) en la carpeta dedicada!_
 
-_Go through the characters and listen to the different examples available. Use the attribute sample=[:8]. The audio files or samples will be repeated if the character contains fewer than 9 samples (0-8 are 9 numbers) in the dedicated folder!_
-
-
-| **Name**      | **Letter/Character** |
+| **Nombre**    | **Letra/Carácter**   |
 | ------------- | ---------------------|
-| Kick          | A v V x X W          |
-| Snare/Rim     | D i I o O t u        |
+| Bombo         | A v V x X W          |
+| Caja/Rim      | D i I o O t u        |
 | Hihat         | : = - a n N          |
-| Clap/Snap     | \ * h H              |
-| Cymbal/Crash  | / # e E              |
+| Aplauso/Chasquido | \ * h H          |
+| Platillo/Crash| / # e E              |
 | Tom/Tom-like  | m M p P w            |
-| Percussion    | & + d f l r R y      |
-| SoundFX       | \\ b F k L Q Y z Z   |
-| Voice         | 1 2 3 4 ! < ? c C    |
-| Bell          | T                    |
-| Various       | $ ; B g G j J K q U  |
-| Noise         | @ %                  |
+| Percusión     | & + d f l r R y      |
+| Efectos de Sonido | \\ b F k L Q Y z Z |
+| Voz           | 1 2 3 4 ! < ? c C    |
+| Campana       | T                    |
+| Varios        | $ ; B g G j J K q U  |
+| Ruido         | @ %                  |
 | Shaker        | s S                  |
 | Ride          | ~                    |
 
-_Create a 16 beat rhythm with your preferred samples. Use Clock.bpm=120 to change the beat per minutes, or speed of rhythm in time!_
+_Crea un ritmo de 16 compases con tus muestras preferidas. Usa Clock.bpm=120 para cambiar los latidos por minuto, o la velocidad del ritmo en el tiempo!_
 

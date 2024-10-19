@@ -2,15 +2,15 @@
 title: Beats
 ---
 
-### Create beats
+### Crer beats
 
-*   Try to add variations, modulations, and/or swing (e.g. attribute **nugde**) to your beats to keep it alive.
-*   Variations are changes in the beat structure from one bar to another.
-*   Modulations are effects on the entire drum set, or on single parts of the drum set.
-*   Adjust some off notes to get a different dynamic within the beat, give your beat some swing.
-*   Be careful not to get to dynamic, thus losing the drive through the bass drum.
+*   Intenta agregar variaciones, modulaciones y/o swing (por ejemplo, el atributo **nudge**) a tus ritmos para mantenerlos vivos.
+*   Las variaciones son cambios en la estructura del ritmo de un compás a otro.
+*   Las modulaciones son efectos en todo el conjunto de batería o en partes individuales del conjunto de batería.
+*   Ajusta algunas notas fuera de tiempo para obtener una dinámica diferente dentro del ritmo, dale swing a tu ritmo.
+*   Ten cuidado de no ser demasiado dinámico, ya que podrías perder el impulso a través del bombo.
 
-Start with the basic pattern made of a kick, a snare, and a HiHat.
+Comienza con el patrón básico compuesto por un bombo, una caja y un HiHat.
 
 ```python
 k1 >> play(“X...X...”)
@@ -18,28 +18,26 @@ s1 >> play(“..o...o.”)
 h1 >> play(“-.-.-.-.”)
 ```
 
-**.** (dot) is used as a placeholder to make it easier to see.
+**.** (punto) se utiliza como marcador de posición para facilitar la visualización.
 
-As we will increase our beat in the future, leave 3 player for the drum or drum-like sounds, 3 player for snare and snare-like sounds, and 3 for HiHat, OpenHat s.o.
+A medida que aumentemos nuestro ritmo en el futuro, deja 3 reproductores para los sonidos de batería o similares a la batería, 3 reproductores para sonidos de caja y similares a la caja, y 3 para HiHat, OpenHat, etc.
 
-
-Now lets add a variation to the HiHat:
+Ahora agreguemos una variación al HiHat:
 ```python
 h1 >> play(“-.-.-.-.”).every(16,”mirror”).every(8,”stutter”,2)
 ```
 
-And here another example:
+Y aquí otro ejemplo:
 ```python
 h2 >> play(“--------”, sample=3, amplify=[0.3,0.3,0.6,0.3,0.3,0.6,0.3,0.6])
 ```
 
-You also can add _ghost_ notes, that are usually quieter 16 offbeat notes before or after the _main_ note. For this, we will use **<>** for layering to adjust the volume to the _ghost_ note:
+También puedes agregar notas _fantasma_, que suelen ser notas más silenciosas en el contratiempo 16 antes o después de la nota _principal_. Para esto, usaremos **<>** para superponer y ajustar el volumen a la nota _fantasma_:
 ```python
 ks >> play(“<..o...o.><.[.o]......>”, amplify=(0.7, 0.3))
 ```
 
-
-**The following examples will help you to experience the concept using familiar rhythms and beats. In addition, use your own arguments.**
+**Los siguientes ejemplos te ayudarán a experimentar el concepto utilizando ritmos y beats familiares. Además, usa tus propios argumentos.**
    
 
 ---
@@ -109,7 +107,7 @@ b4 >> play(Pvar(["..o...o.", "..o...oo"], 16), dur=1, rate=0.75, sample=2, ampli
 b5 >> play(Pvar(["..i...i.", "..i...ii"], 16), dur=1, sample=4, amplify=0.4)
 b6 >> play(Pvar(["..h...h.", "..h...hh"], 16), dur=1, sample=5, amplify=0.4)
 
-Closed HiHat:
+HiHat cerrado:
 b7 >> play("-", dur=0.5, rate=0.4, pshift=linvar([0,8], 8), sample=4, amplify=0.8)
 b8 >> play("s", dur=0.5, rate=1, sample=1, amplify=PRand([0.4,PWhite(0.6,0.4)]))
 
@@ -121,16 +119,16 @@ c4 >> play("o.", dur=Pvar([1,0.5,0.25,0.1], [16,8,4,4]), rate=0.75, sample=2, am
 c5 >> play("i.", dur=Pvar([1,0.5,0.25,0.1], [16,8,4,4]), sample=4, amplify=Pvar([0.4,0], [30,2]))
 c6 >> play("h.", dur=Pvar([1,0.5,0.25,0.1], [16,8,4,4]), sample=5, amplify=Pvar([0.4,0], [30,2]))
 
-Create Groups to control a bunch of Player() objects at the same time:
+Crea Grupos para controlar varios objetos Player() al mismo tiempo:
 gB = Group(b1,b2,b3,b4,b5,b6,b7,b8)
 gC = Group(c1,c2,c3,c4,c5,c6)
 
-Use a TimeVar to swap between Build and Drop:
+Usa un TimeVar para alternar entre Build y Drop:
 gB.amp=var([1,0], [64,32])
 gC.amp=var([0,1], [64,32])
 
 
-_Add stretch, pshift, rate or reverse to create different patterns!_
+_Agrega stretch, pshift, rate o reverse para crear diferentes patrones!_
 ``` Drum N Bass
 
 

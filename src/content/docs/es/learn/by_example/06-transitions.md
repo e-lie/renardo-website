@@ -1,12 +1,11 @@
 ---
-title: Transitions
+title: Transiciones
 ---
 
+### Crear transiciones
 
-### Create transitions
-
-* Ramp up, then breath, then beat again (drum roll...silence…beat). Here one can excellently the group assignments z. B. with **gBeats.hpf = linvar([0,5000], [12,0], start = Clock.now())**, then all of a sudden **gBeats.amp = var([0,1], [4 ,inf], start=Clock.now())**
-* To start a transition with the next bar just use **start=nextbar** instead.
-* Subtract before you add, like no bass beat only snare and HiHat.
-* Roll and ramp it up with 8th and 16th notes of e.g. snare, HiHat, Shaker.
-* If you need a transition from one section to another, without big subtraction like taking drum beat out, be subtle.
+* Aumenta gradualmente, luego respira, luego vuelve a latir (redoble de tambor...silencio...latido). Aquí se pueden asignar excelentemente los grupos, por ejemplo, con **gBeats.hpf = linvar([0,5000], [12,0], start = Clock.now())**, luego de repente **gBeats.amp = var([0,1], [4 ,inf], start=Clock.now())**
+* Para comenzar una transición con el siguiente compás, simplemente usa **start=nextbar**.
+* Resta antes de sumar, como sin el bajo, solo caja y HiHat.
+* Enrolla y aumenta con notas de 8ª y 16ª de, por ejemplo, caja, HiHat, Shaker.
+* Si necesitas una transición de una sección a otra, sin una gran resta como quitar el ritmo de batería, sé sutil.

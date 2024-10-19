@@ -1,28 +1,27 @@
 ---
-title: Scales
+title: Escalas
 ---
 
+### Recorre todas las escalas
 
-### Play through all scales
+_Usa el siguiente código para iterar a través de todas las escalas disponibles que proporciona Renardo._
 
-_Use the following code to iterate through all of the available scales Renardo provides._
-
-Displays all available scales:
+Muestra todas las escalas disponibles:
 ```python
 print(Scale.names())
 ```
 
-Assign the selected scale as the default:
+Asigna la escala seleccionada como predeterminada:
 ```python
 Scale.default=Scale.chromatic
 ```
 
-Variable to assign a step to each note on the scale:
+Variable para asignar un paso a cada nota en la escala:
 ```python
 steps=len(Scale.default)
 ```
 
-Play the notes through the scale:
+Toca las notas a través de la escala:
 ```python
 p1 >> pluck(P[:steps])
 ```

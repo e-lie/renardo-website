@@ -1,23 +1,22 @@
 ---
-title: Preparation
+title: Preparación
 ---
 
-
-**Following guidelines will help and protect your ears and your equipment as a beginner with Renardo.** 
+**Las siguientes pautas te ayudarán a proteger tus oídos y tu equipo como principiante con Renardo.**
 
 ---
 
-**Activate "SafetyNet"**
+**Activar "SafetyNet"**
 
-SafetyNet is a SuperCollider quark that protects users from dangerous audio signals. Install the necessary module in SuperCollider with the following command line:
+SafetyNet es un quark de SuperCollider que protege a los usuarios de señales de audio peligrosas. Instala el módulo necesario en SuperCollider con la siguiente línea de comando:
 
 ```
 Quarks.install("SafetyNet")
 ```
 
-Go with your cursor over the respective line and press _**Ctrl + Return (Cmd + Enter)**_ to trigger the command
+Coloca tu cursor sobre la línea respectiva y presiona _**Ctrl + Return (Cmd + Enter)**_ para ejecutar el comando.
 
-Hint: There is a graphical window version for installing Quark elements. Use the command line below for this:
+Consejo: Hay una versión de ventana gráfica para instalar elementos de Quark. Usa la siguiente línea de comando para esto:
 
 ```
 Quarks.gui
@@ -25,9 +24,9 @@ Quarks.gui
 
 ---
 
-**Always start low**
+**Siempre empieza bajo**
 
-If you start with a new player, it is advised starting with lower volume. The synths or samples can appear unpredictably loud depend on changes in attributes. Furthermore, it will sound nicer in its entire experience, if an instrument comes in with increasing volume instead to overwhelm other sounds in the mix.
+Si comienzas con un nuevo reproductor, se recomienda empezar con un volumen bajo. Los sintetizadores o muestras pueden aparecer inesperadamente fuertes dependiendo de los cambios en los atributos. Además, sonará mejor en su experiencia completa si un instrumento entra con un volumen creciente en lugar de abrumar otros sonidos en la mezcla.
 
 ```python
 p1 >> pluck(amplify=0.1) ... p1 >> pluck(amplify=0.3)
@@ -35,21 +34,21 @@ p1 >> pluck(amplify=0.1) ... p1 >> pluck(amplify=0.3)
 
 ---
 
-**Experiment with care**
+**Experimenta con cuidado**
 
-Be cautious while using attribute values when experimenting. For example a high octave can lead to nasty sounds, which not only can hurt your equipment of your machine, but can damage your ears while wearing headphones as well.
+Ten cuidado al usar valores de atributos al experimentar. Por ejemplo, una octava alta puede producir sonidos desagradables, que no solo pueden dañar tu equipo, sino también tus oídos si usas auriculares.
 
-In traditional music theory, the octave of middle C is 3. However, it is 5 in Renardo.
+En la teoría musical tradicional, la octava de Do central es 3. Sin embargo, es 5 en Renardo.
 ```python
 oct=5
 ```
 
-Bad example:
+Mal ejemplo:
 ```python
 oct=60
 ```
 
-To get all default values of basic attributes of a player use:
+Para obtener todos los valores predeterminados de los atributos básicos de un reproductor, usa:
 ```python
 print(Player("pluck").info())
 ```

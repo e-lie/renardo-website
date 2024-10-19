@@ -1,53 +1,54 @@
 ---
-title: Scales
+title: Escalas
 ---
 
-By default, Player Objects use the C Major scale. These can be changed by using the keyword arguments 'scale' and 'root'.
-Scales can be defined as an array of semitones, such that the Major scale is [0,2,4,5,7,9,11] or one of the predefined scales from the Scale module, e.g. Scale.minor.
-Root refers to the tonic of the scale; 0 being C, 1 is C#, 2 is D and so on.
+Por defecto, los objetos Player utilizan la escala de Do Mayor. Estas se pueden cambiar utilizando los argumentos de palabra clave 'scale' y 'root'.
+Las escalas se pueden definir como un array de semitonos, de modo que la escala Mayor es [0,2,4,5,7,9,11] o una de las escalas predefinidas del módulo Scale, por ejemplo, Scale.minor.
+Root se refiere a la tónica de la escala; 0 es Do, 1 es Do#, 2 es Re y así sucesivamente.
 
-The default scale can be changed such that any Player not using a specific scale will be updated. This is done using the syntax below (each line is technically equivalent):
+La escala predeterminada se puede cambiar de manera que cualquier Player que no utilice una escala específica se actualizará. Esto se hace utilizando la siguiente sintaxis (cada línea es técnicamente equivalente):
 ```python
 Scale.default.set("major")
 Scale.default.set(Scale.major)
 Scale.default.set([0,2,4,5,7,9,11])
 ```
 
-Or the same thing, but minor:
+O lo mismo, pero en menor:
 ```python
 Scale.default.set("minor")
 Scale.default.set(Scale.minor)
 Scale.default.set([0,2,3,5,7,10])
 ```
 
-To save some time you can also do
+Para ahorrar tiempo, también puedes hacer
 ```python
 Scale.default = "minor"
 ```
 
-This is the same for the root:
+Esto es lo mismo para la raíz:
 ```python
 Root.default.set(1)
 Root.default.set("C#")
 ```
 
-Or:
+O:
 ```python
 Root.default.set(2)
 Root.default.set("D")
 ```
 
-To see a list of all scales, use:
+Para ver una lista de todas las escalas, usa:
 ```python
 print(Scale.names())
 ```
 
-You can change the scale used by a player using the 'scale' keyword
+Puedes cambiar la escala utilizada por un player usando la palabra clave 'scale'
 ```python
 p1 >> pads([0,1,2], scale=Scale.minor)
 ```
 
-Similarly, you can change the root note players using the root keyword and the Root.default object
+De manera similar, puedes cambiar la nota raíz de los players usando la palabra clave root y el objeto Root.default
 ```python
 p1 >> pads([0,1,2], scale=Scale.minor, root=2)
 ```
+

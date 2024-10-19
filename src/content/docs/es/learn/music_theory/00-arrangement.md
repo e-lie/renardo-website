@@ -1,87 +1,86 @@
 ---
-title: Song arrangement
+title: Arreglo de canciones
 ---
 
+### Arreglo de Pop/EDM
 
-### Pop/EDM Arrangement
+Un arreglo típico de Pop tiene Introducción, Versos, Coro, Puente, Estribillo y Outro. Hay diferentes variaciones, pero eso es lo básico.
 
-A typical Pop Arrangement has Intro, Verses, Chorus, Bridge, Refrain, and Outro. There are different radiation of it, but that is the basics.
+Estructuras comunes para una canción son las siguientes:
 
-Common Structures for a song is as followed:
-
-* Intro (4 Bars)
+* Introducción (4 Compases)
     
-* 1.Verse (8 -16 Bars) + Pre-Chorus (Optional)
+* 1.Verso (8 -16 Compases) + Pre-Coro (Opcional)
     
-* Chorus (8 - 16 Bars)
+* Coro (8 - 16 Compases)
     
-* 2.Verse (8 - 16 Bars) + Pre-Chorus (Optional)
+* 2.Verso (8 - 16 Compases) + Pre-Coro (Opcional)
     
-* Chorus (8-16 Bars)
+* Coro (8-16 Compases)
     
-* Outro (4 Bars)
+* Outro (4 Compases)
     
 
-Bars are 4 beats or beats. So 4 bars in Renardo means 16 counted as beats.
+Los compases son 4 tiempos o beats. Así que 4 compases en Renardo significan 16 contados como beats.
 
-Further structures, whereas A is Verse, B is Chorus, C is Bridge:
+Otras estructuras, donde A es Verso, B es Coro, C es Puente:
 
-**ABABCA** >> Verse / Chorus / Verse / Chorus / Bridge / Chorus
-**AABA** >> Verse / Verse / Bridge / Verse
-**ABAB** >> Verse / Chorus / Verse / Chorus (simplified version of the ABABCB)
-**AAA** >> Verse / Verse / Verse
+**ABABCA** >> Verso / Coro / Verso / Coro / Puente / Coro
+**AABA** >> Verso / Verso / Puente / Verso
+**ABAB** >> Verso / Coro / Verso / Coro (versión simplificada del ABABCB)
+**AAA** >> Verso / Verso / Verso
 
-The following is an example of a song structure in common electronic music:
+El siguiente es un ejemplo de una estructura de canción en música electrónica común:
 
 |     |     |     |     |     |     |     |     |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Intro** | **Break** | **Buildup** | **Drop** | **Break** | **Buildup** | **Drop** | **Outro** |
-| 16 Bars | 16 Bars | 4/8/16 Bars | 16 Bars | 16 Bars | 4/8/16 Bars | 16 Bars | 16 Bars |
+| **Introducción** | **Break** | **Buildup** | **Drop** | **Break** | **Buildup** | **Drop** | **Outro** |
+| 16 Compases | 16 Compases | 4/8/16 Compases | 16 Compases | 16 Compases | 4/8/16 Compases | 16 Compases | 16 Compases |
 
 
-### Intro
+### Introducción
 
-* The Intro is pretty much anything you want it to be.
-* Many songs start with just the melody that is rising up. 
-* You can even create a melodic question that is answered by the rest of the song or something of the sort. 
-* The important thing is to not stay too long at the Intro and make it tie in quickly.
+* La Introducción puede ser prácticamente cualquier cosa que quieras.
+* Muchas canciones comienzan solo con la melodía que va subiendo.
+* Incluso puedes crear una pregunta melódica que sea respondida por el resto de la canción o algo por el estilo.
+* Lo importante es no quedarse demasiado tiempo en la Introducción y hacer que se conecte rápidamente.
     
 
-### Break/Bridge
+### Break/Puente
 
-* Less loud, less bass heavy, less instruments. 
-* This is used to break up what the listener has paid attention to. In electronic music, you usually take out the drums and add a rising sound to the next part.
-* A Bridge/Break can be more powerful by adding new instruments or changing the key
-* Try to keep this at 8 measures or less.
-* The Bridge is a departure from what we’ve heard in a song, previously.
-* This goes for both the lyrics and the music. 
-* Lyrically it’s an opportunity for a new perspective. 
-* Musically, it’s a chance to offer the listener something they haven’t heard before to keep the song interesting.
+* Menos fuerte, menos bajo, menos instrumentos.
+* Esto se usa para romper con lo que el oyente ha estado prestando atención. En la música electrónica, generalmente se quitan los tambores y se agrega un sonido ascendente a la siguiente parte.
+* Un Puente/Break puede ser más poderoso agregando nuevos instrumentos o cambiando la tonalidad.
+* Trata de mantener esto en 8 compases o menos.
+* El Puente es una desviación de lo que hemos escuchado en una canción, anteriormente.
+* Esto se aplica tanto a la letra como a la música.
+* Liricamente es una oportunidad para una nueva perspectiva.
+* Musicalmente, es una oportunidad para ofrecer al oyente algo que no ha escuchado antes para mantener la canción interesante.
     
 
 ### Buildup
 
-* Goes usually from Break to Drop, can be even silence.
-* It creates an emotional tension in the listener, which is then dissolved in the Drop.
+* Generalmente va del Break al Drop, puede ser incluso silencio.
+* Crea una tensión emocional en el oyente, que luego se disuelve en el Drop.
     
 
 ### Drop
 
-* Loudest, most fun to listen to.
-* The moment in a dance track when tension is released and the beat kicks in. This releases an enormous energy during a song's progression.
-* After the momentum Buildup, the pitch rising, the tension mounting, bigger, louder, until suddenly — the Drop.
+* Lo más fuerte, lo más divertido de escuchar.
+* El momento en una pista de baile cuando la tensión se libera y el ritmo entra. Esto libera una enorme energía durante la progresión de una canción.
+* Después del Buildup, el tono subiendo, la tensión aumentando, más grande, más fuerte, hasta que de repente — el Drop.
     
 
 ### Riser
 
-* A Riser is just like a break except that it is arpeggiate or having some sort of buildup that is released with the next section coming in.
-* Usually no beat and last 8 measures or 16.
-* When the next part comes in, it will have a lot more energy and should be the climax of the piece.
+* Un Riser es como un break excepto que es arpegiado o tiene algún tipo de buildup que se libera con la siguiente sección que entra.
+* Generalmente sin ritmo y dura 8 compases o 16.
+* Cuando entra la siguiente parte, tendrá mucha más energía y debería ser el clímax de la pieza.
     
 
 ### Outro
 
-* This is used to resolve the song and come in for a smooth landing.
-* Some song’s don’t have an Outro and others have a long Outro.
-* You can also add a final sense by adding a Coda, or strong cadence at the end of your track.
+* Esto se usa para resolver la canción y llegar a un aterrizaje suave.
+* Algunas canciones no tienen Outro y otras tienen un Outro largo.
+* También puedes agregar un sentido final añadiendo una Coda, o una cadencia fuerte al final de tu pista.
     

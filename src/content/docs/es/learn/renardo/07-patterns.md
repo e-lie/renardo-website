@@ -1,73 +1,72 @@
 ---
-title: Patterns
+title: Patrones
 ---
 
-### Pattern
+### Patrón
 
-Renardo uses in its Player() objects Python lists, known more commonly as arrays in other languages, to sequence themselves. It has been used here already previously but they aren't exactly flexible for manipulation.
+Renardo utiliza en sus objetos Player() listas de Python, conocidas más comúnmente como arreglos en otros lenguajes, para secuenciarse a sí mismos. Ya se ha utilizado aquí anteriormente, pero no son exactamente flexibles para la manipulación.
 
-For example, try multiplying a list by two like this:
+Por ejemplo, intenta multiplicar una lista por dos de esta manera:
 ```python
 print([1,2,3] * 2)
 ```
-_Console output >> [1,2,3,1,2,3]_
+_Salida en consola >> [1,2,3,1,2,3]_
 
+*¿El resultado cumple con tus expectativas?*
 
-*Does the result meet your expectations?*
-
-Renardo uses a container type called a 'Pattern' to help solve this problem. They act like regular lists but any mathematical operation performed on it is done to each item in the list and done so pair-wise if using a second pattern. A basic pattern is created as you would with a normal list or tuple, but with a 'P' preceeding it.
+Renardo utiliza un tipo de contenedor llamado 'Pattern' para ayudar a resolver este problema. Actúan como listas regulares, pero cualquier operación matemática realizada en ellas se realiza en cada elemento de la lista y de manera par si se usa un segundo patrón. Un patrón básico se crea como lo harías con una lista o tupla normal, pero con una 'P' precediéndola.
 ```python
 print(P[1,2,3] * 2)
 print(P[1,2,3] + 100)
 ```
 
-In this operation, the output consists of all the combinations of the two patterns i.e. [1+3, 2+4, 3+3, 1+4, 2+3, 3+4]
+En esta operación, la salida consiste en todas las combinaciones de los dos patrones, es decir, [1+3, 2+4, 3+3, 1+4, 2+3, 3+4]
 ```python
 print(P[1,2,3] + [3,4])
 ```
 
-You can use Python's slicing syntax to generate a series of numbers:
+Puedes usar la sintaxis de corte de Python para generar una serie de números:
 ```
 print(P[:8])
 print(P[0,1,2,3:20])
 print(P[2:15:3])
 ```
 
-Try some other mathematical operators and see what results you get.
+Prueba algunos otros operadores matemáticos y observa los resultados.
 ```python
 print(P[1,2,3] * (1,2))
 ```
 
-Pattern objects also automatically interlace any nested list.
-Compare a normal list:
+Los objetos Pattern también entrelazan automáticamente cualquier lista anidada.
+Compara una lista normal:
 ```python
 for n in [0,1,2,[3,4],5]:
     print(n)
 ```
-with Pattern
+con Pattern
 ```python
 for n in P[0,1,2,[3,4],5]:
     print(n)
 ```
 
-Use PGroups if you want this behavior to be avoided. These can be implicitly specified as tuples in Patterns:
+Usa PGroups si deseas evitar este comportamiento. Estos pueden especificarse implícitamente como tuplas en Patterns:
 ```python
 for n in P[0,1,2,(3,4)]:
     print(n)
 ```
 
-This is a PGroup:
+Esto es un PGroup:
 ```python
 print(P(0,2,4) + 2)
 print(type(P(0,2,4) + 2))
 ```
 
-In Python, you can generate a range of integers with the syntax range(start, stop, step). By default, start is 0 and step is 1.
+En Python, puedes generar un rango de enteros con la sintaxis range(start, stop, step). Por defecto, start es 0 y step es 1.
 ```python
 print(list(range(10))) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-You can use PRange(start, stop, step) to create a Pattern object with the equivalent values:
+Puedes usar PRange(start, stop, step) para crear un objeto Pattern con los valores equivalentes:
 ```python
 print(PRange(10)) # P[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
@@ -75,27 +74,27 @@ print(PRange(10)) # P[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 P[0, 2, 2, 6, 4, 10, 6, 14, 8, 18]
 [0*1, 1*2, 2*1, 3*2, 4*1, 5*2, 6*1, 7*2, 8*1...]
 ```python
-print(PRange(10) * [1, 2]) # Pattern class behaviour
+print(PRange(10) * [1, 2]) # Comportamiento de la clase Pattern
 ```
 
-Adding a list (or Pattern) to a Pattern will add the values of the elements to the other where Python lists would be concatonated.
+Agregar una lista (o Pattern) a un Pattern sumará los valores de los elementos al otro donde las listas de Python se concatenarían.
 ```python
 print(PRange(10) + [0,10])
 ```
 
-To concatonate Patterns, use the pipe operator like so:
+Para concatenar Patterns, usa el operador de tubería así:
 ```
 print(PRange(10) | [0,10])
 ```
 
-FoxDot automatically converts any object being piped to a Pattern to the base Pattern class so you don't have to worry about making sure everything is the right type.
-Plays all the values together:
+FoxDot convierte automáticamente cualquier objeto que se esté canalizando a un Pattern a la clase base Pattern, por lo que no tienes que preocuparte por asegurarte de que todo sea del tipo correcto.
+Reproduce todos los valores juntos:
 ```python
 p1 >> pluck(P(4,6,8))
 p1 >> pluck(P[0,1,2,P(4,6,8),7,8])
 ```
 
-Spreads the values across the current "dur" e.g. if the dur is 2 beats then it will play each value 2/3 beats apart:
+Distribuye los valores a lo largo del "dur" actual, por ejemplo, si el dur es de 2 tiempos, reproducirá cada valor 2/3 tiempos de diferencia:
 ```python
 p1 >> pluck(P*(0,2,4), dur=1/2)
 p1 >> pluck(P*(0,2,4), dur=1)
@@ -103,100 +102,100 @@ p1 >> pluck(P*(0,2,4), dur=2)
 p1 >> pluck(P[0,1,2,P*(4,6,8),7,8], dur=1)
 ```
 
-Is the same as P* but every other time the notes are played they are spread over the dur value.
+Es lo mismo que P* pero cada vez que se tocan las notas se distribuyen sobre el valor de dur.
 ```python
 p1 >> pluck(P/(0,2,4), dur=1/2)
 p1 >> pluck(P/(0,2,4), dur=1)
 p1 >> pluck(P/(0,2,4), dur=2)
+p1 >> pluck(P[0,1,2,P/(4,6,8),7,8],
 p1 >> pluck(P[0,1,2,P/(4,6,8),7,8], dur=1)
 ```
-
-Spreads the values across the current "sus" e.g. if the dur is 2 beats and the sus is 3 beats then it will play each value 1 beat apart.
+Distribuye los valores a lo largo del "sus" actual, por ejemplo, si el dur es de 2 tiempos y el sus es de 3 tiempos, reproducirá cada valor con una diferencia de 1 tiempo.
 ```python
 p1 >> pluck(P+(0,2,4), dur=2, sus=3)
 p1 >> pluck(P+(0,2,4), dur=2, sus=1)
 p1 >> pluck(P[0,1,2,P+(4,6,8),7,8], dur=1, sus=3)
 ```
 
-Spreads the first (length-1) values with a gap of the last value between each
-Plays 0,2,4 with a gap of 0.5:
+Distribuye los primeros (longitud-1) valores con un intervalo del último valor entre cada uno.
+Reproduce 0,2,4 con un intervalo de 0.5:
 ```python
 p1 >> pluck(P^(0,2,4,0.5), dur=1/2)
 ```
 
-Patterns come with several methods for manipulating the contents
+Los patrones vienen con varios métodos para manipular los contenidos.
 ```python
 help(Pattern)
 ```
 
-Standard pattern
+Patrón estándar
 ```python
 print(P[:8])
 ```
 
-Shuffle pattern by randomizing it
+Barajar el patrón aleatoriamente
 ```python
 print(P[:8].shuffle())
 ```
 
-Append a reversed pattern to the pattern
+Añadir un patrón invertido al patrón
 ```python
 print(P[:8].palindrome())
 ```
 
-Shift the pattern by n (default 1)
+Desplazar el patrón por n (por defecto 1)
 ```python
 print(P[:8].rotate())
 print(P[:8].rotate(3))
 print(P[:8].rotate(-3))
 ```
 
-Takes the pattern and appends it as many times as needed to reach n number of elements in the pattern:
+Toma el patrón y lo añade tantas veces como sea necesario para alcanzar n elementos en el patrón:
 ```python
 print(P[:8].stretch(12))
 print(P[:8].stretch(20))
 ```
 
-Reverses a pattern
+Invierte un patrón
 ```python
 print(P[:8].reverse())
 ```
 
-Loops a pattern n number of times
+Repite un patrón n veces
 ```python
 print(P[:8].loop(2))
 ```
 
-Add an offset
+Añadir un desplazamiento
 ```python
 print(P[:8].offadd(5))
 ```
 
-Add a multiplied offset
+Añadir un desplazamiento multiplicado
 ```python
 print(P[:8].offmul(5))
 ```
 
-Stutter - Repeat each element n times
+Repetir cada elemento n veces
 ```python
 print(P[:8].stutter(5))
 ```
 
 ---
-**Amen** - Merges and laces the first and last two items such that a drum pattern "x-o-" would become "(x[xo])-o([-o]-)" and mimics the rhythm of the famous "amen break"
+**Amen** - Fusiona y entrelaza los dos primeros y últimos elementos de tal manera que un patrón de batería "x-o-" se convertiría en "(x[xo])-o([-o]-)" y imita el ritmo del famoso "amen break".
 ```python
 d1 >> play(P["x-o-"].amen())
 print(P[:8].amen())
 ```
 
 ---
-**Bubble** - Merges and laces the first and last two items such that a drum pattern "x-o-" would become "(x[xo])-o([-o]-)
+**Bubble** - Fusiona y entrelaza los dos primeros y últimos elementos de tal manera que un patrón de batería "x-o-" se convertiría en "(x[xo])-o([-o]-)".
 ```python
 d1 >> play(P["x-o-"].bubble())
 print(P[:8].bubble())
 ```
 
-If you want to edit the internal values in Python you need to use a for loop:
+Si quieres editar los valores internos en Python, necesitas usar un bucle for:
 ```python
 l = []
 for i in [1,2,3]:
@@ -204,45 +203,40 @@ for i in [1,2,3]:
     print(l)
 ```
 
-or in the list understanding:
+o en la comprensión de listas:
 ```python
 print([i*2 for i in [1,2,3]])
 ```
-_Console output >> [2,4,6]_
+_Salida en consola >> [2,4,6]_
 
+Pero, ¿qué pasa si quieres multiplicar los valores en una lista por 2 y 3 alternadamente?
 
-But what if you want to multiply the values in a list by 2 and 3 alternately?
+Renardo utiliza un tipo de contenedor llamado "Pattern" para resolver este problema. Se comportan como listas regulares, pero cualquier operación matemática realizada en ellas se realiza en cada elemento de la lista y de manera par si se usa un segundo patrón.
 
-Renardo uses a type of container called "Pattern" to solve this problem. They behave like regular lists, but any math operation performed on them is performed on each item in the list, and paired if a second pattern is used.
-
-The basic pattern can be created as follows:
+El patrón básico se puede crear de la siguiente manera:
 ```python
 print(P[1,2,3]*2)
 ```
-_Console output >> P[2,4,6]_
-
+_Salida en consola >> P[2,4,6]_
 
 ```python
 print(P[1,2,3]+[3,4])
 ```
-_Console output >> P[4,6,6,5,5,7]_
+_Salida en consola >> P[4,6,6,5,5,7]_
 
-
-Notice how in the second operation the output is any combination of the two patterns >> [1+3,2+4,3+3,1+4,2+3,3+4].
-
+Observa cómo en la segunda operación la salida es cualquier combinación de los dos patrones >> [1+3,2+4,3+3,1+4,2+3,3+4].
 
 ---
-### Pattern
+### Patrón
 
+_Prueba algunos otros operadores matemáticos y observa los resultados que obtienes._
 
-_Try some other math operators and see what results you get!_
-
-What if you group numbers in brackets like P[1,2,3] * (1,2)?
+¿Qué pasa si agrupas números entre paréntesis como P[1,2,3] * (1,2)?
 ```python
 P[P(1,2),P(2,4),P(3,6)]
 ```
 
-There are several other pattern classes in Renardo that you can use to generate arrays of numbers, but they behave just like the base pattern.
+Hay varias otras clases de patrones en Renardo que puedes usar para generar matrices de números, pero se comportan igual que el patrón base.
 ```python
 print(classes(Patterns.Sequences))
 ```
@@ -251,14 +245,13 @@ print(classes(Patterns.Sequences))
 print(classes(Patterns))
 ```
 
-In Python you can use the syntax area (start, stop, step) to generate a range of integers. By default, Start is 0 and Step 1.
+En Python puedes usar la sintaxis de rango (start, stop, step) para generar un rango de enteros. Por defecto, Start es 0 y Step 1.
 
-With PRange (start,stop,step) you can create a sample object with the appropriate values. The first example shows the equivalent function in Python, the second is the simplified sample function in Renardo PRange:
+Con PRange (start,stop,step) puedes crear un objeto de muestra con los valores correspondientes. El primer ejemplo muestra la función equivalente en Python, el segundo es la función de muestra simplificada en Renardo PRange:
 ```python
 print(list(range(10)))
 ```
-_Console output >> [0,1,2,3,4,5,6,7,8,9]_
-
+_Salida en consola >> [0,1,2,3,4,5,6,7,8,9]_
 
 ```python
 print(PRange(10))
@@ -270,261 +263,251 @@ _Console output >> P[0,1,2,3,4,5,6,7,8,9]_
 print(PRange(10)*[1,2])
 ```
 _Console output >> P[0,2,2,6,4,10,6,14,8,18]_
-
-
-But what about combining patterns? In Python you can concatenate (append) two lists with the + operator. However, Renardo patterns use this to supplement the data in the list. To connect two Pattern objects together, you can use the pipe symbol, which Linux users may be familiar with. It is used to connect command line programs by sending the output of one process as input to another.
-
+Pero, ¿qué pasa con la combinación de patrones? En Python, puedes concatenar (agregar) dos listas con el operador +. Sin embargo, los patrones de Renardo usan esto para complementar los datos en la lista. Para conectar dos objetos Pattern juntos, puedes usar el símbolo de tubería, que los usuarios de Linux pueden conocer. Se utiliza para conectar programas de línea de comandos enviando la salida de un proceso como entrada a otro.
 
 ```python
-print(PRange(4)|[1,7,6])
+print(PRange(4) | [1,7,6])
 ```
-_Console output >> P[0,1,2,3,1,7,6]_
+_Salida en consola >> P[0,1,2,3,1,7,6]_
 
-
-There are several types of pattern sequences in Renardo (and the list is still growing) that make generating these numbers a little easier. For example, to play the first octave of a pentatonic scale from bottom to top and back again, you can use two PRange objects:
+Hay varios tipos de secuencias de patrones en Renardo (y la lista sigue creciendo) que facilitan la generación de estos números. Por ejemplo, para tocar la primera octava de una escala pentatónica de abajo hacia arriba y de regreso, puedes usar dos objetos PRange:
 ```python
-p1 >> pluck(PRange(5)|PRange(5,0,-1), scale=Scale.default.pentatonic)
+p1 >> pluck(PRange(5) | PRange(5,0,-1), scale=Scale.default.pentatonic)
 ```
 
-The PTri class does this for you:
+La clase PTri hace esto por ti:
 ```python
 p1 >> pluck(PTri(5), scale=Scale.default.pentatonic)
 ```
 
-
 ---
-### Pattern functions
+### Funciones de Patrones
 
+Hay varias funciones que generan un patrón de valores para que hagamos cosas útiles en Renardo, como ritmos y melodías. Esta sección es una lista de funciones de patrones con descripciones y ejemplos.
 
-There are several functions that generate a pattern of values for us to do useful things in Renardo, such as: Rhythms and melodies. This section is a list of pattern functions with descriptions and examples.
+Usados como argumentos de entrada para los reproductores de Renardo, estos pueden ser tratados como patrones y sus métodos aplicados directamente, por ejemplo, *PDur(3,8).reverse()*. También puedes reemplazar cada argumento de entrada con un patrón o una función TimeVar para crear un patrón avanzado o un patrón Pvar. Veamos algunos ejemplos:
 
-Used as input arguments for Renardo players, these can themselves be treated as patterns and their methods applied directly, e.g. B. *PDur(3,8).reverse()*. You can also replace each input argument with a pattern or a TimeVar function to create an advanced pattern or a Pvar pattern. Let's look at some examples:
+**PStep(n, valor, default=0)** >> Devuelve un patrón donde cada término **n** es **valor**, de lo contrario **default**.
 
-
-**PStep(n,value,default=0)** >> Returns a pattern where every **n**-term is **value**, otherwise **default**.
-
-Every 4, make it 1, otherwise default to 0
+Cada 4, hazlo 1, de lo contrario por defecto a 0
 ```python
 print(PStep(4,1))
 ```
 
-Every 8, make it 6, otherwise, 4
+Cada 8, hazlo 6, de lo contrario, 4
 ```python
 print(PStep(8,6,4))
 ```
 
-Every 5, make it 2, otherwise, 1
+Cada 5, hazlo 2, de lo contrario, 1
 ```python
 print(PStep(5,2,1))
 ```
 
-**PSum(n,total,\**kwargs)** >> Returns a pattern of length **n**, the sum of which is **total**. For example: PSum(3,8) -> P[3,3,2] PSum(5,4) -> P[1,0.75,0.75,0.75,0.75].
+**PSum(n, total, \**kwargs)** >> Devuelve un patrón de longitud **n**, cuya suma es **total**. Por ejemplo: PSum(3,8) -> P[3,3,2] PSum(5,4) -> P[1,0.75,0.75,0.75,0.75].
 
-Returns a pattern of length 2, with elements summed up to 8
+Devuelve un patrón de longitud 2, con elementos sumados a 8
 ```python
 print(PSum(3,8))
 ```
 
-Returns a pattern of length 5, with elements summed up to 4
+Devuelve un patrón de longitud 5, con elementos sumados a 4
 ```python
 print(PSum(5,4))
 ```
 
-**PRange(start,stop=None,step=None)** >> Returns a pattern equivalent to Pattern(range(start,stop,step)).
+**PRange(start, stop=None, step=None)** >> Devuelve un patrón equivalente a Pattern(range(start, stop, step)).
 
-**PTri(start,stop=None,step=None)** >> Returns a pattern equivalent to Pattern(range(start,stop,step)) with the inverted shape appended. Think of it like a "Tri"angle.
+**PTri(start, stop=None, step=None)** >> Devuelve un patrón equivalente a Pattern(range(start, stop, step)) con la forma invertida añadida. Piénsalo como un "Tri"ángulo.
 
-Up to 5 then down to 1:
+Hasta 5 y luego hasta 1:
 ```python
 print(PTri(5))
 ```
 
-Up to 8 then down to 1:
+Hasta 8 y luego hasta 1:
 ```python
 print(PTri(8))
 ```
 
-From 3 to 10, then down to 4:
+De 3 a 10, luego hasta 4:
 ```python
 print(PTri(3,10))
 ```
 
-From 3 to 30, by 2, then down to 4:
+De 3 a 30, de 2 en 2, luego hasta 4:
 ```python
 print(PTri(3,20,2))
 ```
 
-Up to 4, then down to 1, then up to 8, then down to 1:
+Hasta 4, luego hasta 1, luego hasta 8, luego hasta 1:
 ```python
 print(PTri([4,8]))
 p1 >> pluck(PTri(5), scale=Scale.default.pentatonic)
 ```
 
-Same as:
+Igual que:
 ```python
 p1 >> pluck(PRange(5) | PRange(5,0,-1), scale=Scale.default.pentatonic)
 ```
 
-**PEuclid(n,k)** >> Returns the Euclidean rhythm that distributes **n** pulses as evenly as possible over **k** steps. e.g. PEuclid(3,8) returns P[1,0,0,1,0,0,1,0].
-3 pulses over 8 steps:
+**PEuclid(n, k)** >> Devuelve el ritmo euclidiano que distribuye **n** pulsos lo más uniformemente posible en **k** pasos. Por ejemplo, PEuclid(3,8) devuelve P[1,0,0,1,0,0,1,0].
+3 pulsos en 8 pasos:
 ```python
 print(PEuclid(3,8))
 ```
 
-**PSine(n=16)** >> Returns values of one cycle of a sine wave divided into **n** parts.
+**PSine(n=16)** >> Devuelve valores de un ciclo de una onda sinusoidal dividida en **n** partes.
 
-Split into 5 parts:
+Dividido en 5 partes:
 ```python
 print(PSine(5))
 ```
 
-Split into 10:
+Dividido en 10:
 ```python
 print(PSine(10))
 ```
 
-**PDur(n,k,dur=0.25)** >> Returns the actual duration based on Euclidean rhythms (see PEuclid), where **dur** is the length of each step. e.g. PDur(3,8) returns P[0.75,0.75,0.5].
+**PDur(n, k, dur=0.25)** >> Devuelve la duración real basada en ritmos euclidianos (ver PEuclid), donde **dur** es la longitud de cada paso. Por ejemplo, PDur(3,8) devuelve P[0.75,0.75,0.5].
 
 ```python
 print(PDur(3,8)) # P[0.75, 0.75, 0.5]
 print(PDur(5,8))
 ```
 
-Gives a list of 3 dur, appened with a list of 5 dur
+Devuelve una lista de 3 dur, añadida con una lista de 5 dur
 ```python
 print(PDur([3,5],8))
 d1 >> play("x", dur=PDur(5,8))
 ```
 
-**PBern(size=16,ratio=0.5)** >> Returns a pattern of ones and zeros based on the **ratio** value (between 0 and 1). This is known as the Bernoulli sequence.
+**PBern(size=16, ratio=0.5)** >> Devuelve un patrón de unos y ceros basado en el valor de **ratio** (entre 0 y 1). Esto se conoce como la secuencia de Bernoulli.
 
-**PBeat(string,start=0,dur=0.5)** >> Returns a pattern of durations based on an input string, where non-spaces denote a pulse.
+**PBeat(string, start=0, dur=0.5)** >> Devuelve un patrón de duraciones basado en una cadena de entrada, donde los no-espacios denotan un pulso.
 
-**PSq(a=1,b=2,c=3)**
+**PSq(a=1, b=2, c=3)**
 
-**PIndex** >> Returns the index being accessed
+**PIndex** >> Devuelve el índice que se está accediendo
 ```python
 print(PIndex())
-print(PIndex()*4)
+print(PIndex() * 4)
 ```
 
 ---
-### Pattern generators
+### Generadores de Patrones
 
+Sabemos que los patrones tienen una longitud fija y pueden generarse en función de una función. Sin embargo, a veces es útil tener patrones de longitud infinita, por ejemplo, al generar números aleatorios. Aquí es donde entran en juego los generadores de patrones. Similar a los generadores de Python donde no todos los valores se mantienen en memoria a la vez, excepto cuando los generadores de Python generalmente tienen un final - ¡los generadores de patrones de Renardo no!
 
-We know that patterns have a fixed length and can be generated based on a function. However, sometimes it is useful to have patterns of infinite length, for example when generating random numbers. This is where pattern generators come into play. Similar to Python generators where not all values are kept in memory at once, except when Python generators usually have an end - Renardo pattern generators don't!
+**PRand(lo, hi, seed=None) / PRand([values])** >> Devuelve una serie de enteros aleatorios entre lo y hi, inclusive. Si hi se omite, el rango es de 0 a lo. Se puede proporcionar una lista de valores en lugar del rango y PRand devuelve una serie de valores elegidos al azar de la lista.
 
-**PRand(lo,hi,seed=None)/PRand([values])** >> Returns a series of random integers between lo and hi, inclusive. If hi is omitted, the range is 0 to lo. A list of values can be provided in place of the range and PRand returns a series of values chosen at random from the list.
-
-Returns a random integer between 0 and start.
+Devuelve un entero aleatorio entre 0 y start.
 ```python
 print(PRand(8)[:5])
 ```
 
-Returns a random integer between start and stop.
+Devuelve un entero aleatorio entre start y stop.
 ```python
 print(PRand(8,16)[:5])
 ```
 
-If start is a container-type it returns a random item for that container.
+Si start es un tipo de contenedor, devuelve un elemento aleatorio de ese contenedor.
 ```python
 print(PRand([1,2,3])[:5])
 ```
 
-You can supply a seed
+Puedes proporcionar una semilla
 ```python
 print(PRand([1,2,3], seed=5)[:5])
 ```
 
-Keeps generating random tune
+Sigue generando una melodía aleatoria
 ```python
 p1 >> pluck(PRand(8))
 ```
 
-Creates a random list, and iterates over that same list
+Crea una lista aleatoria y la recorre
 ```python
 p1 >> pluck(PRand(8)[:3])
 ```
 
-**PxRand(lo, hi) / PxRand([values])** >> Identical to PRand, but no elements are repeated.
+**PxRand(lo, hi) / PxRand([values])** >> Idéntico a PRand, pero no se repiten elementos.
 
-**PwRand([values], [weights])** >> Uses a list of weights to indicate how often items with the same index are selected from the list of values.
-A weight of 2 means it is twice as likely to be picked as an item weighing 1.
+**PwRand([values], [weights])** >> Utiliza una lista de pesos para indicar con qué frecuencia se seleccionan elementos con el mismo índice de la lista de valores. Un peso de 2 significa que es dos veces más probable que se elija que un elemento que pesa 1.
 
-**P10(n)**>> Returns a pattern of length n of a randomly generated series of ones and zeros.
+**P10(n)** >> Devuelve un patrón de longitud n de una serie generada aleatoriamente de unos y ceros.
 
-**PAlt(pat1, pat2, \*patN)** >> Returns a pattern generated by alternating the values in the specified sequences.
+**PAlt(pat1, pat2, \*patN)** >> Devuelve un patrón generado alternando los valores en las secuencias especificadas.
 
-**PJoin(patterns)** >> Assembles a list of patterns.
+**PJoin(patterns)** >> Ensambla una lista de patrones.
 
-**PPairs(seq,func=<lambda>)** >> Links a sequence to a second sequence obtained by executing a function on the original. By default, this is lambda n: 8-n.
+**PPairs(seq, func=<lambda>)** >> Vincula una secuencia a una segunda secuencia obtenida ejecutando una función en la original. Por defecto, esto es lambda n: 8-n.
 
-**PQuicken(dur=0.5,stepsize=3,steps=6)** >> Returns a group of delay amounts that gradually decrease.
+**PQuicken(dur=0.5, stepsize=3, steps=6)** >> Devuelve un grupo de cantidades de retraso que disminuyen gradualmente.
 
-**PRhythm(durations)** >> Converts all tuples / PGroups into delays, which are calculated with the PDur algorithm.
+**PRhythm(durations)** >> Convierte todos los tuplas / PGroups en retrasos, que se calculan con el algoritmo PDur.
 
-The following plays the hi hat with a Euclidean Rhythm of 3 pulses in 8 steps
+Lo siguiente toca el hi hat con un ritmo euclidiano de 3 pulsos en 8 pasos
 ```python
-d1 >> play("x-o-", dur=PRhythm([2,(3,8)]))
-print(PRhythm([2,(3,8)]))
+d1 >> play("x-o-", dur=PRhythm([2, (3,8)]))
+print(PRhythm([2, (3,8)]))
 ```
 
-**PShuf(seq)** >> Returns a mixed version of seq. This example uses a function to automatically shuffle the list.
+**PShuf(seq)** >> Devuelve una versión mezclada de seq. Este ejemplo usa una función para mezclar automáticamente la lista.
 
-**PStretch(seq,size)** >> Returns 'seq' as a pattern and is looped until its length is 'size', e.g. PStretch ([0,1,2], 5) returns P[0,1,2,0,1].
+**PStretch(seq, size)** >> Devuelve 'seq' como un patrón y se repite hasta que su longitud sea 'size', por ejemplo, PStretch([0,1,2], 5) devuelve P[0,1,2,0,1].
 
 **PStrum(n=4)**
 
-**PStutter(seq,n=2)** >> Creates a pattern so that each element in the array is repeated n times (n can be a pattern).
+**PStutter(seq, n=2)** >> Crea un patrón para que cada elemento en la matriz se repita n veces (n puede ser un patrón).
 
-**PZip(pat1,pat2, patN)** >> Generates a pattern that 'zips' multiple patterns. PZip([0,1,2], [3,4]) creates the pattern P[(0,3),(1,4),(2,3),(0,4),(1,3),(2,4)].
+**PZip(pat1, pat2, patN)** >> Genera un patrón que 'comprime' múltiples patrones. PZip([0,1,2], [3,4]) crea el patrón P[(0,3),(1,4),(2,3),(0,4),(1,3),(2,4)].
 
-**PZip2(pat1,pat2,rule=<lambda>)** >> Like PZip, but only uses two patterns. Connects values if they meet the rule.
+**PZip2(pat1, pat2, rule=<lambda>)** >> Como PZip, pero solo usa dos patrones. Conecta valores si cumplen la regla.
 
-**Pvar** >> TimeVar, which saves lists instead of individual values (var, sinvar, linvar, expvar).
+**Pvar** >> TimeVar, que guarda listas en lugar de valores individuales (var, sinvar, linvar, expvar).
 
-**PWhite(lo,hi)** >> Returns random floating point numbers between lo and hi.
+**PWhite(lo, hi)** >> Devuelve números de punto flotante aleatorios entre lo y hi.
 
-Lo defaults to 0, hi defaults to 1
+Lo por defecto es 0, hi por defecto es 1
 ```python
 print(PWhite()[:8])
 ```
-
-Returns random numbers between 1 and 5
+Devuelve números aleatorios entre 1 y 5
 ```python
 print(PWhite(1,5)[:8])
 ```
 
-**PChain(mapping_dictionary)** >> Based on a simple Markov chain with equal probabilities. Takes a dictionary of elements, states, and possible future states. Every future state has an equal chance of being selected. If a possible future state is not valid, a KeyError is raised.
+**PChain(mapping_dictionary)** >> Basado en una cadena de Markov simple con probabilidades iguales. Toma un diccionario de elementos, estados y posibles estados futuros. Cada estado futuro tiene una probabilidad igual de ser seleccionado. Si un estado futuro posible no es válido, se genera un KeyError.
 
-**PWalk(max=7,step=1,start=0)** >> Returns a series of integers with each element an increment apart and with a value in the range of +/- the maximum. The first element can be selected with start.
+**PWalk(max=7,step=1,start=0)** >> Devuelve una serie de enteros con cada elemento un incremento aparte y con un valor en el rango de +/- el máximo. El primer elemento puede ser seleccionado con start.
 
-By default, returns a pattern with each element randomly 1 higher or lower than the previous
+Por defecto, devuelve un patrón con cada elemento aleatoriamente 1 más alto o más bajo que el anterior
 ```python
 print(PWalk()[:16])
 ```
 
-Changing step
+Cambiando el paso
 ```python
 print(PWalk(step=2)[:16])
 ```
 
-With max
+Con máximo
 ```python
 print(PWalk(max=2)[:16])
 ```
 
-Start at a non-zero number
+Comenzar en un número distinto de cero
 ```python
 print(PWalk(start=6)[:16])
 ```
 
-**PFibMod()** >> Returns the Fibonacci sequence.
+**PFibMod()** >> Devuelve la secuencia de Fibonacci.
 
 ---
-### Custom Pattern Generator
+### Generador de Patrones Personalizado
 
-Custom generator patterns can be made by subclassing GeneratorPattern and overriding `GeneratorPattern.func`
+Se pueden crear patrones generadores personalizados subclasificando GeneratorPattern y sobrescribiendo `GeneratorPattern.func`
 ```python
 class CustomGeneratorPattern(GeneratorPattern):
     def func(self, index):
@@ -532,14 +515,14 @@ class CustomGeneratorPattern(GeneratorPattern):
 print(CustomGeneratorPattern()[:10])
 ```
 
-This can be done more consisely using `GeneratorPattern.from_func`, passing in a function which takes an index and returns some pattern item.
+Esto se puede hacer de manera más concisa usando `GeneratorPattern.from_func`, pasando una función que toma un índice y devuelve algún elemento del patrón.
 ```python
 def some_func(index):
     return int(index / 4)
 print(GeneratorPattern.from_func(some_func)[:10])
 ```
 
-We can use lambdas too
+También podemos usar lambdas
 ```python
 print(GeneratorPattern.from_func(lambda index: int(index / 4))[:10]) 
 ```

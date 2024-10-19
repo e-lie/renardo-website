@@ -1,117 +1,113 @@
 ---
-title: Loop Player
+title: Reproductor de Bucle
 ---
 
-### Loop Player Object
+### Objeto Reproductor de Bucle
 
-You can use your own samples by simply dropping audio files into the existing FoxDot sample directories. These are found in the **snd** directory in the root of the Renardo installation (e.g., '/home/user/.config/renardo/samples/').
+Puedes usar tus propias muestras simplemente arrastrando archivos de audio a los directorios de muestras existentes de FoxDot. Estos se encuentran en el directorio **snd** en la raíz de la instalación de Renardo (por ejemplo, '/home/user/.config/renardo/samples/').
 
-You saw earlier how to work with samples using **play()**. The **loop** Player() object is similar to **play**. However, it plays an audio file by a given place given by a string containing "absolute_path/file_name" together, instead of using a sample file of an installed sample pack of Renardo.
+Anteriormente viste cómo trabajar con muestras usando **play()**. El objeto **loop** Player() es similar a **play**. Sin embargo, reproduce un archivo de audio dado por un lugar especificado por una cadena que contiene "ruta_absoluta/nombre_del_archivo" juntos, en lugar de usar un archivo de muestra de un paquete de muestras instalado de Renardo.
 
-You can also play samples with **loop()**.
+También puedes reproducir muestras con **loop()**.
 ```python
 s1 >> loop('foxdot')
 ```
 
-You may notice that this is just playing the first part of the sample over and over again. You can tweak the behavior with many of the arguments we've seen thus far for controlling other synths. dur is a good place to start.
+Puedes notar que esto solo reproduce la primera parte de la muestra una y otra vez. Puedes ajustar el comportamiento con muchos de los argumentos que hemos visto hasta ahora para controlar otros sintetizadores. **dur** es un buen lugar para empezar.
 ```python
 s1 >> loop('foxdot', dur=4)
 ```
 
-If you have a folder full of samples that you would like to use in FoxDot, you can call **loop()** with the full path to the sample.
+Si tienes una carpeta llena de muestras que te gustaría usar en FoxDot, puedes llamar a **loop()** con la ruta completa a la muestra.
 ```python
-s1 >> loop('/path/to/samples/quack.wav')
+s1 >> loop('/ruta/a/muestras/quack.wav')
 ```
 
-If you give loop the path to a folder, it will play the first sample it finds. You can change which sample it plays with the **sample=** arg.
+Si le das a **loop** la ruta a una carpeta, reproducirá la primera muestra que encuentre. Puedes cambiar qué muestra reproduce con el argumento **sample=**.
 
-Play the first sample in my collection
+Reproduce la primera muestra en mi colección
 ```python
-s1 >> loop('/path/to/samples')
+s1 >> loop('/ruta/a/muestras')
 ```
 
-Play the second sample in my collection
+Reproduce la segunda muestra en mi colección
 ```python
-s1 >> loop('/path/to/samples', sample=1)
+s1 >> loop('/ruta/a/muestras', sample=1)
 ```
 
-If you're going to be using a lot of samples from a folder, you can add it to the sample search path. FoxDot will look under all its search paths for a matching sample when you give it a name.
+Si vas a usar muchas muestras de una carpeta, puedes agregarla a la ruta de búsqueda de muestras. FoxDot buscará en todas sus rutas de búsqueda una muestra coincidente cuando le des un nombre.
 ```python
-Samples.addPath('/path/to/samples')
+Samples.addPath('/ruta/a/muestras')
 s1 >> loop('quack')
 ```
 
-Once you have a search path, you can use pattern matching to search for samples. Play the 3rd sample under the 'snare' dir:
+Una vez que tengas una ruta de búsqueda, puedes usar coincidencias de patrones para buscar muestras. Reproduce la tercera muestra bajo el directorio 'snare':
 ```python
 s1 >> loop('snare/*', sample=2)
 ```
 
-You can use * in directory names too:
+Puedes usar * en nombres de directorios también:
 ```python
 s1 >> loop('*_120bpm/drum*/kick*')
 ```
 
-** means "all recursive subdirectories". This will play the first sample nested under 'percussion' (e.g. 'percussion/kicks/classic/808.wav')
+** significa "todos los subdirectorios recursivos". Esto reproducirá la primera muestra anidada bajo 'percussion' (por ejemplo, 'percussion/kicks/classic/808.wav')
 ```python
 s1 >> loop('percussion/**/*')
-
 ```
 
-You can put files in a special folder located in "/snd/loop" which can be opened by going to “Help & Settings” and then “Open Samples Folder” from the FoxDot editor menu. You don’t need to supply the full path (or extension) for files in this folder:
+Puedes poner archivos en una carpeta especial ubicada en "/snd/loop" que se puede abrir yendo a “Ayuda y Configuración” y luego “Abrir Carpeta de Muestras” desde el menú del editor de FoxDot. No necesitas suministrar la ruta completa (o extensión) para archivos en esta carpeta:
 ```python
-l1 >> loop("my_file", dur=4)
+l1 >> loop("mi_archivo", dur=4)
 ```
 
-To see all the files in this folder use print(Samples.loops). If you want to play with the playback order, you can supply a “position” argument after the file name that Renardo will iterate through based on the duration.
+Para ver todos los archivos en esta carpeta usa **print(Samples.loops)**. Si deseas jugar con el orden de reproducción, puedes suministrar un argumento de “posición” después del nombre del archivo que Renardo iterará basado en la duración.
 
-Play first 4 beats of audio in order:
+Reproduce los primeros 4 beats del audio en orden:
 ```python
-l1 >> loop("my_file", P[:4], dur=1)
+l1 >> loop("mi_archivo", P[:4], dur=1)
 ```
 
-Play first beats in random order:
+Reproduce los primeros beats en orden aleatorio:
 ```python
-l1 >> loop("my_file", P[:4].shuffle(), dur=1)
+l1 >> loop("mi_archivo", P[:4].shuffle(), dur=1)
 ```
 
-If you know the bpm of the audio file and wish to play it at the current tempo, you can supply the player with a tempo argument. For example, my_file could be a drum beat at 135 bpm but the current tempo is 120, I can fit the tempo of my_file to the clock like so:
+Si conoces el bpm del archivo de audio y deseas reproducirlo al tempo actual, puedes suministrar al reproductor un argumento de tempo. Por ejemplo, **mi_archivo** podría ser un ritmo de batería a 135 bpm pero el tempo actual es 120, puedo ajustar el tempo de **mi_archivo** al reloj así:
 
-First 4 beats in 1 beat steps:
+Primeros 4 beats en pasos de 1 beat:
 ```python
-l1 >> loop("my_file", P[:4], dur=1, tempo=135)
+l1 >> loop("mi_archivo", P[:4], dur=1, tempo=135)
 ```
 
-First 4 beats in 0.5 beat steps:
+Primeros 4 beats en pasos de 0.5 beat:
 ```python
-l1 >> loop("my_file", P[:8]/2, dur=0.5, tempo=135)
+l1 >> loop("mi_archivo", P[:8]/2, dur=0.5, tempo=135)
 ```
 
 ---
-### Time stretching
+### Estiramiento de Tiempo
 
+El estiramiento de tiempo del audio de esta manera cambiará el tono. Si el audio tiene tono, es posible que desees estirarlo en el tiempo sin perder esa información. Esto es posible usando **striate**. Esto corta el archivo en muchos pequeños segmentos y los reproduce distribuidos a lo largo del valor de duración – esto reproducirá todo el archivo de audio. Cuanto más grande sea el archivo de audio, mayor será el número que probablemente querrás usar. Usando el ejemplo anterior, es posible que desees usar un valor de **striate** de 100-200 para una reproducción más suave:
 
-Time stretching the audio in this fashion will change the pitch. If the audio is pitched, you may wish the time-stretch it without losing that information. This is possible using the **striate**. This cuts the file into lots of little segments and plays them back spread out over the course of the duration value – this will play the entire audio file. The larger the audio file, the larger the number you will probably want to use. Using the example above, you may want to use a striate value of 100-200 for a smoother playback:
-
-Stretch the file using 100 segments:
+Estira el archivo usando 100 segmentos:
 ```python
-l1 >> loop("my_file", dur=4, striate=100)`
+l1 >> loop("mi_archivo", dur=4, striate=100)
 ```
 
-Stretch it using 10 segments - listen to the difference:
+Estíralo usando 10 segmentos - escucha la diferencia:
 ```python
-l1 >> loop("my_file", dur=4, striate=10)
+l1 >> loop("mi_archivo", dur=4, striate=10)
 ```
 
-An extra attribute for **loop** is **beat_stretch=True**, which will stretch the audio file length into its given duration.
-
+Un atributo adicional para **loop** es **beat_stretch=True**, que estirará la longitud del archivo de audio en su duración dada.
 
 ---
-### Try This!
+### ¡Prueba Esto!
 
-Search under [www.wavsource.com](https://www.wavsource.com/) or [www.findsounds.com](https://www.findsounds.com/) for 2-3 short audio files. Voices, vocals, beat loops, instruments or ambient noise are best.
+Busca en [www.wavsource.com](https://www.wavsource.com/) o [www.findsounds.com](https://www.findsounds.com/) 2-3 archivos de audio cortos. Voces, vocales, bucles de ritmos, instrumentos o ruido ambiental son los mejores.
 
-The loop synth is designed to let you play longer audio files (>1 sec) and manipulate them. To get started, just supply the filename you want to play and the duration you want to play in beats:
+El sintetizador de bucle está diseñado para permitirte reproducir archivos de audio más largos (>1 seg) y manipularlos. Para comenzar, simplemente suministra el nombre del archivo que deseas reproducir y la duración que deseas reproducir en beats:
 ```python
-l1 >> loop("path/to/my/file.wav", dur=32, sus=32)
+l1 >> loop("ruta/a/mi/archivo.wav", dur=32, sus=32)
 ```
-
