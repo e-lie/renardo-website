@@ -29,6 +29,11 @@ export default defineConfig({
                 label: 'Español',
                 lang: 'es',
               },
+              // Italian docs in `src/content/docs/it/`
+              'it': {
+                label: 'Italian',
+                lang: 'it',
+              },
                 },
             customCss: [
                 './src/styles/custom.css',
@@ -41,8 +46,9 @@ export default defineConfig({
                 {
                     label: 'About',
                     translations: {
-                        'de': 'About',
+                        'de': 'Darüber',
                         'es': 'Acerca de',
+			'it': 'Circa',
                     },
                     autogenerate: { directory: 'about' },
                     collapsed: true,
@@ -52,6 +58,7 @@ export default defineConfig({
                     translations: {
                         'de': 'Installiere + Konfiguriere',
                         'es': 'Instalar y configurar',
+			'it': 'Installare e configurare',
                     },
                     autogenerate: { directory: 'install' },
                     collapsed: true,
@@ -61,6 +68,7 @@ export default defineConfig({
                     translations: {
                         'de': 'Lerne',
                         'es': 'Aprender',
+			'it': 'Imparare',
                     },
                     collapsed: true,
                     items: [
@@ -74,6 +82,7 @@ export default defineConfig({
                             translations: {
                                 'de': 'Musiktheorie',
                                 'es': 'Teoría musical',
+				'it': 'Teoria musicale',
                             },
                             collapsed: true,
                             autogenerate: { directory: 'learn/music_theory' },
@@ -83,6 +92,7 @@ export default defineConfig({
                             translations: {
                                 'de': 'Mit Beispielen',
                                 'es': 'Con ejemplos',
+				'it': 'Per esempio',
                             },
                             collapsed: true,
                             autogenerate: { directory: 'learn/by_example' },
