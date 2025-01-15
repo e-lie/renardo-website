@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'VG5000';
+    src:    url('VG5000-Regular_web.eot');
+    src:    url('VG5000-Regular_web.eot?#iefix') format('embedded-opentype'),
+            url('VG5000-Regular_web.woff') format('woff'),
+            url('VG5000-Regular_web.woff2') format('woff2'),
+            url('VG5000-Regular_web.ttf') format('truetype'),
+            url('VG5000-Regular_web.svg#svgFontName') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'jgs7';
+    src: url('jgs7.woff2') format('woff2'),
+        url('jgs7.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'jgs5';
+    src: url('jgs5.woff2') format('woff2'),
+        url('jgs5.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'jgs9';
+    src: url('jgs9.woff2') format('woff2'),
+        url('jgs9.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'jgs';
+    src: url('jgs_Font.woff2') format('woff2'),
+         url('VG5000-Regular_web.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

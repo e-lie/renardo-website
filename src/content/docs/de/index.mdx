@@ -1,0 +1,71 @@
+---
+title: Renardo (code > music)
+description: Musik LiveCoding Platform
+template: splash
+hero:
+  tagline: Komm codiere etwas Python Musik, hab Spass mit generativen Mustern, zeichne originale Kompositionen auf !
+  #image:
+  #  file: ../../assets/screenshot1-squared.png
+  actions:
+    - text: Installation
+      link: /install/00-prepare-for-install/
+      # icon: right-arrow
+      variant: primary
+    #- text: Beispiele
+    #  link: /example
+    #  variant: secondary
+    - text: Dokumentation
+      link: /about/renardo/
+      variant: secondary
+    - text: Source Code
+      link: https://github.com/e-lie/renardo.git
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { YouTube } from 'astro-embed';
+
+
+
+
+<CardGrid stagger>
+
+  <Card title="Musik programmieren, Algorave Gemeinschaft" icon="">
+
+  Das Beschreiben von Musik mithilfe von Code ermöglicht es, anders über Musikkomposition zu denken … Du kannst
+  die kombinatorische Kraft des Computers erforschen und entdecken, wie man einen überraschenden musikalischen Fluss damit
+  erzeugen kann.
+
+  Versuche es ! Es ist nicht so schwer und Hilfe ist auf dem Weg mit dir.
+
+  Die Algorave Gemeinschaft organisiert Events und Veranstaltungen weltweit, um diese Form der Musik zu geniessen.
+
+	</Card>
+
+	<Card title="" icon="">
+		<YouTube id="https://www.youtube.com/watch?v=CXrkq7u69vU" />
+	</Card>
+
+	<Card title="Entdecke Musik anhand von Beispielen" icon="">
+
+    Beim Livecoding geht es um Open-Source-Musik. Du kannst anhand von Codebeispielen anderer lernen und komponieren.
+
+		```python
+    p1 >> play("<v..><X-*->")
+    b2 >> bbass([0,3,5,2], dur=[.5,.25], oct=3)
+    ```
+
+	</Card>
+
+
+
+	<Card title="FoxDot wiederbelebt :-)" icon="">
+		Renardo ist ein Fork von FoxDot, einer beliebten Python-Livecoding-Software, die von Ryan Kirkbride entwickelt wurde   
+        und Teil der Algorave/Toplap-Community ist.
+
+	</Card>
+
+
+
+</CardGrid>
+
