@@ -27,7 +27,7 @@ Dentro de una clave dada hay 7 notas en una sola octava antes de llegar a la oct
 ---
 ### Tabla de Escalas
 
-![Renardo Scales](../../../../../assets/RenardoScales.svg)
+<!-- ![Renardo Scales](../../../../../assets/RenardoScales.svg) -->
 
 ---
 ### Usando Escalas

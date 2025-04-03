@@ -27,7 +27,7 @@ Within a given key there are 7 notes in a single octave before reaching the 8th 
 ---
 ### Scales table
 
-![Renardo Scales](../../../../assets/RenardoScales.svg)
+<!-- ![Renardo Scales](../../../../assets/RenardoScales.svg) -->
 
 ---
 ### Using Scale
