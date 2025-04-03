@@ -23,7 +23,7 @@ Innerhalb einer bestimmten Tonart gibt es 7 Noten in einer einzelnen Oktave, bev
 ---
 ### Skalentabelle
 
-![Renardo Scales](../../../../../assets/RenardoScales.svg)
+<!-- ![Renardo Scales](../../../../../assets/RenardoScales.svg) -->
 
 
 ---
