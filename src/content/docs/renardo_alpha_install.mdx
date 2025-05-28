@@ -1,0 +1,75 @@
+---
+title: Install Renardo 1.0 alpha
+description: Install and test Renardo 1.0 alpha release
+---
+
+# Renardo 1.0 alpha Installation
+
+## What's New in 1.0
+
+- New embedded livecoding editor with integrated tutorial, doc and examples : to replace FoxDot tk editor as default editor (which you can still access and use)
+- Web UI for preferences and customizable look and feel.
+- Support for several audio backends : SuperCollider (classic FoxDot) + Reaper (dynamic plugin provisioning and every parameters control)
+- Musical assets management : picking sample packs, sclang code for instruments and effects, reaper instruments chains, all from a community server : milestone on the road to free reproducible music. 
+- New dynamic scheduling concepts (undefined PointInTime classes) to prepare
+- Simple macro to make scheduling painless
+
+## Installation Instructions
+
+
+### Install from Source (Recommended for Alpha Testing)
+
+1. Clone the alpha branch:
+```bash
+git clone -b alpha1 https://github.com/e-lie/renardo.git
+cd renardo
+```
+
+2. Install in development mode:
+```bash
+pip install -e .
+```
+
+3. Install SuperCollider components:
+```bash
+renardo --install-sc
+```
+
+### Alternative: Install from PyPI (Alpha Release)
+
+```bash
+pip install renardo==1.0a1
+renardo --install-sc
+```
+
+## Testing and Reporting Issues
+
+As an alpha tester, your feedback is crucial! Please:
+
+1. **Test thoroughly**: Try different patterns, synthesis methods, and features
+2. **Report bugs**: Use our [GitHub Issues](https://github.com/e-lie/renardo/issues) to report any problems
+3. **Share feedback**: Let us know what works well and what could be improved
+
+### Common Issues to Watch For
+
+- Audio dropouts or glitches
+- Pattern synchronization problems
+- SuperCollider connection issues
+- Performance degradation with complex patterns
+
+## Getting Help
+
+- **Documentation**: [Main Documentation](/about/renardo/)
+- **Community**: Join our Discord/Slack for real-time support
+- **GitHub**: Submit issues and feature requests
+
+## Reverting to Stable
+
+If you encounter issues with the alpha, you can always revert to the stable version:
+
+```bash
+pip uninstall renardo
+pip install renardo
+```
+
+Thank you for helping test Renardo 1.0alpha1!
