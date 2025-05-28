@@ -27,20 +27,22 @@ description: Install and test Renardo 1.0 alpha release
 
 # Install Renardo
 
- ## Install Renardo binary (easier)
+ ## Use Renardo binary (easier if you don't use Python already)
 
  Download from here (depending on your System) https://collections.renardo.org/binaries/
  
  ...and execute the binary program  : `./renardo` or double click `renardo.exe`
 
+ On MacOs and Linux you have to give execution right to the binary before executing it: `chmod u+x renardo`
+
  On MacOs and maybe Windows you will need to go to security preferences to allow program manually for execution.
  
-## Install Renardo as Python Package (to integrate it with python code)
+## Install Renardo as Python Package (to integrate it with a python environment)
 
-- Install `renardo` using pip or your prefered python package manager.
+- Install `renardo` package from PyPI using pip or your prefered python package manager.
 - Execute `python3 -m renardo`, `py -m renardo` or similar depending on your python setup.
 
-## Install Developpment version (to contribute or hack it)
+## Install Development version (to contribute or hack it)
 
  - Install `uv` : https://docs.astral.sh/uv/
  - Clone the following repository : `git clone https://github.com/e-lie/renardo.git -b v1.0dev`
